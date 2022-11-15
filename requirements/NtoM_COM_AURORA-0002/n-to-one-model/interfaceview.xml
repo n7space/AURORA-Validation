@@ -1,0 +1,111 @@
+<InterfaceView asn1file="linux-cpp-n-2-m-demo.acn">
+<Function name="Src2" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="41100 41400 79700 58600"/>
+<Provided_Interface name="trigger2" kind="Cyclic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" period="5000" wcet="0" stack_size="1024" priority="1" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="52200 41400"/>
+</Provided_Interface>
+
+<Required_Interface name="con1" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" queue_size="3" wcet="0" stack_size="1024" priority="1" miat="0">
+    <Input_Parameter name="p1" type="T-Int32" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="79700 45400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Src3" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="41500 72400 80100 91300"/>
+<Provided_Interface name="trigger3" kind="Cyclic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" period="5000" wcet="0" stack_size="1024" dispatch_offset="0" priority="1">
+    <Property name="Taste::coordinates" value="52000 72400"/>
+</Provided_Interface>
+
+<Required_Interface name="con1" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" queue_size="3" wcet="0" stack_size="1024" priority="1" miat="0">
+    <Input_Parameter name="p1" type="T-Int32" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="80100 82100"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Src1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="42900 7000 79900 27600"/>
+<Provided_Interface name="trigger1" kind="Cyclic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" period="5000" wcet="0" stack_size="1024" priority="1" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="53100 7000"/>
+</Provided_Interface>
+
+<Required_Interface name="con1" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" queue_size="3" wcet="0" stack_size="1024" priority="1" miat="0">
+    <Input_Parameter name="p1" type="T-Int32" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="79900 13100"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Dst" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="168100 41800 203700 60800"/>
+<Provided_Interface name="con1" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" queue_size="3" wcet="0" stack_size="1024" priority="1" miat="0">
+    <Input_Parameter name="p1" type="T-Int32" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="168100 45500"/>
+</Provided_Interface>
+
+<Required_Interface name="reply1" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" queue_size="15" wcet="0" stack_size="1024" priority="1" miat="0">
+    <Property name="Taste::coordinates" value="203700 45200"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Arbiter" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="236700 41400 256700 75500"/>
+<Provided_Interface name="reply1" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" queue_size="15" wcet="0" stack_size="1024" priority="1" miat="0">
+    <Property name="Taste::coordinates" value="236700 45200"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  name="Src2_con1____Dst_con1" is_visible="true" required_system_element="NO">
+    <Source func_name="Src2" ri_name="con1"/>
+    <Target func_name="Dst" pi_name="con1"/>
+    <Property name="Taste::coordinates" value="80300 45400 124000 45400 167800 45500"/>
+</Connection>
+
+<Connection  name="Src1_con1____Dst_con1" is_visible="true" required_system_element="NO">
+    <Source func_name="Src1" ri_name="con1"/>
+    <Target func_name="Dst" pi_name="con1"/>
+    <Property name="Taste::coordinates" value="80500 13100 124100 13100 124100 45500 167800 45500"/>
+</Connection>
+
+<Connection  is_visible="true" required_system_element="NO">
+    <Source func_name="Dst" ri_name="reply1"/>
+    <Target func_name="Arbiter" pi_name="reply1"/>
+    <Property name="Taste::coordinates" value="204300 45200 220300 45200 236400 45200"/>
+</Connection>
+
+<Connection  name="Src3_con1____Dst_con1" is_visible="true" required_system_element="NO">
+    <Source func_name="Src3" ri_name="con1"/>
+    <Target func_name="Dst" pi_name="con1"/>
+    <Property name="Taste::coordinates" value="80700 82100 124200 82100 124200 45500 167800 45500"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>
