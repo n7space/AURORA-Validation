@@ -27,7 +27,7 @@ include Makefile.modelcheck
 
 test:	linux release
 	./work/binaries/partition_1 > test.log
-	grep -q "n to one test - OK" test.log && ! grep -q "ERROR" test.log
+	grep -q "n to m test - OK" test.log && ! grep -q "ERROR" test.log
 
 release:	work/glue_release
 	rm -rf work/glue_debug

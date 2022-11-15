@@ -22,9 +22,9 @@ void arbiter_PI_reply1()
 {
     reply_counter++;
 
-    if(reply_counter == 3)
+    if(reply_counter == 8)
     {
-        printf("n to one test - OK\n");
+        printf("n to m test - OK\n");
         // stdout must be flushed for file capture
         fflush(stdout);
         // Regular exit does not terminate the program
