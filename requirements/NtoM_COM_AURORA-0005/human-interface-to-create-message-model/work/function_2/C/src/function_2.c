@@ -21,7 +21,7 @@ void function_2_PI_PI_1
 
 {
    printf("%d\n", (int)message->id);
-   printf("%d\n", (int)message->length);
+   printf("%d\n", (int)message->magicNumber);
    printf("%.*s\n", (int)sizeof(message->data.arr), message->data.arr);
    printf("%d\n", (int)message->validity);
    printf("\n");

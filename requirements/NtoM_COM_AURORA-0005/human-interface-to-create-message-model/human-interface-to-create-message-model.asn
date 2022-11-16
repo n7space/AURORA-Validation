@@ -5,10 +5,10 @@ MyInteger ::= INTEGER (0 .. 10000)
 MyString ::= OCTET STRING (SIZE(8))
 
 TestMessage       ::= SEQUENCE {
-    id          MyInteger,
-    length      MyInteger,
-    data        MyString,
-    validity    ENUMERATED { valid, invalid }
+    id            MyInteger,
+    magicNumber   MyInteger,
+    data          MyString,
+    validity      ENUMERATED { valid, invalid }
 }
 
 -- ASN.1 Type definitions must start with an uppercase
