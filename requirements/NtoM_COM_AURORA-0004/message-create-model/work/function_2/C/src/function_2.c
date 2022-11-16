@@ -19,7 +19,8 @@ void function_2_startup(void)
 void function_2_PI_PI_1(const asn1SccTestMessage *message)
 {
     printf("%d\n", (int)message->id);
-    printf("%d\n", (int)message->data);
+    printf("%d\n", (int)message->magicNumber);
+    printf("%.*s\n", (int)sizeof(message->data.arr), message->data.arr);
     printf("%d\n", (int)message->validity);
     printf("\n");
 }

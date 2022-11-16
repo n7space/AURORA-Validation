@@ -10,12 +10,15 @@
 #include "function_1.h"
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
-asn1SccTestMessage buildMessage(const uint32_t data)
+asn1SccTestMessage buildMessage(const uint32_t magicNumber, const char* data)
 {
     asn1SccTestMessage message;
     message.id = (asn1SccMyInteger)(rand() % 10000);
-    message.data = (asn1SccMyInteger)data;
+    message.magicNumber = (asn1SccMyInteger)magicNumber;
+    strncpy(message.data.arr, data, (int)(sizeof(message.data.arr) - 1));
+    message.data.arr[(int)(sizeof(message.data.arr) - 1)] = '\0';
     message.validity = TestMessage_validity_valid;
     return message;
 }
@@ -27,7 +30,7 @@ void function_1_startup(void)
 
 void function_1_PI_trigger(void)
 {
-    asn1SccTestMessage message = buildMessage(1960);
+    asn1SccTestMessage message = buildMessage(1960, "TEST");
     function_1_RI_PI_1(&message);
 }
 
