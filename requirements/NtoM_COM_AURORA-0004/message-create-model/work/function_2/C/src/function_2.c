@@ -18,10 +18,10 @@ void function_2_startup(void)
 
 void function_2_PI_PI_1(const asn1SccTestMessage *message)
 {
-    printf("%d\n", (int)message->id);
-    printf("%d\n", (int)message->magicNumber);
-    printf("%.*s\n", (int)sizeof(message->data.arr), message->data.arr);
-    printf("%d\n", (int)message->validity);
+    printf("message->id = %d\n", (int)message->id);
+    printf("message->magicNumber = %d\n", (int)message->magicNumber);
+    printf("message->data = %.*s\n", (int)sizeof(message->data.arr), message->data.arr);
+    printf("message->validity = %d\n", (int)message->validity);
     printf("\n");
 }
 
