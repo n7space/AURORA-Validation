@@ -1,0 +1,12 @@
+mscdocument human-interface-to-create-message-model /* MSC AND */;
+    language ASN.1;
+    data human-interface-to-create-message-model.asn;
+
+/* CIF MSCDOCUMENT (0, 0) (4200, 2300) */
+
+mscdocument Nominal /* MSC LEAF */;
+
+msc human-interface-to-create-message-model;
+endmsc;
+endmscdocument;
+endmscdocument;
