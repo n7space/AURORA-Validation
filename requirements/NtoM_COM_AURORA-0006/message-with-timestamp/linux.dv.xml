@@ -1,0 +1,25 @@
+<DeploymentView>
+    <Node name="x86 Linux CPP_1" type="ocarina_processors_x86::x86.generic_linux" node_label="Node_1" namespace="ocarina_processors_x86">
+        <Property name="Taste::coordinates" value="36800 29900 61800 55500"/>
+        <Partition name="Partition_1">
+            <Property name="Taste::coordinates" value="41200 34200 56900 50500"/>
+            <Function name="Subscriber" path="Subscriber"/>
+            <Function name="Publisher" path="Publisher"/>
+        </Partition>
+        <Device name="eth0" requires_bus_access="ocarina_buses::ip.generic" port="eth0" asn1file="/home/taste/tool-inst/include/TASTE-Linux-Drivers/configurations/linux-socket-ip-driver.asn" asn1type="Socket-IP-Conf-T" asn1module="LINUX-SOCKET-IP-DRIVER" bus_namespace="ocarina_buses" extends="ocarina_drivers::ip_socket" impl_extends="ocarina_drivers::ip_socket.linux" namespace="ocarina_drivers">
+            <Property name="Taste::coordinates" value="36800 31600"/>
+        </Device>
+        <Device name="eth1" requires_bus_access="ocarina_buses::ip.generic" port="eth1" asn1file="/home/taste/tool-inst/include/TASTE-Linux-Drivers/configurations/linux-socket-ip-driver.asn" asn1type="Socket-IP-Conf-T" asn1module="LINUX-SOCKET-IP-DRIVER" bus_namespace="ocarina_buses" extends="ocarina_drivers::ip_socket" impl_extends="ocarina_drivers::ip_socket.linux" namespace="ocarina_drivers">
+            <Property name="Taste::coordinates" value="36800 35700"/>
+        </Device>
+        <Device name="eth2" requires_bus_access="ocarina_buses::ip.generic" port="eth2" asn1file="/home/taste/tool-inst/include/TASTE-Linux-Drivers/configurations/linux-socket-ip-driver.asn" asn1type="Socket-IP-Conf-T" asn1module="LINUX-SOCKET-IP-DRIVER" bus_namespace="ocarina_buses" extends="ocarina_drivers::ip_socket" impl_extends="ocarina_drivers::ip_socket.linux" namespace="ocarina_drivers">
+            <Property name="Taste::coordinates" value="36800 39800"/>
+        </Device>
+        <Device name="eth3" requires_bus_access="ocarina_buses::ip.generic" port="eth3" asn1file="/home/taste/tool-inst/include/TASTE-Linux-Drivers/configurations/linux-socket-ip-driver.asn" asn1type="Socket-IP-Conf-T" asn1module="LINUX-SOCKET-IP-DRIVER" bus_namespace="ocarina_buses" extends="ocarina_drivers::ip_socket" impl_extends="ocarina_drivers::ip_socket.linux" namespace="ocarina_drivers">
+            <Property name="Taste::coordinates" value="36800 43900"/>
+        </Device>
+        <Device name="uart0" requires_bus_access="ocarina_buses::serial.ccsds" port="uart0" asn1file="/home/taste/tool-inst/include/TASTE-Linux-Drivers/configurations/linux-serial-ccsds-driver.asn" asn1type="Serial-CCSDS-Linux-Conf-T" asn1module="LINUX-SERIAL-CCSDS-DRIVER" bus_namespace="ocarina_buses" extends="ocarina_drivers::serial_ccsds" impl_extends="ocarina_drivers::serial_ccsds.linux" namespace="ocarina_drivers">
+            <Property name="Taste::coordinates" value="61800 31600"/>
+        </Device>
+    </Node>
+</DeploymentView>

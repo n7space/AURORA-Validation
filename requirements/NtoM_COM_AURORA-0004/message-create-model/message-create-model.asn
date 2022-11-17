@@ -1,0 +1,15 @@
+MESSAGE-CREATE-MODEL-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+MyInteger ::= INTEGER (0 .. 10000)
+MyString ::= OCTET STRING (SIZE(8))
+
+TestMessage       ::= SEQUENCE {
+    id           MyInteger,
+    magicNumber  MyInteger,
+    data         MyString,
+    validity     ENUMERATED { valid, invalid }
+}
+
+END
+

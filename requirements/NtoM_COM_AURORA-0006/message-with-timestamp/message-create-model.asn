@@ -1,0 +1,12 @@
+MESSAGE-CREATE-MODEL-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+MyInteger ::= INTEGER (0 .. 10000)
+
+TestMessage       ::= SEQUENCE {
+    id           MyInteger,
+    timestamp    INTEGER (0 .. 18446744073709551615)
+}
+
+END
+

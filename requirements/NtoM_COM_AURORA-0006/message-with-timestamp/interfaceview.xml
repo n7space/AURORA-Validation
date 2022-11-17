@@ -1,0 +1,40 @@
+<InterfaceView asn1file="message-create-model.asn">
+<Function name="Publisher" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="18000 25000 46300 41600"/>
+<Provided_Interface name="trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" stack_size="1024" wcet="0" period="1000" dispatch_offset="0" priority="1">
+    <Property name="Taste::coordinates" value="25900 25000"/>
+</Provided_Interface>
+
+<Required_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" stack_size="1024" wcet="0" miat="0" priority="1" queue_size="1">
+    <Input_Parameter name="message" type="TestMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="46300 33500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Subscriber" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="68900 23800 94900 41300"/>
+<Provided_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" stack_size="1024" wcet="0" miat="0" priority="1" queue_size="1">
+    <Input_Parameter name="message" type="TestMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="68900 33400"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Publisher" ri_name="PI_1"/>
+    <Target func_name="Subscriber" pi_name="PI_1"/>
+    <Property name="Taste::coordinates" value="46900 33500 68600 33400"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>
