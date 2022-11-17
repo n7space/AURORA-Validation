@@ -9,7 +9,6 @@
 
 #include "arbiter.h"
 #include <stdio.h>
-#include "routing.h"
 
 int reply_counter;
 
