@@ -1,13 +1,13 @@
-<InterfaceView asn1file="message-create-model.acn">
-<Function name="Function_1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
-    <Property name="Taste::coordinates" value="18000 25000 46300 41600"/>
-<Provided_Interface name="trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" priority="1" dispatch_offset="0" stack_size="1024" period="1000">
-    <Property name="Taste::coordinates" value="25900 25000"/>
+<InterfaceView asn1file="message-create-model.asn">
+<Function name="Publisher" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="17900 24900 46200 41500"/>
+<Provided_Interface name="trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" dispatch_offset="0" period="1000" priority="1" stack_size="1024" wcet="0">
+    <Property name="Taste::coordinates" value="25800 24900"/>
 </Provided_Interface>
 
-<Required_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" queue_size="1" priority="1" stack_size="1024" miat="0">
+<Required_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" queue_size="1" stack_size="1024" wcet="0">
     <Input_Parameter name="message" type="TestMessage" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="46300 33500"/>
+    <Property name="Taste::coordinates" value="46200 33400"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
@@ -17,9 +17,9 @@
     </Implementations>
 </Function>
 
-<Function name="Function_2" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+<Function name="Subscriber" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
     <Property name="Taste::coordinates" value="68800 24700 94800 42200"/>
-<Provided_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" queue_size="1" priority="1" stack_size="1024" miat="0">
+<Provided_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" queue_size="1" stack_size="1024" wcet="0">
     <Input_Parameter name="message" type="TestMessage" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="68800 34300"/>
 </Provided_Interface>
@@ -30,9 +30,9 @@
 </Function>
 
 <Connection  required_system_element="NO">
-    <Source func_name="Function_1" ri_name="PI_1"/>
-    <Target func_name="Function_2" pi_name="PI_1"/>
-    <Property name="Taste::coordinates" value="46900 33500 68500 34300"/>
+    <Source func_name="Publisher" ri_name="PI_1"/>
+    <Target func_name="Subscriber" pi_name="PI_1"/>
+    <Property name="Taste::coordinates" value="46800 33400 68500 34300"/>
 </Connection>
 
 <Layer name="default"/>
