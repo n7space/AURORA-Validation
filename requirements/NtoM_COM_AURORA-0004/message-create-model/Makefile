@@ -125,6 +125,7 @@ clean:
 	rm -rf work/build work/dataview work/glue_simu work/binaries work/Dump work/Debug
 	rm -f work/Makefile work/taste.pro work/system.asn
 	rm -f *.msc
+	rm -f *.user
 	rm -f *.aadl  # Interface and Deployment views in AADL are generated
 	rm -f work/glue_release work/glue_debug work/glue_coverage work/skeletons_built
 	find work -type d -name "wrappers" -exec rm -rf {} + || :
