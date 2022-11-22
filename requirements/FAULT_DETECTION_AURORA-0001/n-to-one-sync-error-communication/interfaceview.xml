@@ -1,0 +1,100 @@
+<InterfaceView asn1file="Error-data.acn">
+<Function name="Error_publisher_2" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="11500 31100 31500 39100"/>
+<Provided_Interface name="trigger2" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" period="1000" stack_size="1024" wcet="0" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="14600 33200"/>
+</Provided_Interface>
+
+<Required_Interface name="Error_send" kind="Protected" enable_multicast="true" layer="ErrorCommunication" required_system_element="NO" wcet="0">
+    <Input_Parameter name="ErrorMessage" type="T-ErrorMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="31500 35300"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="error_lib" archetype_function="Error_sender_sync"/>
+</Function>
+
+<Function name="Error_publisher_3" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="11900 46300 31900 54300"/>
+<Provided_Interface name="trigger3" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" period="1000" stack_size="1024" wcet="0" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="17200 48900"/>
+</Provided_Interface>
+
+<Required_Interface name="Error_send" kind="Protected" enable_multicast="true" layer="ErrorCommunication" required_system_element="NO" wcet="0">
+    <Input_Parameter name="ErrorMessage" type="T-ErrorMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="31900 50200"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="error_lib" archetype_function="Error_sender_sync"/>
+</Function>
+
+<Function name="Error_publisher_1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="12100 14500 32100 22500"/>
+<Provided_Interface name="trigger1" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" period="1000" stack_size="1024" wcet="0" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="18300 14500"/>
+</Provided_Interface>
+
+<Required_Interface name="Error_send" kind="Protected" enable_multicast="true" layer="ErrorCommunication" required_system_element="NO" wcet="0">
+    <Input_Parameter name="ErrorMessage" type="T-ErrorMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="32100 19400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="error_lib" archetype_function="Error_sender_sync"/>
+</Function>
+
+<Function name="Error_subscriber" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="65600 31600 85600 39600"/>
+<Provided_Interface name="Error_receive" kind="Protected" enable_multicast="true" layer="ErrorCommunication" required_system_element="NO" wcet="0">
+    <Input_Parameter name="ErrorMessage" type="T-ErrorMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="65600 35300"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="error_lib" archetype_function="Error_receiver_sync"/>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Error_publisher_2" ri_name="Error_send"/>
+    <Target func_name="Error_subscriber" pi_name="Error_receive"/>
+    <Property name="Taste::coordinates" value="32100 35300 65300 35300"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Error_publisher_1" ri_name="Error_send"/>
+    <Target func_name="Error_subscriber" pi_name="Error_receive"/>
+    <Property name="Taste::coordinates" value="32700 19400 48900 19400 48900 35300 65300 35300"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Error_publisher_3" ri_name="Error_send"/>
+    <Target func_name="Error_subscriber" pi_name="Error_receive"/>
+    <Property name="Taste::coordinates" value="32500 50200 48800 50200 48800 35300 65300 35300"/>
+</Connection>
+
+<Layer name="ErrorCommunication"/>
+
+<Layer name="default"/>
+
+<ArchetypeLibraryReference archetype_library="error_lib" path="error_and_event_lib.xml"/>
+
+</InterfaceView>
