@@ -1,0 +1,119 @@
+<InterfaceView asn1file="status-data-structure.acn">
+<Function name="Component3" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="16200 42000 36200 50000"/>
+<Provided_Interface name="trigger3" kind="Cyclic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" stack_size="1024" dispatch_offset="0" period="2000">
+    <Property name="Taste::coordinates" value="20500 42000"/>
+</Provided_Interface>
+
+<Required_Interface name="WriteStatus" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" queue_size="3" wcet="0" stack_size="1024">
+    <Input_Parameter name="functionStatus" type="T-FunctionStatus" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="36200 45400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Component2" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="16100 27700 36100 35700"/>
+<Provided_Interface name="trigger2" kind="Cyclic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" stack_size="1024" dispatch_offset="0" period="500">
+    <Property name="Taste::coordinates" value="20600 27700"/>
+</Provided_Interface>
+
+<Required_Interface name="WriteStatus" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" queue_size="3" wcet="0" stack_size="1024">
+    <Input_Parameter name="functionStatus" type="T-FunctionStatus" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="35000 32300"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="DataStructure" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="58000 28200 78000 36200"/>
+<Provided_Interface name="WriteStatus" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" queue_size="3" wcet="0" stack_size="1024">
+    <Input_Parameter name="functionStatus" type="T-FunctionStatus" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58000 32200"/>
+</Provided_Interface>
+
+<Provided_Interface name="ReadStatus" kind="Protected" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Input_Parameter name="pid" type="PID" encoding="NATIVE"/>
+    <Output_Parameter name="functionStatus" type="T-FunctionStatus" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="78000 32000"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Observer" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="94900 28700 114900 36700"/>
+<Provided_Interface name="trigger4" kind="Cyclic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" stack_size="1024" dispatch_offset="0" period="1500">
+    <Property name="Taste::coordinates" value="109100 29800"/>
+</Provided_Interface>
+
+<Required_Interface name="ReadStatus" kind="Protected" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Input_Parameter name="pid" type="PID" encoding="NATIVE"/>
+    <Output_Parameter name="functionStatus" type="T-FunctionStatus" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="94900 32400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Component1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="16000 13800 36000 21800"/>
+<Provided_Interface name="trigger1" kind="Cyclic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" stack_size="1024" dispatch_offset="0" period="1000">
+    <Property name="Taste::coordinates" value="20400 13800"/>
+</Provided_Interface>
+
+<Required_Interface name="WriteStatus" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" queue_size="3" wcet="0" stack_size="1024">
+    <Input_Parameter name="functionStatus" type="T-FunctionStatus" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="36000 18100"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  is_visible="true" required_system_element="NO">
+    <Source func_name="Observer" ri_name="ReadStatus"/>
+    <Target func_name="DataStructure" pi_name="ReadStatus"/>
+    <Property name="Taste::coordinates" value="94300 32400 86300 32400 78300 32000"/>
+</Connection>
+
+<Connection  name="Component3_WriteStatus____DataStructure_WriteStatus" is_visible="true" required_system_element="NO">
+    <Source func_name="Component3" ri_name="WriteStatus"/>
+    <Target func_name="DataStructure" pi_name="WriteStatus"/>
+    <Property name="Taste::coordinates" value="36800 45400 47200 45400 47200 32200 57700 32200"/>
+</Connection>
+
+<Connection  name="Component2_WriteStatus____DataStructure_WriteStatus" is_visible="true" required_system_element="NO">
+    <Source func_name="Component2" ri_name="WriteStatus"/>
+    <Target func_name="DataStructure" pi_name="WriteStatus"/>
+    <Property name="Taste::coordinates" value="36700 32300 47200 32300 57700 32200"/>
+</Connection>
+
+<Connection  name="Component1_WriteStatus____DataStructure_WriteStatus" is_visible="true" required_system_element="NO">
+    <Source func_name="Component1" ri_name="WriteStatus"/>
+    <Target func_name="DataStructure" pi_name="WriteStatus"/>
+    <Property name="Taste::coordinates" value="36600 18100 47100 18100 47100 32200 57700 32200"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>
