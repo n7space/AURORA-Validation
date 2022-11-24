@@ -95,6 +95,6 @@
 
 <Layer name="default"/>
 
-<ArchetypeLibraryReference archetype_library="error_lib" path="error_and_event_lib.xml"/>
+<ArchetypeLibraryReference archetype_library="error_lib" path="error_lib.xml"/>
 
 </InterfaceView>
