@@ -17,6 +17,8 @@ void eventlistener2_startup(void)
     asn1SccT_UInt32 eventId = 3;
     bool shouldSubscribe = true;
     eventlistener2_RI_subscribe_to_event(&eventId, &shouldSubscribe);
+    eventId = 2;
+    eventlistener2_RI_subscribe_to_event(&eventId, &shouldSubscribe);
 }
 
 void eventlistener2_PI_receive_event
