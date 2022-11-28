@@ -12,8 +12,12 @@
 
 #define SEC_TO_NS(sec) ((sec)*1000000000)
 
+static int counter;
+
 void eventlistener1_startup(void)
 {
+    counter = 0;
+
     asn1SccT_UInt32 eventId = 2;
     bool shouldSubscribe = true;
     eventlistener1_RI_subscribe_to_event(&eventId, &shouldSubscribe);
@@ -65,6 +69,15 @@ void eventlistener1_PI_receive_event
     }
     printf("  message =        %s\n", IN_eventmessage->message.arr);
     printf("  timestamp =      %ld\n\n", time);
+
+    counter++;
+
+    if(counter == 3)
+    {
+        asn1SccT_UInt32 eventId = 2;
+        bool shouldSubscribe = false;
+        eventlistener1_RI_subscribe_to_event(&eventId, &shouldSubscribe);
+    }
 }
 
 
