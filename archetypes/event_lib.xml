@@ -1,0 +1,38 @@
+<ArchetypeLibrary
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.example.org/ArchetypeLibrary" 
+    xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
+
+	<FunctionArchetype name="Event_generator">
+		<InterfaceArchetype name="notify" interfaceType="REQUIRED" kind="SPORADIC" layer="EventCommunication">
+			<ParameterArchetype name="EventMessage" type="T-EventMessage" direction="IN"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
+	<FunctionArchetype name="Event_bus">
+		<InterfaceArchetype name="receive_event" interfaceType="PROVIDED" kind="SPORADIC" layer="EventCommunication">
+			<ParameterArchetype name="EventMessage" type="T-EventMessage" direction="IN"/>
+		</InterfaceArchetype>
+		<InterfaceArchetype name="dispatch_event" interfaceType="REQUIRED" kind="SPORADIC" layer="EventCommunication">
+			<ParameterArchetype name="EventMessage" type="T-EventMessage" direction="IN"/>
+		</InterfaceArchetype>
+		<InterfaceArchetype name="subscribe_to_event" interfaceType="PROVIDED" kind="PROTECTED" layer="EventCommunication">
+			<ParameterArchetype name="eventId" type="T-UInt32" direction="IN"/>
+			<ParameterArchetype name="shouldSubscribe" type="T-Boolean" direction="IN"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
+	<FunctionArchetype name="Event_listener">
+		<InterfaceArchetype name="receive_event" interfaceType="PROVIDED" kind="SPORADIC" layer="EventCommunication">
+			<ParameterArchetype name="EventMessage" type="T-EventMessage" direction="IN"/>
+		</InterfaceArchetype>
+		<InterfaceArchetype name="subscribe_to_event" interfaceType="REQUIRED" kind="PROTECTED" layer="EventCommunication">
+			<ParameterArchetype name="eventId" type="T-UInt32" direction="IN"/>
+			<ParameterArchetype name="shouldSubscribe" type="T-Boolean" direction="IN"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
+	<CommunicationLayerTypes>
+		<CommunicationLayerType name="EventCommunication"/>
+	</CommunicationLayerTypes>
+</ArchetypeLibrary>

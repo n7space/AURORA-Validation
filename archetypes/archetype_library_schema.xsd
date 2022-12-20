@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.example.org/ArchetypeLibrary"
+xmlns:tns="http://www.example.org/ArchetypeLibrary" elementFormDefault="qualified">
+
+<complexType name="ArchetypeLibrary">
+	<sequence>
+		<element name="FunctionArchetype"
+		type="tns:FunctionArchetype" maxOccurs="unbounded" minOccurs="0">
+		</element>
+		<element name="CommunicationLayerTypes" 
+		type="tns:CommunicationLayerTypes" maxOccurs="1" minOccurs="1">
+		</element>
+	</sequence>
+</complexType>
+
+<complexType name="FunctionArchetype">
+	<sequence>
+		<element name="InterfaceArchetype"
+		type="tns:InterfaceArchetype" maxOccurs="unbounded"
+		minOccurs="1">
+		</element>
+	</sequence>
+	<attribute name="name" type="string"></attribute>
+</complexType>
+
+<complexType name="InterfaceArchetype">
+	<sequence>
+		<element name="ParameterArchetype" type="tns:ParameterArchetype"
+		maxOccurs="unbounded" minOccurs="0">
+		</element>
+	</sequence>
+	<attribute name="name" type="string"></attribute>
+	<attribute name="interfaceType" type="tns:InterfaceType"></attribute>
+	<attribute name="kind" type="tns:OperationKind"></attribute>
+	<attribute name="layer" type="string"></attribute>
+</complexType>
+
+<complexType name="ParameterArchetype">
+	<attribute name="name" type="string"></attribute>
+	<attribute name="type" type="string"></attribute>
+	<attribute name="direction" type="tns:ParameterDirection"></attribute>
+</complexType>
+
+<simpleType name="ParameterDirection">
+	<restriction base="string">
+		<enumeration value="IN"></enumeration>
+		<enumeration value="OUT"></enumeration>
+	</restriction>
+</simpleType>
+
+<complexType name="CommunicationLayerType">
+	<attribute name="name" type="string"></attribute>
+</complexType>
+
+<complexType name="CommunicationLayerTypes">
+	<sequence>
+		<element name="CommunicationLayerType"
+		type="tns:CommunicationLayerType" maxOccurs="unbounded"
+		minOccurs="1">
+		</element>
+	</sequence>
+</complexType>
+
+<simpleType name="InterfaceType">
+	<restriction base="string">
+		<enumeration value="PROVIDED"></enumeration>
+		<enumeration value="REQUIRED"></enumeration>
+	</restriction>
+</simpleType>
+
+<simpleType name="OperationKind">
+	<restriction base="string">
+		<enumeration value="CYCLIC"></enumeration>
+		<enumeration value="SPORADIC"></enumeration>
+		<enumeration value="PROTECTED"></enumeration>
+		<enumeration value="UNPROTECTED"></enumeration>
+	</restriction>
+</simpleType>
+
+<element name="ArchetypeLibrary" type="tns:ArchetypeLibrary"></element>
+
+</schema>
