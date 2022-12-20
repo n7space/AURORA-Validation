@@ -1,0 +1,28 @@
+Error-data DEFINITIONS ::= BEGIN
+IMPORTS
+    T-UInt32, T-UInt8 FROM TASTE-BasicTypes
+    PID FROM System-Dataview;
+
+    T-CUCTimestamp     ::= SEQUENCE {
+        c1       T-UInt8,
+        c2       T-UInt8,
+        c3       T-UInt8,
+        c4       T-UInt8,
+        f1       T-UInt8,
+        f2       T-UInt8,
+        f3       T-UInt8
+    }
+
+    T-FunctionStatus     ::= SEQUENCE {
+        id            PID,
+        error-count   T-UInt32,
+        state         ENUMERATED { online, offline, error }
+    }
+
+    T-ErrorMessage       ::= SEQUENCE {
+        id               T-UInt32,
+        timestamp        T-CUCTimestamp,
+        function-status  T-FunctionStatus
+    }
+
+END
