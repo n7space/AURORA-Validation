@@ -1,0 +1,33 @@
+<ArchetypeLibrary
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.example.org/ArchetypeLibrary" 
+    xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
+
+	<FunctionArchetype name="Error_receiver_async">
+		<InterfaceArchetype name="Error_receive" interfaceType="PROVIDED" kind="SPORADIC" layer="ErrorCommunication">
+			<ParameterArchetype name="ErrorMessage" type="T-ErrorMessage" direction="IN"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
+	<FunctionArchetype name="Error_receiver_sync">
+		<InterfaceArchetype name="Error_receive" interfaceType="PROVIDED" kind="PROTECTED" layer="ErrorCommunication">
+			<ParameterArchetype name="ErrorMessage" type="T-ErrorMessage" direction="IN"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
+	<FunctionArchetype name="Error_sender_async">
+		<InterfaceArchetype name="Error_send" interfaceType="REQUIRED" kind="SPORADIC" layer="ErrorCommunication">
+			<ParameterArchetype name="ErrorMessage" type="T-ErrorMessage" direction="IN"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
+	<FunctionArchetype name="Error_sender_sync">
+		<InterfaceArchetype name="Error_send" interfaceType="REQUIRED" kind="PROTECTED" layer="ErrorCommunication">
+			<ParameterArchetype name="ErrorMessage" type="T-ErrorMessage" direction="IN"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
+	<CommunicationLayerTypes>
+		<CommunicationLayerType name="ErrorCommunication"/>
+	</CommunicationLayerTypes>
+</ArchetypeLibrary>
