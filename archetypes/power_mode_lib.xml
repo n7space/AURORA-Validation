@@ -1,0 +1,20 @@
+<ArchetypeLibrary
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.example.org/ArchetypeLibrary" 
+    xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
+
+	<FunctionArchetype name="Power_Mode_Controller">
+		<InterfaceArchetype name="powerOn" interfaceType="PROVIDED" kind="SPORADIC" layer="PowerModeControll">
+		</InterfaceArchetype>
+		<InterfaceArchetype name="powerOff" interfaceType="PROVIDED" kind="SPORADIC" layer="PowerModeControll">
+		</InterfaceArchetype>
+		<InterfaceArchetype name="resume" interfaceType="PROVIDED" kind="SPORADIC" layer="PowerModeControll">
+		</InterfaceArchetype>
+		<InterfaceArchetype name="suspend" interfaceType="PROVIDED" kind="SPORADIC" layer="PowerModeControll">
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
+	<CommunicationLayerTypes>
+		<CommunicationLayerType name="PowerModeControll"/>
+	</CommunicationLayerTypes>
+</ArchetypeLibrary>
