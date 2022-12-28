@@ -1,0 +1,13 @@
+<DeploymentView>
+    <Node name="GR712RC RTEMS6 SMP QDP_1" type="ocarina_processors_leon::leon3.rtems_smp_qdp" node_label="Node_1" namespace="ocarina_processors_leon">
+        <Property name="Taste::coordinates" value="30300 30800 46300 46800"/>
+        <Partition name="Partition_1">
+            <Function name="Dst1" path="Dst1"/>
+            <Function name="Dst3" path="Dst3"/>
+            <Function name="Dst2" path="Dst2"/>
+            <Function name="Src1" path="Src1"/>
+            <Function name="Arbiter" path="Arbiter"/>
+            <Function name="Src2" path="Src2"/>
+        </Partition>
+    </Node>
+</DeploymentView>
