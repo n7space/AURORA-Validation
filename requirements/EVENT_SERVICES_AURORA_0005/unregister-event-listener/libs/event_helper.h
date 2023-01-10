@@ -3,6 +3,10 @@
 
 #include "dataview-uniq.h"
 
-void print_event(const int listener_id, const asn1SccT_EventMessage *IN_eventmessage);
+asn1SccT_EventMessage build_event(const asn1SccT_UInt32 id,
+                                  const asn1SccT_EventMessage_eventType eventType,
+                                  const char message[]);
+void print_event(const asn1SccT_UInt32 listener_id,
+                 const asn1SccT_EventMessage *IN_eventmessage);
 
 #endif

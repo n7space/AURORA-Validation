@@ -8,47 +8,9 @@
     !! file. The up-to-date signatures can be found in the .ads file.   !!
 */
 #include "eventgenerator1.h"
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
-
-#define BIT_MASK 0xFF
+#include "event_helper.h"
 
 static int counter;
-
-asn1SccT_EventMessage eventgenerator1_buildEvent(asn1SccT_UInt32 id, asn1SccT_EventMessage_eventType eventType)
-{
-    char message[] = "This is message from EventGenerator1";
-    uint64_t seconds = 0;
-    uint64_t nanoseconds = 0;
-    struct timespec ts;
-    int return_code = timespec_get(&ts, TIME_UTC);
-
-    if(return_code != 0)
-    {
-        seconds = (uint64_t)ts.tv_sec;
-        nanoseconds = (uint64_t)ts.tv_nsec;
-    }
-
-    asn1SccT_CUCTimestamp timestamp;
-    timestamp.c1 = (seconds >> 24) & BIT_MASK;
-    timestamp.c2 = (seconds >> 16) & BIT_MASK;
-    timestamp.c3 = (seconds >> 8) & BIT_MASK;
-    timestamp.c4 = seconds & BIT_MASK;
-    timestamp.f1 = (nanoseconds >> 24) & BIT_MASK;
-    timestamp.f2 = (nanoseconds >> 16) & BIT_MASK;
-    timestamp.f3 = (nanoseconds >> 8) & BIT_MASK;
-
-    asn1SccT_EventMessage event;
-    event.id = id;
-    event.eventType = eventType;
-    strncpy(event.message.arr, message, sizeof(event.message.arr) - 1);
-    event.message.arr[sizeof (event.message.arr) - 1] = '\0';
-    event.timestamp = timestamp;
-
-    return event;
-}
-
 
 void eventgenerator1_startup(void)
 {
@@ -60,12 +22,14 @@ void eventgenerator1_PI_trigger1(void)
     asn1SccT_EventMessage event;
     if(counter == 0)
     {
-        event = eventgenerator1_buildEvent(1, T_EventMessage_eventType_informative);
+        event = build_event(1, T_EventMessage_eventType_informative, 
+                            "This is message from EventGenerator1");
         counter++;
     }
     else
     {
-        event = eventgenerator1_buildEvent(2, T_EventMessage_eventType_mediumSeverity);
+        event = build_event(2, T_EventMessage_eventType_mediumSeverity, 
+                            "This is message from EventGenerator1");
         counter = 0;
     }
 
