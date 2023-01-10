@@ -13,6 +13,10 @@ SPACECREATOR?=spacecreator.AppImage
 
 export USER_CFLAGS=-DUSE_ROUTING_TABLE
 
+current_dir=$(shell pwd)
+
+export PARTITION_1_EXTERNAL_SOURCE_PATH=${current_dir}/libs
+
 # If you need to reset this Makefile to its original state, run:
 # $ taste reset
 
