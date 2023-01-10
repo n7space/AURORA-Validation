@@ -41,13 +41,24 @@ void eventbus_removeEmptySubscription(int emptySubscriptionIndex)
     }
 }
 
-void eventbus_updateRoutingTable(asn1SccT_UInt32 eventId)
+void eventbus_enableRouteForEvent(asn1SccT_UInt32 eventId)
 {
     for(int i = 0; i<subscriptionCounter; i++)
     {
         if(subscriptionTable[i].eventId == eventId)
         {
             eventbus_dispatch_event_routing_table[subscriptionTable[i].pid] = true;
+        }
+    }
+}
+
+void eventbus_disableRouteForEvent(asn1SccT_UInt32 eventId)
+{
+    for(int i = 0; i<subscriptionCounter; i++)
+    {
+        if(subscriptionTable[i].eventId == eventId)
+        {
+            eventbus_dispatch_event_routing_table[subscriptionTable[i].pid] = false;
         }
     }
 }
@@ -62,11 +73,11 @@ void eventbus_PI_receive_event
       (const asn1SccT_EventMessage *IN_eventmessage)
 
 {
-    eventbus_updateRoutingTable(IN_eventmessage->id);
+    eventbus_enableRouteForEvent(IN_eventmessage->id);
 
     eventbus_RI_dispatch_event(IN_eventmessage);
 
-    eventbus_dispatch_event_set_all_routes_enabled(false);
+    eventbus_disableRouteForEvent(IN_eventmessage->id);
 }
 
 
