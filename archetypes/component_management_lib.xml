@@ -4,13 +4,13 @@
     xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
 
 	<FunctionArchetype name="Manageable_component">
-		<InterfaceArchetype name="start" interfaceType="PROVIDED" kind="SPORADIC" layer="Component_management">
+		<InterfaceArchetype name="start" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
 		</InterfaceArchetype>
-		<InterfaceArchetype name="stop" interfaceType="PROVIDED" kind="SPORADIC" layer="Component_management">
+		<InterfaceArchetype name="stop" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
 		</InterfaceArchetype>
-		<InterfaceArchetype name="resume" interfaceType="PROVIDED" kind="SPORADIC" layer="Component_management">
+		<InterfaceArchetype name="resume" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
 		</InterfaceArchetype>
-		<InterfaceArchetype name="suspend" interfaceType="PROVIDED" kind="SPORADIC" layer="Component_management">
+		<InterfaceArchetype name="suspend" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
 		</InterfaceArchetype>
 	</FunctionArchetype>
 

@@ -4,17 +4,17 @@
     xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
 
 	<FunctionArchetype name="Power_Mode_Controller">
-		<InterfaceArchetype name="powerOn" interfaceType="PROVIDED" kind="SPORADIC" layer="PowerModeControll">
+		<InterfaceArchetype name="powerOn" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
 		</InterfaceArchetype>
-		<InterfaceArchetype name="powerOff" interfaceType="PROVIDED" kind="SPORADIC" layer="PowerModeControll">
+		<InterfaceArchetype name="powerOff" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
 		</InterfaceArchetype>
-		<InterfaceArchetype name="resume" interfaceType="PROVIDED" kind="SPORADIC" layer="PowerModeControll">
+		<InterfaceArchetype name="resume" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
 		</InterfaceArchetype>
-		<InterfaceArchetype name="suspend" interfaceType="PROVIDED" kind="SPORADIC" layer="PowerModeControll">
+		<InterfaceArchetype name="suspend" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
 		</InterfaceArchetype>
 	</FunctionArchetype>
 
 	<CommunicationLayerTypes>
-		<CommunicationLayerType name="PowerModeControll"/>
+		<CommunicationLayerType name="Component_management"/>
 	</CommunicationLayerTypes>
 </ArchetypeLibrary>
