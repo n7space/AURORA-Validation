@@ -1,0 +1,7 @@
+POWER-MODE-CONTROLL-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+    PowerMode ::= ENUMERATED { on, off, suspended }
+
+END
+

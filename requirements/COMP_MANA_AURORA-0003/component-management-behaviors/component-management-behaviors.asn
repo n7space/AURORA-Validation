@@ -1,0 +1,7 @@
+COMPONENT-MANAGEMENT-BEHAVIORS-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+   ComponentStatus ::= ENUMERATED { on, off, suspended }
+
+END
+
