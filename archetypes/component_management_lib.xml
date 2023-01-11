@@ -3,7 +3,7 @@
 	xmlns="http://www.example.org/ArchetypeLibrary" 
     xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
 
-	<FunctionArchetype name="Manageable_component">
+	<FunctionArchetype name="Dynamic_component">
 		<InterfaceArchetype name="start" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
 		</InterfaceArchetype>
 		<InterfaceArchetype name="stop" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
