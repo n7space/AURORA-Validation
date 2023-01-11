@@ -1,0 +1,22 @@
+Event-data DEFINITIONS ::= BEGIN
+IMPORTS
+    T-UInt32, T-UInt8 FROM TASTE-BasicTypes;
+
+    T-CUCTimestamp     ::= SEQUENCE {
+        c1       T-UInt8,
+        c2       T-UInt8,
+        c3       T-UInt8,
+        c4       T-UInt8,
+        f1       T-UInt8,
+        f2       T-UInt8,
+        f3       T-UInt8
+    }
+
+    T-EventMessage       ::= SEQUENCE {
+        id               T-UInt32,
+        eventType        ENUMERATED { informative, lowSeverity, mediumSeverity, highSeverity },
+        message          OCTET STRING (SIZE (0..256)),
+        timestamp        T-CUCTimestamp
+    }
+
+END

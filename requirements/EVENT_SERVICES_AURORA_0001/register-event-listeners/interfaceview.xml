@@ -1,0 +1,215 @@
+<InterfaceView asn1file="register-event-listeners.acn">
+<Function name="EventGenerator1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="11000 8300 31000 16300"/>
+<Provided_Interface name="trigger1" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" dispatch_offset="0" period="1000" wcet="0" priority="1" stack_size="1024">
+    <Property name="Taste::coordinates" value="14000 8300"/>
+</Provided_Interface>
+
+<Required_Interface name="notify" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" queue_size="3" wcet="0" miat="0" priority="1" stack_size="1024">
+    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="31000 11800"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="event_lib" archetype_function="Event_generator"/>
+</Function>
+
+<Function name="EventBus" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="2">
+    <Property name="Taste::coordinates" value="52500 21600 72500 36600"/>
+<Provided_Interface name="receive_event" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" queue_size="3" wcet="0" miat="0" priority="1" stack_size="1024">
+    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="52500 28400"/>
+</Provided_Interface>
+
+<Provided_Interface name="subscribe_to_event" kind="Protected" enable_multicast="true" layer="EventCommunication" required_system_element="NO" wcet="0">
+    <Input_Parameter name="eventId" type="T-UInt32" encoding="NATIVE"/>
+    <Input_Parameter name="shouldSubscribe" type="T-Boolean" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="72500 33600"/>
+</Provided_Interface>
+
+<Required_Interface name="dispatch_event" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" queue_size="3" wcet="0" miat="0" priority="1" stack_size="1024">
+    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="72500 24700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="event_lib" archetype_function="Event_bus"/>
+</Function>
+
+<Function name="EventGenerator2" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="10300 24400 30300 32400"/>
+<Provided_Interface name="trigger2" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" dispatch_offset="100" period="1000" wcet="0" priority="1" stack_size="1024">
+    <Property name="Taste::coordinates" value="16200 24800"/>
+</Provided_Interface>
+
+<Required_Interface name="notify" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" queue_size="3" wcet="0" miat="0" priority="1" stack_size="1024">
+    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="30300 28200"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="event_lib" archetype_function="Event_generator"/>
+</Function>
+
+<Function name="EventGenerator3" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="10700 40800 30700 48800"/>
+<Provided_Interface name="trigger3" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" dispatch_offset="200" period="1000" wcet="0" priority="1" stack_size="1024">
+    <Property name="Taste::coordinates" value="15700 40800"/>
+</Provided_Interface>
+
+<Required_Interface name="notify" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" queue_size="3" wcet="0" miat="0" priority="1" stack_size="1024">
+    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="30700 44400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="event_lib" archetype_function="Event_generator"/>
+</Function>
+
+<Function name="EventListener3" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="111800 43100 131800 55700"/>
+<Provided_Interface name="receive_event" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" queue_size="3" wcet="0" miat="0" priority="1" stack_size="1024">
+    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="111800 44800"/>
+</Provided_Interface>
+
+<Required_Interface name="subscribe_to_event" kind="Protected" enable_multicast="true" layer="EventCommunication" required_system_element="NO" wcet="0">
+    <Input_Parameter name="eventId" type="T-UInt32" encoding="NATIVE"/>
+    <Input_Parameter name="shouldSubscribe" type="T-Boolean" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="111800 52400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="event_lib" archetype_function="Event_listener"/>
+</Function>
+
+<Function name="EventListener1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="111500 100 131500 13500"/>
+<Provided_Interface name="receive_event" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" queue_size="3" wcet="0" miat="0" priority="1" stack_size="1024">
+    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="111500 3000"/>
+</Provided_Interface>
+
+<Required_Interface name="subscribe_to_event" kind="Protected" enable_multicast="true" layer="EventCommunication" required_system_element="NO" wcet="0">
+    <Input_Parameter name="eventId" type="T-UInt32" encoding="NATIVE"/>
+    <Input_Parameter name="shouldSubscribe" type="T-Boolean" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="111500 11100"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="event_lib" archetype_function="Event_listener"/>
+</Function>
+
+<Function name="EventListener2" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="112100 21500 132100 33700"/>
+<Provided_Interface name="receive_event" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" queue_size="3" wcet="0" miat="0" priority="1" stack_size="1024">
+    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="112100 24100"/>
+</Provided_Interface>
+
+<Required_Interface name="subscribe_to_event" kind="Protected" enable_multicast="true" layer="EventCommunication" required_system_element="NO" wcet="0">
+    <Input_Parameter name="eventId" type="T-UInt32" encoding="NATIVE"/>
+    <Input_Parameter name="shouldSubscribe" type="T-Boolean" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="112100 30700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="event_lib" archetype_function="Event_listener"/>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="EventListener1" ri_name="subscribe_to_event"/>
+    <Target func_name="EventBus" pi_name="subscribe_to_event"/>
+    <Property name="Taste::coordinates" value="110900 11100 85500 11100 85500 33600 72800 33600"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="EventBus" ri_name="dispatch_event"/>
+    <Target func_name="EventListener3" pi_name="receive_event"/>
+    <Property name="Taste::coordinates" value="73100 24700 92100 24700 92100 44800 111500 44800"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="EventBus" ri_name="dispatch_event"/>
+    <Target func_name="EventListener1" pi_name="receive_event"/>
+    <Property name="Taste::coordinates" value="73100 24700 92100 24700 92100 3000 111200 3000"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="EventListener3" ri_name="subscribe_to_event"/>
+    <Target func_name="EventBus" pi_name="subscribe_to_event"/>
+    <Property name="Taste::coordinates" value="111200 52400 85900 52400 85900 33600 72800 33600"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="EventGenerator1" ri_name="notify"/>
+    <Target func_name="EventBus" pi_name="receive_event"/>
+    <Property name="Taste::coordinates" value="31600 11800 41700 11800 41700 28400 52200 28400"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="EventBus" ri_name="dispatch_event"/>
+    <Target func_name="EventListener2" pi_name="receive_event"/>
+    <Property name="Taste::coordinates" value="73100 24700 111800 24100"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="EventListener2" ri_name="subscribe_to_event"/>
+    <Target func_name="EventBus" pi_name="subscribe_to_event"/>
+    <Property name="Taste::coordinates" value="111500 30700 86000 30700 86000 33600 72800 33600"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="EventGenerator3" ri_name="notify"/>
+    <Target func_name="EventBus" pi_name="receive_event"/>
+    <Property name="Taste::coordinates" value="31300 44400 41600 44400 41600 28400 52200 28400"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="EventGenerator2" ri_name="notify"/>
+    <Target func_name="EventBus" pi_name="receive_event"/>
+    <Property name="Taste::coordinates" value="30900 28200 52200 28400"/>
+</Connection>
+
+<Layer name="EventCommunication"/>
+
+<Layer name="default"/>
+
+<ArchetypeLibraryReference archetype_library="event_lib" path="event_lib.xml"/>
+
+</InterfaceView>
