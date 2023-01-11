@@ -23,7 +23,7 @@ static Subscription subscriptionTable[SUBSCRIPTION_TABLE_BUFFER_SIZE] = {{0}};
 
 int eventbus_getSubscriptionIndex(const asn1SccPID pid, const asn1SccT_UInt32 eventId)
 {
-    for(int i = 0; i < subscriptionCounter || i < SUBSCRIPTION_TABLE_BUFFER_SIZE; i++)
+    for(int i = 0; i < subscriptionCounter; i++)
     {
         if(subscriptionTable[i].pid == pid && subscriptionTable[i].eventId == eventId)
         {
@@ -35,15 +35,15 @@ int eventbus_getSubscriptionIndex(const asn1SccPID pid, const asn1SccT_UInt32 ev
 
 void eventbus_removeEmptySubscription(int emptySubscriptionIndex)
 {
-    for (int j = emptySubscriptionIndex; j < subscriptionCounter || j < SUBSCRIPTION_TABLE_BUFFER_SIZE - 1; j++)
+    for (int j = emptySubscriptionIndex; j < subscriptionCounter; j++)
     {
-         subscriptionTable[j] = subscriptionTable[j + 1];
+        subscriptionTable[j] = subscriptionTable[j + 1];
     }
 }
 
 void eventbus_enableRoutesForEvent(asn1SccT_UInt32 eventId)
 {
-    for(int i = 0; i<subscriptionCounter; i++)
+    for(int i = 0; i < subscriptionCounter; i++)
     {
         if(subscriptionTable[i].eventId == eventId)
         {
@@ -54,7 +54,7 @@ void eventbus_enableRoutesForEvent(asn1SccT_UInt32 eventId)
 
 void eventbus_disableRoutesForEvent(asn1SccT_UInt32 eventId)
 {
-    for(int i = 0; i<subscriptionCounter; i++)
+    for(int i = 0; i < subscriptionCounter; i++)
     {
         if(subscriptionTable[i].eventId == eventId)
         {
@@ -91,7 +91,7 @@ void eventbus_PI_subscribe_to_event
 
     if(*IN_shouldsubscribe && subscriptionIndex == -1)
     {
-        if(subscriptionCounter == SUBSCRIPTION_TABLE_BUFFER_SIZE)
+        if(subscriptionCounter == SUBSCRIPTION_TABLE_BUFFER_SIZE - 1)
         {
             return;
         }
