@@ -1,2 +1,6 @@
-Requirement fulfilled, document reference:
-    AUR-N7S-RP-0001 D5_2 CBI Technical Architecture (5.1 Software design overview)
+TASTE Leon3 Runtime targets ESA's RTEMS SMP QDP, as per [1].
+The exact version is RTEMS 6 SPARC GR712RC SMP 4, described in [2].
+    
+    
+[1] AUR-N7S-RP-0001 D5_2 CBI Technical Architecture (5.1 Software design overview)
+[2] RTEMS Qualification Data Package Software Configuration File [sparc/gr712rc/smp/4] Release 5

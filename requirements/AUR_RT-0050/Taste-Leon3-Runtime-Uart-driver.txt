@@ -1,2 +1,4 @@
-Requirement fulfilled, document reference:
-    AUR-N7S-RP-0001 D5_2 CBI Technical Architecture (5.1 Software design overview)
+TASTE Leon3 Runtime uses Leon3-BSP for implementing UART communication, as per [1]. 
+
+
+[1] AUR-N7S-RP-0001 D5_2 CBI Technical Architecture (5.1 Software design overview)
