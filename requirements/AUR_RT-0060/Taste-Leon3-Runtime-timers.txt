@@ -1,0 +1,7 @@
+TASTE Leon3 Runtime uses Timer module for accessing Leon3 hardware timers, as per chapter 5.1 of [1].
+Timer module is part of Leon3-BSP, as per chapter 5.2 of [1]. Leon3 hardware timers provide resolution 
+of 50 ns, as per [2].
+
+
+[1] AUR-N7S-RP-0001 D5_2 CBI Technical Architecture
+[2] GR712RC 2018 Data sheet (2.4.6 General Purpose Timer Unit)

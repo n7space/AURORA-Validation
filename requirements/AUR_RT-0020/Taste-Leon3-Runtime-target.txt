@@ -1,0 +1,4 @@
+TASTE Leon3 Runtime targets Leon3 processor, as per [1].
+    
+    
+[1] AUR-N7S-RP-0001 D5_2 CBI Technical Architecture (5.1 Software design overview)

@@ -1,0 +1,5 @@
+TASTE Leon3 Runtime uses Uart module for accessing Leon3 hardware UART, as per chapter 5.1 of [1].
+Uart module is part of Leon3-BSP, as per chapter 5.2 of [1].
+
+
+[1] AUR-N7S-RP-0001 D5_2 CBI Technical Architecture
