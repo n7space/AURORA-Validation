@@ -10,12 +10,15 @@
 #include "payload.h"
 //#include <stdio.h>
 
+static double payload_temperature;
+static double payload_flow_rate;
+static double payload_target_flow_rate;
 
 void payload_startup(void)
 {
-   // Write your initialisation code
-   // You may call sporadic required interfaces and start timers
-   // puts ("[payload] Startup");
+    payload_temperature = 18.0;
+    payload_flow_rate = 4.0;
+    payload_target_flow_rate = 20.0;
 }
 
 void payload_PI_get_payload_status
@@ -23,7 +26,8 @@ void payload_PI_get_payload_status
        asn1SccAuroraFlowRate *OUT_flow_rate)
 
 {
-   // Write your code here
+   *OUT_temperature = payload_temperature;
+   *OUT_flow_rate = payload_flow_rate;
 }
 
 
@@ -31,7 +35,7 @@ void payload_PI_set_flow_controller
       (const asn1SccAuroraPWM *IN_pwm)
 
 {
-   // Write your code here
+   payload_target_flow_rate = *IN_pwm;
 }
 
 

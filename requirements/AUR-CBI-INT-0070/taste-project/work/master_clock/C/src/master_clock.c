@@ -13,14 +13,11 @@
 
 void master_clock_startup(void)
 {
-   // Write your initialisation code
-   // You may call sporadic required interfaces and start timers
-   // puts ("[master_clock] Startup");
 }
 
 void master_clock_PI_tick(void)
 {
-   // Write your code here
+   master_clock_RI_step();
 }
 
 

@@ -24,7 +24,7 @@ void algorithms_PI_calculate_mppt
        asn1SccAuroraPWM *OUT_pwm)
 
 {
-   // Write your code here
+   *OUT_pwm = 0.4;
 }
 
 
@@ -37,7 +37,7 @@ void algorithms_PI_calculate_pid
        const asn1SccAuroraReal *IN_target_value)
 
 {
-   // Write your code here
+    *OUT_output_value = 0.7;
 }
 
 

@@ -10,19 +10,26 @@
 #include "electrics_power_supply.h"
 //#include <stdio.h>
 
+static double flow_rate_value;
+static double battery_capacity;
+static double solar_panel_voltage;
+static double solar_panel_current;
+static double solar_panel_pwm;
 
 void electrics_power_supply_startup(void)
 {
-   // Write your initialisation code
-   // You may call sporadic required interfaces and start timers
-   // puts ("[electrics_power_supply] Startup");
+    flow_rate_value = 0.0;
+    battery_capacity = 0.28;
+    solar_panel_voltage = 9.3;
+    solar_panel_current = 1.3;
+    solar_panel_pwm = 0.0;
 }
 
 void electrics_power_supply_PI_flow_changed
       (const asn1SccAuroraReal *IN_rate)
 
 {
-   // Write your code here
+   flow_rate_value = *IN_rate;
 }
 
 
@@ -30,7 +37,7 @@ void electrics_power_supply_PI_get_battery_capacity
       (asn1SccAuroraBatteryCapacity *OUT_capacity)
 
 {
-   // Write your code here
+   *OUT_capacity = battery_capacity;
 }
 
 
@@ -39,7 +46,8 @@ void electrics_power_supply_PI_get_solar_panel_status
        asn1SccAuroraCurrent *OUT_current)
 
 {
-   // Write your code here
+   *OUT_voltage = solar_panel_voltage;
+   *OUT_current = solar_panel_current;
 }
 
 
@@ -47,7 +55,7 @@ void electrics_power_supply_PI_set_power_point
       (const asn1SccAuroraPWM *IN_pwm)
 
 {
-   // Write your code here
+   solar_panel_pwm = *IN_pwm;
 }
 
 
