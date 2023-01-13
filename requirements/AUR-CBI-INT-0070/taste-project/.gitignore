@@ -1,0 +1,57 @@
+default_attributes.xml
+
+.qtc_clangd/
+
+*.aadl
+.cache/
+*.pro.user
+*.pro.user*
+*.msc
+
+# Ignore whole work directory
+work/*
+
+# Except controller source
+!work/controller/
+work/controller/*
+!work/controller/C
+work/controller/C/*
+!work/controller/C/src
+work/controller/C/src/*
+!work/controller/C/src/controller.c
+
+# Except algorithms source
+!work/algorithms/
+work/algorithms/*
+!work/algorithms/C
+work/algorithms/C/*
+!work/algorithms/C/src
+work/algorithms/C/src/*
+!work/algorithms/C/src/algorithms.c
+
+# Except electrics_power_supply source
+!work/electrics_power_supply/
+work/electrics_power_supply/*
+!work/electrics_power_supply/C
+work/electrics_power_supply/C/*
+!work/electrics_power_supply/C/src
+work/electrics_power_supply/C/src/*
+!work/electrics_power_supply/C/src/electrics_power_supply.c
+
+# Except master_clock source
+!work/master_clock/
+work/master_clock/*
+!work/master_clock/C
+work/master_clock/C/*
+!work/master_clock/C/src
+work/master_clock/C/src/*
+!work/master_clock/C/src/master_clock.c
+
+# Except payload source
+!work/payload/
+work/payload/*
+!work/payload/C
+work/payload/C/*
+!work/payload/C/src
+work/payload/C/src/*
+!work/payload/C/src/payload.c

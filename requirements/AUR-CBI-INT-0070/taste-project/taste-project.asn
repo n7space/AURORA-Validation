@@ -1,0 +1,41 @@
+AURORA-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+   -- generic integer
+   AuroraInt ::= INTEGER (-1000000 .. 1000000)
+
+   -- generic unsigned integer
+   AuroraUInt ::= INTEGER (0 .. 1000000)
+
+   -- generic real
+   AuroraReal ::= REAL (-1000000.0 .. 1000000.0)
+
+   -- volt
+   AuroraVoltage ::= AuroraReal (0.0 .. 100000.0)
+
+   -- amper
+   AuroraCurrent ::= AuroraReal (0.0 .. 10000.0)
+
+   -- PWM value 0.0: 0%, 1.0: 100%
+   AuroraPWM ::= AuroraReal (0.0 .. 1.0)
+
+   -- PID controller configuration
+   AuroraPIDValue ::= AuroraReal (-100.0 .. 100.0)
+
+   -- Kelvin
+   AuroraTemperature ::= AuroraReal (0.0 .. 1000.0)
+
+   -- flow rate in abstract unit
+   AuroraFlowRate ::= AuroraReal (0.0 .. 100.0)
+
+   -- battery capacity 0.0: empty, 1.0: full
+   AuroraBatteryCapacity ::= AuroraReal (0.0 .. 1.0)
+
+   AuroraControllerStatus ::= SEQUENCE {
+       payload-temperature AuroraTemperature,
+       payload-flow-rate AuroraFlowRate,
+       battery-capacity AuroraBatteryCapacity
+   }
+
+END
+
