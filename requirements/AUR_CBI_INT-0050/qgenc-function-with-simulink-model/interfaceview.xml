@@ -1,0 +1,77 @@
+<InterfaceView version="1.0" asn1file="QgenC.acn">
+<Function name="simulink" is_type="NO" language="QGenC" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="58800 28900 78800 37800"/>
+    <Property name="Taste::RootCoordinates" value="0 0 117500 79200"/>
+<Provided_Interface name="interfaceBasic" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Input_Parameter name="i1" type="MatLab-Double" encoding="NATIVE"/>
+    <Input_Parameter name="i2" type="MatLab-Single" encoding="NATIVE"/>
+    <Input_Parameter name="i3" type="MatLab-Int8" encoding="NATIVE"/>
+    <Input_Parameter name="i4" type="MatLab-Uint8" encoding="NATIVE"/>
+    <Input_Parameter name="i5" type="MatLab-Int16" encoding="NATIVE"/>
+    <Input_Parameter name="i6" type="MatLab-Uint16" encoding="NATIVE"/>
+    <Input_Parameter name="i7" type="MatLab-Int32" encoding="NATIVE"/>
+    <Input_Parameter name="i8" type="MatLab-Uint32" encoding="NATIVE"/>
+    <Input_Parameter name="i9" type="MatLab-Boolean" encoding="NATIVE"/>
+    <Output_Parameter name="o1" type="MatLab-Double" encoding="NATIVE"/>
+    <Output_Parameter name="o2" type="MatLab-Single" encoding="NATIVE"/>
+    <Output_Parameter name="o3" type="MatLab-Int8" encoding="NATIVE"/>
+    <Output_Parameter name="o4" type="MatLab-Uint8" encoding="NATIVE"/>
+    <Output_Parameter name="o5" type="MatLab-Int16" encoding="NATIVE"/>
+    <Output_Parameter name="o6" type="MatLab-Uint16" encoding="NATIVE"/>
+    <Output_Parameter name="o7" type="MatLab-Int32" encoding="NATIVE"/>
+    <Output_Parameter name="o8" type="MatLab-Uint32" encoding="NATIVE"/>
+    <Output_Parameter name="o9" type="MatLab-Boolean" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58800 32000"/>
+    <Property name="Taste::RootCoordinates" value="0 6400"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="QGenC"/>
+    </Implementations>
+</Function>
+
+<Function name="Controller" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="16100 27900 36100 37900"/>
+<Provided_Interface name="trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" dispatch_offset="0" wcet="0" priority="1" period="1000" stack_size="1024">
+    <Property name="Taste::coordinates" value="27600 27900"/>
+</Provided_Interface>
+
+<Required_Interface name="interfaceBasic" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Input_Parameter name="i1" type="MatLab-Double" encoding="NATIVE"/>
+    <Input_Parameter name="i2" type="MatLab-Single" encoding="NATIVE"/>
+    <Input_Parameter name="i3" type="MatLab-Int8" encoding="NATIVE"/>
+    <Input_Parameter name="i4" type="MatLab-Uint8" encoding="NATIVE"/>
+    <Input_Parameter name="i5" type="MatLab-Int16" encoding="NATIVE"/>
+    <Input_Parameter name="i6" type="MatLab-Uint16" encoding="NATIVE"/>
+    <Input_Parameter name="i7" type="MatLab-Int32" encoding="NATIVE"/>
+    <Input_Parameter name="i8" type="MatLab-Uint32" encoding="NATIVE"/>
+    <Input_Parameter name="i9" type="MatLab-Boolean" encoding="NATIVE"/>
+    <Output_Parameter name="o1" type="MatLab-Double" encoding="NATIVE"/>
+    <Output_Parameter name="o2" type="MatLab-Single" encoding="NATIVE"/>
+    <Output_Parameter name="o3" type="MatLab-Int8" encoding="NATIVE"/>
+    <Output_Parameter name="o4" type="MatLab-Uint8" encoding="NATIVE"/>
+    <Output_Parameter name="o5" type="MatLab-Int16" encoding="NATIVE"/>
+    <Output_Parameter name="o6" type="MatLab-Uint16" encoding="NATIVE"/>
+    <Output_Parameter name="o7" type="MatLab-Int32" encoding="NATIVE"/>
+    <Output_Parameter name="o8" type="MatLab-Uint32" encoding="NATIVE"/>
+    <Output_Parameter name="o9" type="MatLab-Boolean" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="36100 32100"/>
+    <Property name="Taste::RootCoordinates" value="0 6400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Controller" ri_name="interfaceBasic"/>
+    <Target func_name="simulink" pi_name="interfaceBasic"/>
+    <Property name="Taste::coordinates" value="36700 32100 58500 32000"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>
