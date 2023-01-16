@@ -34,7 +34,9 @@ BEGIN
    AuroraControllerStatus ::= SEQUENCE {
        payload-temperature AuroraTemperature,
        payload-flow-rate AuroraFlowRate,
-       battery-capacity AuroraBatteryCapacity
+       battery-capacity AuroraBatteryCapacity,
+       solar-panel-voltage AuroraVoltage,
+       solar-panel-current AuroraCurrent
    }
 
 END

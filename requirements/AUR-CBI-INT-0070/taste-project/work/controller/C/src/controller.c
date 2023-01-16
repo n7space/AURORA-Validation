@@ -32,17 +32,8 @@ void controller_PI_step(void)
    controller_RI_get_payload_status(&payload_temperature, &payload_flow_rate);
 
    double solar_panel_pwm;
-   extern void controller_RI_calculate_mppt( const asn1SccAuroraVoltage *,
-                                             const asn1SccAuroraCurrent *,
-                                             asn1SccAuroraPWM * );
-   controller_RI_calculate_mppt(&solar_panel_voltage, &solar_panel_current, &solar_panel_pwm);
 
-   extern void controller_RI_calculate_pid( asn1SccAuroraPWM *,
-                                            const asn1SccAuroraPIDValue *,
-                                            const asn1SccAuroraPIDValue *,
-                                            const asn1SccAuroraPIDValue *,
-                                            const asn1SccAuroraReal *,
-                                            const asn1SccAuroraReal * );
+   controller_RI_calculate_mppt(&solar_panel_voltage, &solar_panel_current, &solar_panel_pwm);
 
    controller_RI_set_power_point(&solar_panel_pwm);
 
@@ -51,6 +42,19 @@ void controller_PI_step(void)
    double k_i = 3.0;
    double k_d = 3.0;
    double target_temperature = 25.0;
+
+   if(battery_capacity < 0.5)
+   {
+       target_temperature = 250;
+   }
+   else
+   {
+       target_temperature = 350;
+   }
+   if(payload_temperature < 200)
+   {
+       k_p = 8.0;
+   }
    controller_RI_calculate_pid(&payload_pwm,
                                &k_p,
                                &k_i,
@@ -64,6 +68,8 @@ void controller_PI_step(void)
    status.battery_capacity = battery_capacity;
    status.payload_flow_rate = payload_flow_rate;
    status.payload_temperature = payload_temperature;
+   status.solar_panel_current = solar_panel_current;
+   status.solar_panel_voltage = solar_panel_voltage;
 
    controller_RI_controller_status(&status);
 }

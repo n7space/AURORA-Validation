@@ -8,7 +8,9 @@
     !! file. The up-to-date signatures can be found in the .ads file.   !!
 */
 #include "electrics_power_supply.h"
-//#include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 static double flow_rate_value;
 static double battery_capacity;
@@ -16,13 +18,26 @@ static double solar_panel_voltage;
 static double solar_panel_current;
 static double solar_panel_pwm;
 
+static int step_count;
+static double amp_40;
+static double amp_20;
+static double amp_10;
+static double amp_5;
+
 void electrics_power_supply_startup(void)
 {
+    srand(time(NULL));
     flow_rate_value = 0.0;
     battery_capacity = 0.28;
     solar_panel_voltage = 9.3;
     solar_panel_current = 1.3;
     solar_panel_pwm = 0.0;
+
+    step_count = 0;
+    amp_40 = 0.0;
+    amp_20 = 0.0;
+    amp_10 = 0.0;
+    amp_5 = 0.0;
 }
 
 void electrics_power_supply_PI_flow_changed
@@ -61,7 +76,52 @@ void electrics_power_supply_PI_set_power_point
 
 void electrics_power_supply_PI_step(void)
 {
-   // Write your code here
+   if(step_count == 0)
+   {
+       amp_40 = 0.8 * (rand() / (RAND_MAX - 2.0) - 1.0);
+   }
+   if(step_count % 20 == 0)
+   {
+       amp_20 = 0.6 * (rand() / (RAND_MAX - 2.0) - 1.0);
+   }
+   if(step_count % 10 == 0)
+   {
+       amp_10 = 0.4 * (rand() / (RAND_MAX - 2.0) - 1.0);
+   }
+   if(step_count % 5 == 0)
+   {
+       amp_5 = 0.2 * (rand() / (RAND_MAX - 2.0) - 1.0);
+   }
+
+   solar_panel_voltage = 5.0;
+
+   solar_panel_voltage += 2.5 * amp_40 * sin(2 * M_PI * ((step_count % 40) * 0.025));
+   solar_panel_voltage += 2.5 * amp_20 * sin(2 * M_PI * ((step_count % 20) * 0.05));
+   solar_panel_voltage += 2.5 * amp_10 * sin(2 * M_PI * ((step_count % 10) * 0.1));
+   solar_panel_voltage += 2.5 * amp_5 * sin(2 * M_PI * ((step_count % 5) * 0.2));
+
+   // todo power curve
+   double power = sin(M_PI * solar_panel_pwm * solar_panel_pwm);
+   solar_panel_current = power * solar_panel_voltage / 20.0;
+
+   double outpower = flow_rate_value / 5.0;
+   // todo flow_rate power
+   battery_capacity += (power - outpower) / 100.0;
+
+   if(battery_capacity < 0.0)
+   {
+       battery_capacity = 0.0;
+   }
+   if(battery_capacity > 1.0)
+   {
+       battery_capacity = 1.0;
+   }
+
+   ++step_count;
+   if(step_count == 40)
+   {
+       step_count = 0;
+   }
 }
 
 
