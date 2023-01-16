@@ -1,0 +1,20 @@
+<ArchetypeLibrary
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.example.org/ArchetypeLibrary" 
+    xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
+
+	<FunctionArchetype name="Dynamic_component">
+		<InterfaceArchetype name="start" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
+		</InterfaceArchetype>
+		<InterfaceArchetype name="stop" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
+		</InterfaceArchetype>
+		<InterfaceArchetype name="resume" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
+		</InterfaceArchetype>
+		<InterfaceArchetype name="suspend" interfaceType="PROVIDED" kind="PROTECTED" layer="Component_management">
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
+	<CommunicationLayerTypes>
+		<CommunicationLayerType name="Component_management"/>
+	</CommunicationLayerTypes>
+</ArchetypeLibrary>
