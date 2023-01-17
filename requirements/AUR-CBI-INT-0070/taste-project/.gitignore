@@ -29,6 +29,13 @@ work/algorithms/C/*
 work/algorithms/C/src/*
 !work/algorithms/C/src/algorithms.c
 
+!work/algorithms/implem
+work/algorithms/implem/*
+!work/algorithms/implem/default
+work/algorithms/implem/default/*
+!work/algorithms/implem/default/QGenC
+!work/algorithms/implem/default/QGenC/wrappers/algorithms_mini_cv.aadl
+
 # Except electrics_power_supply source
 !work/electrics_power_supply/
 work/electrics_power_supply/*

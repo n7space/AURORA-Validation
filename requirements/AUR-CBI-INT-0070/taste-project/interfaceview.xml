@@ -1,4 +1,45 @@
-<InterfaceView version="1.0" asn1file="taste-project.asn">
+<InterfaceView asn1file="taste-project.acn">
+<Function name="master_clock" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="-191900 -2000 -171000 19900"/>
+<Provided_Interface name="tick" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" period="1000" priority="1" stack_size="1024" wcet="0" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="-187000 -2000"/>
+</Provided_Interface>
+
+<Required_Interface name="step" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="-171800 3600"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="algorithms" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="-49300 -43100 -20500 -13400"/>
+<Provided_Interface name="calculate_pid" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Output_Parameter name="output_value" type="AuroraPWM" encoding="NATIVE"/>
+    <Input_Parameter name="k_p" type="AuroraPIDValue" encoding="NATIVE"/>
+    <Input_Parameter name="k_i" type="AuroraPIDValue" encoding="NATIVE"/>
+    <Input_Parameter name="k_d" type="AuroraPIDValue" encoding="NATIVE"/>
+    <Input_Parameter name="input_value" type="AuroraReal" encoding="NATIVE"/>
+    <Input_Parameter name="target_value" type="AuroraReal" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-49300 -36700"/>
+</Provided_Interface>
+
+<Provided_Interface name="calculate_mppt" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Input_Parameter name="voltage" type="AuroraVoltage" encoding="NATIVE"/>
+    <Input_Parameter name="current" type="AuroraCurrent" encoding="NATIVE"/>
+    <Output_Parameter name="pwm" type="AuroraPWM" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-49300 -23900"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
 <Function name="controller" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
     <Property name="Taste::coordinates" value="-145300 -42900 -70100 -13600"/>
 <Provided_Interface name="step" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
@@ -41,7 +82,7 @@
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="set_power_point" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" stack_size="1024" wcet="0" miat="0" queue_size="1">
+<Required_Interface name="set_power_point" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" stack_size="1024" queue_size="1" wcet="0">
     <Input_Parameter name="pwm" type="AuroraPWM" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-127100 -13600"/>
     <Property name="Taste::InheritPI" value="true"/>
@@ -56,74 +97,16 @@
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="set_flow_controller" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" stack_size="1024" wcet="0" miat="0" queue_size="1">
+<Required_Interface name="set_flow_controller" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" stack_size="1024" queue_size="1" wcet="0">
     <Input_Parameter name="pwm" type="AuroraPWM" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-78300 -13600"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="controller_status" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" stack_size="1024" wcet="0" miat="0" queue_size="1">
+<Required_Interface name="controller_status" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" stack_size="1024" queue_size="1" wcet="0">
     <Input_Parameter name="status" type="AuroraControllerStatus" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-145300 -21400"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-    <Implementations>
-        <Implementation name="default" language="C"/>
-    </Implementations>
-</Function>
-
-<Function name="payload" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
-    <Property name="Taste::coordinates" value="-94500 1800 -61300 26100"/>
-<Provided_Interface name="get_payload_status" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
-    <Output_Parameter name="temperature" type="AuroraTemperature" encoding="NATIVE"/>
-    <Output_Parameter name="flow_rate" type="AuroraFlowRate" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-92200 1800"/>
-</Provided_Interface>
-
-<Provided_Interface name="set_flow_controller" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" stack_size="1024" wcet="0" miat="0" queue_size="1">
-    <Input_Parameter name="pwm" type="AuroraPWM" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-77500 1800"/>
-</Provided_Interface>
-
-<Provided_Interface name="step" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
-    <Property name="Taste::coordinates" value="-92000 24200"/>
-</Provided_Interface>
-
-<Required_Interface name="flow_changed" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
-    <Input_Parameter name="rate" type="AuroraReal" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-94500 14900"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-    <Implementations>
-        <Implementation name="default" language="C"/>
-    </Implementations>
-</Function>
-
-<Function name="mmi" is_type="NO" language="GUI" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
-    <Property name="Taste::coordinates" value="-187800 -43300 -167800 -13800"/>
-<Provided_Interface name="controller_status" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" stack_size="1024" wcet="0" miat="0" queue_size="1">
-    <Input_Parameter name="status" type="AuroraControllerStatus" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-167800 -21600"/>
-</Provided_Interface>
-
-    <Implementations>
-        <Implementation name="default" language="GUI"/>
-    </Implementations>
-</Function>
-
-<Function name="master_clock" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
-    <Property name="Taste::coordinates" value="-191900 -2000 -171000 19900"/>
-<Provided_Interface name="tick" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" dispatch_offset="0" stack_size="1024" wcet="0" period="1000">
-    <Property name="Taste::coordinates" value="-187000 -2000"/>
-</Provided_Interface>
-
-<Required_Interface name="step" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
-    <Property name="Taste::coordinates" value="-171800 3600"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
@@ -146,7 +129,7 @@
     <Property name="Taste::coordinates" value="-113000 200"/>
 </Provided_Interface>
 
-<Provided_Interface name="set_power_point" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" stack_size="1024" wcet="0" miat="0" queue_size="1">
+<Provided_Interface name="set_power_point" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" stack_size="1024" queue_size="1" wcet="0">
     <Input_Parameter name="pwm" type="AuroraPWM" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-128500 200"/>
 </Provided_Interface>
@@ -165,35 +148,46 @@
     </Implementations>
 </Function>
 
-<Function name="algorithms" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
-    <Property name="Taste::coordinates" value="-49400 -42900 -20600 -13200"/>
-<Provided_Interface name="calculate_pid" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
-    <Output_Parameter name="output_value" type="AuroraPWM" encoding="NATIVE"/>
-    <Input_Parameter name="k_p" type="AuroraPIDValue" encoding="NATIVE"/>
-    <Input_Parameter name="k_i" type="AuroraPIDValue" encoding="NATIVE"/>
-    <Input_Parameter name="k_d" type="AuroraPIDValue" encoding="NATIVE"/>
-    <Input_Parameter name="input_value" type="AuroraReal" encoding="NATIVE"/>
-    <Input_Parameter name="target_value" type="AuroraReal" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-49400 -36500"/>
+<Function name="payload" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="-94500 1800 -61300 26100"/>
+<Provided_Interface name="get_payload_status" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Output_Parameter name="temperature" type="AuroraTemperature" encoding="NATIVE"/>
+    <Output_Parameter name="flow_rate" type="AuroraFlowRate" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-92200 1800"/>
 </Provided_Interface>
 
-<Provided_Interface name="calculate_mppt" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
-    <Input_Parameter name="voltage" type="AuroraVoltage" encoding="NATIVE"/>
-    <Input_Parameter name="current" type="AuroraCurrent" encoding="NATIVE"/>
-    <Output_Parameter name="pwm" type="AuroraPWM" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-49400 -23700"/>
+<Provided_Interface name="set_flow_controller" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" stack_size="1024" queue_size="1" wcet="0">
+    <Input_Parameter name="pwm" type="AuroraPWM" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-77500 1800"/>
 </Provided_Interface>
+
+<Provided_Interface name="step" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="-92000 24200"/>
+</Provided_Interface>
+
+<Required_Interface name="flow_changed" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Input_Parameter name="rate" type="AuroraReal" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-94500 14900"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
 
     <Implementations>
         <Implementation name="default" language="C"/>
     </Implementations>
 </Function>
 
-<Connection  required_system_element="NO">
-    <Source func_name="payload" ri_name="flow_changed"/>
-    <Target func_name="electrics_power_supply" pi_name="flow_changed"/>
-    <Property name="Taste::coordinates" value="-95100 14900 -100500 14900 -100500 6200 -106000 6200"/>
-</Connection>
+<Function name="mmi" is_type="NO" language="GUI" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="-187800 -43300 -167800 -13800"/>
+<Provided_Interface name="controller_status" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" miat="0" priority="1" stack_size="1024" queue_size="1" wcet="0">
+    <Input_Parameter name="status" type="AuroraControllerStatus" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-167800 -21600"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="GUI"/>
+    </Implementations>
+</Function>
 
 <Connection  required_system_element="NO">
     <Source func_name="master_clock" ri_name="step"/>
@@ -202,21 +196,9 @@
 </Connection>
 
 <Connection  required_system_element="NO">
-    <Source func_name="controller" ri_name="controller_status"/>
-    <Target func_name="mmi" pi_name="controller_status"/>
-    <Property name="Taste::coordinates" value="-145900 -21400 -167500 -21600"/>
-</Connection>
-
-<Connection  required_system_element="NO">
-    <Source func_name="controller" ri_name="calculate_mppt"/>
-    <Target func_name="algorithms" pi_name="calculate_mppt"/>
-    <Property name="Taste::coordinates" value="-69500 -24500 -49700 -23700"/>
-</Connection>
-
-<Connection  required_system_element="NO">
-    <Source func_name="controller" ri_name="set_flow_controller"/>
-    <Target func_name="payload" pi_name="set_flow_controller"/>
-    <Property name="Taste::coordinates" value="-78300 -13000 -77500 1500"/>
+    <Source func_name="payload" ri_name="flow_changed"/>
+    <Target func_name="electrics_power_supply" pi_name="flow_changed"/>
+    <Property name="Taste::coordinates" value="-95100 14900 -100500 14900 -100500 6200 -106000 6200"/>
 </Connection>
 
 <Connection  required_system_element="NO">
@@ -226,15 +208,15 @@
 </Connection>
 
 <Connection  required_system_element="NO">
-    <Source func_name="controller" ri_name="get_solar_panel_status"/>
-    <Target func_name="electrics_power_supply" pi_name="get_solar_panel_status"/>
-    <Property name="Taste::coordinates" value="-112300 -13000 -112300 -6600 -113000 -1700 -113000 -100"/>
+    <Source func_name="master_clock" ri_name="step"/>
+    <Target func_name="payload" pi_name="step"/>
+    <Property name="Taste::coordinates" value="-170400 3600 -168800 3600 -168800 26400 -92000 26400 -92000 26400"/>
 </Connection>
 
 <Connection  required_system_element="NO">
-    <Source func_name="controller" ri_name="set_power_point"/>
-    <Target func_name="electrics_power_supply" pi_name="set_power_point"/>
-    <Property name="Taste::coordinates" value="-127100 -13000 -127100 -6600 -128500 -6600 -128500 -100"/>
+    <Source func_name="controller" ri_name="set_flow_controller"/>
+    <Target func_name="payload" pi_name="set_flow_controller"/>
+    <Property name="Taste::coordinates" value="-78300 -13000 -77500 1500"/>
 </Connection>
 
 <Connection  required_system_element="NO">
@@ -244,21 +226,39 @@
 </Connection>
 
 <Connection  required_system_element="NO">
+    <Source func_name="controller" ri_name="controller_status"/>
+    <Target func_name="mmi" pi_name="controller_status"/>
+    <Property name="Taste::coordinates" value="-145900 -21400 -167500 -21600"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="controller" ri_name="set_power_point"/>
+    <Target func_name="electrics_power_supply" pi_name="set_power_point"/>
+    <Property name="Taste::coordinates" value="-127100 -13000 -127100 -6600 -128500 -6600 -128500 -100"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="controller" ri_name="calculate_mppt"/>
+    <Target func_name="algorithms" pi_name="calculate_mppt"/>
+    <Property name="Taste::coordinates" value="-69500 -24500 -49600 -23900"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="controller" ri_name="get_solar_panel_status"/>
+    <Target func_name="electrics_power_supply" pi_name="get_solar_panel_status"/>
+    <Property name="Taste::coordinates" value="-112300 -13000 -112300 -6600 -113000 -1700 -113000 -100"/>
+</Connection>
+
+<Connection  required_system_element="NO">
     <Source func_name="controller" ri_name="calculate_pid"/>
     <Target func_name="algorithms" pi_name="calculate_pid"/>
-    <Property name="Taste::coordinates" value="-69500 -37200 -49700 -36500"/>
+    <Property name="Taste::coordinates" value="-69500 -37200 -49600 -36700"/>
 </Connection>
 
 <Connection  required_system_element="NO">
     <Source func_name="master_clock" ri_name="step"/>
     <Target func_name="controller" pi_name="step"/>
     <Property name="Taste::coordinates" value="-170400 3600 -159700 3600 -159700 -37100 -145600 -37100"/>
-</Connection>
-
-<Connection  required_system_element="NO">
-    <Source func_name="master_clock" ri_name="step"/>
-    <Target func_name="payload" pi_name="step"/>
-    <Property name="Taste::coordinates" value="-170400 3600 -168800 3600 -168800 26400 -92000 26400 -92000 26400"/>
 </Connection>
 
 <Layer name="default"/>
