@@ -1,0 +1,93 @@
+<InterfaceView version="1.0" asn1file="broker-error.asn">
+<Function name="Function_2" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1">
+    <Property name="Taste::coordinates" value="-39400 -50300 9500 -600"/>
+<Provided_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" queue_size="1" stack_size="1024" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="-39400 -42600"/>
+</Provided_Interface>
+
+<Required_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" queue_size="1" stack_size="1024" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="-39400 -14400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Function_1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1">
+    <Property name="Taste::coordinates" value="-131000 -52900 -86100 -1300"/>
+<Provided_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" queue_size="1" stack_size="1024" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="-86100 -16800"/>
+</Provided_Interface>
+
+<Provided_Interface name="error" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" queue_size="1" stack_size="1024" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="-122200 -52900"/>
+</Provided_Interface>
+
+<Required_Interface name="PI_1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" queue_size="1" stack_size="1024" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="-86100 -42200"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="reset" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" queue_size="1" stack_size="1024" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="-95800 -52900"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="error_manager" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1">
+    <Property name="Taste::coordinates" value="-131100 -88400 -85100 -69700"/>
+<Provided_Interface name="reset" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" queue_size="1" stack_size="1024" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="-96300 -69700"/>
+</Provided_Interface>
+
+<Required_Interface name="error" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" queue_size="1" stack_size="1024" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="-121800 -69700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="error_manager" ri_name="error"/>
+    <Target func_name="Function_1" pi_name="error"/>
+    <Property name="Taste::coordinates" value="-121800 -69100 -121800 -61200 -122200 -53200"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Function_1" ri_name="reset"/>
+    <Target func_name="error_manager" pi_name="reset"/>
+    <Property name="Taste::coordinates" value="-95800 -53500 -95800 -61400 -96300 -69400"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Function_2" ri_name="PI_1"/>
+    <Target func_name="Function_1" pi_name="PI_1"/>
+    <Property name="Taste::coordinates" value="-40000 -14400 -62900 -14400 -62900 -16800 -85800 -16800"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Function_1" ri_name="PI_1"/>
+    <Target func_name="Function_2" pi_name="PI_1"/>
+    <Property name="Taste::coordinates" value="-85500 -42200 -62600 -42200 -39700 -42600"/>
+</Connection>
+
+<Comment name="Welcome to TASTE!\n============\n\nRight click to add a function, and use Ctrl-Click to connect functions together.\n\nYou can split the screen in multiple windows using Ctrl-E-3" required_system_element="NO">
+    <Property name="Taste::coordinates" value="-73800 -90400 -32500 -74800"/>
+</Comment>
+
+<Layer name="default"/>
+
+</InterfaceView>
