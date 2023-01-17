@@ -1,8 +1,8 @@
-# Testing function with sequence type param
+# Testing function with IA5String type param
 
 **1. Steps:**
 
-* Try to build the project
+* Build and run the project
 
 Results:
 
