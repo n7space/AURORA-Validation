@@ -1,0 +1,87 @@
+<InterfaceView asn1file="linux-cpp-startup-priority-demo.acn">
+<Function name="Function_3" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1750" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="56400 20700 76400 28700"/>
+<Provided_Interface name="PI_1" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" stack_size="1024" period="1000" priority="1" wcet="0" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="56400 24800"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Function_2" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="499" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="56000 45100 76000 53100"/>
+<Provided_Interface name="PI_1" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" stack_size="1024" period="1000" priority="1" wcet="0" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="56000 49400"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Function_4" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1000" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="56300 33300 76300 41300"/>
+<Provided_Interface name="PI_1" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" stack_size="1024" period="1000" priority="1" wcet="0" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="56300 37300"/>
+</Provided_Interface>
+
+<Provided_Interface name="reportSomething" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="76300 37200"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Function_5" is_type="NO" language="SDL" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="94800 24600 124400 41100"/>
+<Provided_Interface name="doSomething" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="94800 27800"/>
+</Provided_Interface>
+
+<Required_Interface name="reportSomething" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="94800 39500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="SDL"/>
+    </Implementations>
+</Function>
+
+<Function name="Function_1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="2000" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="56700 8500 76700 16500"/>
+<Provided_Interface name="PI_1" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" stack_size="1024" period="1000" priority="1" wcet="0" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="56700 12200"/>
+</Provided_Interface>
+
+<Required_Interface name="doSomething" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="76700 11800"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Function_5" ri_name="reportSomething"/>
+    <Target func_name="Function_4" pi_name="reportSomething"/>
+    <Property name="Taste::coordinates" value="94200 39500 85500 39500 85500 37200 76600 37200"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Function_1" ri_name="doSomething"/>
+    <Target func_name="Function_5" pi_name="doSomething"/>
+    <Property name="Taste::coordinates" value="77300 11800 84700 11800 84700 27800 94500 27800"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>

@@ -1,0 +1,7 @@
+SHUTDOWN-ORDER-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+    PowerMode ::= ENUMERATED { on, off, suspended }
+
+END
+
