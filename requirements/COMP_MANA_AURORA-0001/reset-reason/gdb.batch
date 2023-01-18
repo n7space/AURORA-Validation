@@ -1,0 +1,6 @@
+load work/binaries/leon3
+run
+load work/binaries/leon3
+run
+quit
+

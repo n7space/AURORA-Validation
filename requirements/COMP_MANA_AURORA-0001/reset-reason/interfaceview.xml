@@ -1,0 +1,70 @@
+<InterfaceView asn1file="reset-reason.acn">
+<Function name="Manager" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="200">
+    <Property name="Taste::coordinates" value="148900 96300 174100 116500"/>
+<Provided_Interface name="trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" stack_size="1024" wcet="0" priority="1">
+    <Property name="Taste::coordinates" value="164100 99900"/>
+</Provided_Interface>
+
+<Provided_Interface name="r1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" queue_size="1" stack_size="1024" miat="0" wcet="0" priority="1">
+    <Property name="Taste::coordinates" value="174100 112400"/>
+</Provided_Interface>
+
+<Required_Interface name="d1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" queue_size="1" stack_size="1024" miat="0" wcet="0" priority="1">
+    <Property name="Taste::coordinates" value="174100 100100"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="d2" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" queue_size="1" stack_size="1024" miat="0" wcet="0" priority="1">
+    <Property name="Taste::coordinates" value="174100 106300"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Controller" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="100">
+    <Property name="Taste::coordinates" value="187700 95900 207700 116700"/>
+<Provided_Interface name="d1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" queue_size="1" stack_size="1024" miat="0" wcet="0" priority="1">
+    <Property name="Taste::coordinates" value="187700 100100"/>
+</Provided_Interface>
+
+<Provided_Interface name="d2" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" queue_size="1" stack_size="1024" miat="0" wcet="0" priority="1">
+    <Property name="Taste::coordinates" value="187700 106400"/>
+</Provided_Interface>
+
+<Required_Interface name="r1" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" queue_size="1" stack_size="1024" miat="0" wcet="0" priority="1">
+    <Property name="Taste::coordinates" value="187700 112300"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Manager" ri_name="d1"/>
+    <Target func_name="Controller" pi_name="d1"/>
+    <Property name="Taste::coordinates" value="174700 100100 187400 100100"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Controller" ri_name="r1"/>
+    <Target func_name="Manager" pi_name="r1"/>
+    <Property name="Taste::coordinates" value="187100 112300 180800 112300 174400 112400"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Manager" ri_name="d2"/>
+    <Target func_name="Controller" pi_name="d2"/>
+    <Property name="Taste::coordinates" value="174700 106300 181000 106300 187400 106400"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>
