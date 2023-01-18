@@ -1,0 +1,10 @@
+Initialization
+ResetReason: POWER
+Manager starting up on power reset
+Controller starting up on power reset
+Inducing software failure
+Initialization
+ResetReason: RESET
+Manager starting up on processor reset
+Controller starting up on processor reset
+Inducing software failure
