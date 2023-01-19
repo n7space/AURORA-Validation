@@ -1,0 +1,284 @@
+[
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms",
+            "-I../src",
+            "-I../../dataview/C",
+            "-I../..",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/calculate_pid_QGenC.QGenC.o",
+            "calculate_pid_QGenC.QGenC.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms/wrappers",
+        "file": "calculate_pid_QGenC.QGenC.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms",
+            "-I../src",
+            "-I../../dataview/C",
+            "-I../..",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/algorithms_invoke_ri.o",
+            "algorithms_invoke_ri.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms/wrappers",
+        "file": "algorithms_invoke_ri.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/timeInMS.o",
+            "timeInMS.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/dataview/C",
+        "file": "timeInMS.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/qgen_base_workspace.o",
+            "qgen_base_workspace.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms/src",
+        "file": "qgen_base_workspace.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/asn1crt_encoding.o",
+            "asn1crt_encoding.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/dataview/C",
+        "file": "asn1crt_encoding.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/asn1crt_encoding_acn.o",
+            "asn1crt_encoding_acn.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/dataview/C",
+        "file": "asn1crt_encoding_acn.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms",
+            "-I../src",
+            "-I../../dataview/C",
+            "-I../..",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/algorithms_vm_if.o",
+            "algorithms_vm_if.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms/wrappers",
+        "file": "algorithms_vm_if.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/asn1crt.o",
+            "asn1crt.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/dataview/C",
+        "file": "asn1crt.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/calculate_pid.o",
+            "calculate_pid.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms/src",
+        "file": "calculate_pid.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/controller",
+            "-I../src",
+            "-I../../dataview/C",
+            "-I../..",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/controller_invoke_ri.o",
+            "controller_invoke_ri.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/controller/wrappers",
+        "file": "controller_invoke_ri.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/calculate_mppt.o",
+            "calculate_mppt.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms/src",
+        "file": "calculate_mppt.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/debug_messages.o",
+            "debug_messages.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/dataview/C",
+        "file": "debug_messages.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/controller",
+            "-I../../dataview/C",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/controller.o",
+            "controller.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/controller/src",
+        "file": "controller.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms",
+            "-I../src",
+            "-I../../dataview/C",
+            "-I../..",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/calculate_mppt_QGenC.QGenC.o",
+            "calculate_mppt_QGenC.QGenC.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms/wrappers",
+        "file": "calculate_mppt_QGenC.QGenC.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/controller",
+            "-I../src",
+            "-I../../dataview/C",
+            "-I../..",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/controller_vm_if.o",
+            "controller_vm_if.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/controller/wrappers",
+        "file": "controller_vm_if.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/dataview-uniq.o",
+            "dataview-uniq.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/dataview/C",
+        "file": "dataview-uniq.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I../dataview/C",
+            "-I../controller/src",
+            "-I../controller/wrappers",
+            "-I../algorithms/src",
+            "-I../algorithms/wrappers",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/main.o",
+            "main.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/application",
+        "file": "main.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/PrintTypesAsASN1.o",
+            "PrintTypesAsASN1.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/dataview/C",
+        "file": "PrintTypesAsASN1.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/controller",
+            "-I../src",
+            "-I../../dataview/C",
+            "-I../..",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/C_ASN1_Types.o",
+            "C_ASN1_Types.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/controller/wrappers",
+        "file": "C_ASN1_Types.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/qgen_entry_calculate_mppt.o",
+            "qgen_entry_calculate_mppt.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms/src",
+        "file": "qgen_entry_calculate_mppt.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/asn1crt_encoding_uper.o",
+            "asn1crt_encoding_uper.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/dataview/C",
+        "file": "asn1crt_encoding_uper.c"
+    },
+    {
+        "arguments": [
+            "gcc",
+            "-c",
+            "-I/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms",
+            "-o",
+            "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/objs/qgen_entry_calculate_pid.o",
+            "qgen_entry_calculate_pid.c"
+        ],
+        "directory": "/home/taste/projects/AURORA-Validation/requirements/AUR-CBI-INT-0070/standalone-project/src/algorithms/src",
+        "file": "qgen_entry_calculate_pid.c"
+    }
+]
