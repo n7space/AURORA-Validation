@@ -1,5 +1,5 @@
 export CC = gcc
-export CFLAGS =
+export CFLAGS = -O0 -g -fno-omit-frame-pointer
 export LIBS =
 export LDFLAGS =
 
@@ -22,8 +22,6 @@ dirs:
 	@mkdir -p $(OBJDIR)
 	@mkdir -p $(LIBDIR)
 	@mkdir -p $(BINDIR)
-
-include .depend
 
 clean: $(SUBDIRS_CLEAN)
 	@rm -rf $(OBJDIR) $(LIBDIR) $(BINDIR)

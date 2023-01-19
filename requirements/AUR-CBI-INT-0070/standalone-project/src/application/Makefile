@@ -1,5 +1,5 @@
 CFLAGS += -I../dataview/C -I../controller/src -I../controller/wrappers -I../algorithms/src -I../algorithms/wrappers
-LIBS += -Wl,--start-group -lcontroller_wrappers -lcontroller -Wl,--end-group -Wl,--start-group -lalgorithms_wrappers -Wl,--start-group -lalgorithms -ldataview
+LIBS += -Wl,--start-group -lcontroller_wrappers -lcontroller -Wl,--end-group -Wl,--start-group -lalgorithms_wrappers -Wl,--start-group -lalgorithms -ldataview -lm
 LDFLAGS += -L$(LIBDIR)
 SOURCES = main.c
 

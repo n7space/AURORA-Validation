@@ -38,22 +38,23 @@ void controller_PI_step(void)
    controller_RI_set_power_point(&solar_panel_pwm);
 
    double payload_pwm;
-   double k_p = 5.0;
-   double k_i = 3.0;
-   double k_d = 3.0;
-   double target_temperature = 25.0;
+   double k_p = 0.003;
+   double k_i = 0.002;
+   double k_d = 0.001;
+   double target_temperature;
 
    if(battery_capacity < 0.5)
    {
-       target_temperature = 250;
+       target_temperature =  310;
    }
    else
    {
-       target_temperature = 350;
+       target_temperature = 340;
    }
-   if(payload_temperature < 200)
+   if(payload_temperature < 300)
    {
-       k_p = 8.0;
+       k_p = 0.002;
+       k_i = 0.001;
    }
    controller_RI_calculate_pid(&payload_pwm,
                                &k_p,
@@ -73,5 +74,3 @@ void controller_PI_step(void)
 
    controller_RI_controller_status(&status);
 }
-
-

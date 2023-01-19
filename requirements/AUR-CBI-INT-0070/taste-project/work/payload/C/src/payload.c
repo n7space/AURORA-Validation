@@ -71,7 +71,7 @@ void payload_PI_step(void)
            + 20.0 * amp_100 * sin(2.0 * M_PI * ((step_count % 100) * 0.001))
            + 20.0 * amp_50 * sin(2.0 * M_PI * ((step_count % 50) * 0.02))
            + 20.0 * amp_25 * sin(2.0 * M_PI * ((step_count % 25) * 0.04))
-           + payload_flow_rate / 50.0;
+           + payload_flow_rate / 3.0;
 
    ++step_count;
    if(step_count == 100)
@@ -79,5 +79,3 @@ void payload_PI_step(void)
        step_count = 0;
    }
 }
-
-
