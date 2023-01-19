@@ -26,7 +26,7 @@ void payload_startup(void)
 {
     payload_temperature = 18.0;
     payload_flow_rate = 4.0;
-    payload_target_flow_rate = 20.0;
+    payload_target_flow_rate = 0.0;
 
     step_count = 0;
     amp_100 = 0.0;
@@ -67,11 +67,13 @@ void payload_PI_step(void)
        amp_25 = 0.2 * (rand() / (RAND_MAX - 2.0) - 1.0);
    }
 
-   payload_temperature = 300.0
+   payload_flow_rate = payload_target_flow_rate * 20;
+
+   payload_temperature = 305.0
            + 20.0 * amp_100 * sin(2.0 * M_PI * ((step_count % 100) * 0.001))
            + 20.0 * amp_50 * sin(2.0 * M_PI * ((step_count % 50) * 0.02))
            + 20.0 * amp_25 * sin(2.0 * M_PI * ((step_count % 25) * 0.04))
-           + payload_flow_rate / 3.0;
+           + payload_flow_rate / 5.0;
 
    ++step_count;
    if(step_count == 100)

@@ -62,7 +62,7 @@ void vm_controller_controller_status(asn1SccPID pid, void *status, size_t status
 
 void vm_controller_get_battery_capacity(asn1SccPID pid, void *capacity, size_t *capacity_size)
 {
-    asn1SccAuroraReal* capacity_value = (asn1SccAuroraReal*)capacity;
+    asn1SccAuroraReal *capacity_value = (asn1SccAuroraReal *)capacity;
     *capacity_value = battery_capacity;
     *capacity_size = sizeof(asn1SccAuroraReal);
 }
@@ -70,10 +70,10 @@ void vm_controller_get_battery_capacity(asn1SccPID pid, void *capacity, size_t *
 void vm_controller_get_payload_status(
         asn1SccPID pid, void *temperature, size_t *temperature_size, void *flow_rate, size_t *flow_rate_size)
 {
-    asn1SccAuroraReal* temperature_value =(asn1SccAuroraReal*)temperature;
+    asn1SccAuroraReal *temperature_value = (asn1SccAuroraReal *)temperature;
     *temperature_value = payload_temperature;
     *temperature_size = sizeof(asn1SccAuroraReal);
-    asn1SccAuroraReal* flow_rate_value = (asn1SccAuroraReal*)flow_rate;
+    asn1SccAuroraReal *flow_rate_value = (asn1SccAuroraReal *)flow_rate;
     *flow_rate_value = payload_flow_rate;
     *flow_rate_size = sizeof(asn1SccAuroraReal);
 }
@@ -81,10 +81,10 @@ void vm_controller_get_payload_status(
 void vm_controller_get_solar_panel_status(
         asn1SccPID pid, void *voltage, size_t *voltage_size, void *current, size_t *current_size)
 {
-    asn1SccAuroraReal* voltage_value = (asn1SccAuroraReal*)voltage;
+    asn1SccAuroraReal *voltage_value = (asn1SccAuroraReal *)voltage;
     *voltage_value = solar_panel_voltage;
     *voltage_size = sizeof(asn1SccAuroraReal);
-    asn1SccAuroraReal* current_value =(asn1SccAuroraReal*)current;
+    asn1SccAuroraReal *current_value = (asn1SccAuroraReal *)current;
     *current_value = solar_panel_current;
     *current_size = sizeof(asn1SccAuroraReal);
 }
@@ -105,8 +105,6 @@ void vm_controller_set_power_point(asn1SccPID pid, void *pwm, size_t pwm_size)
         printf("Invalid data in set_power_point\n");
     } else {
         solar_panel_pwm = *((asn1SccAuroraReal *)pwm);
-        /* if(solar_panel_pwm < 0.0) solar_panel_pwm = 0.0; */
-        /* if(solar_panel_pwm > 1.0) solar_panel_pwm = 1.0; */
     }
 }
 
@@ -177,13 +175,11 @@ void application_step()
     solar_panel_voltage +=
             2.5 * electric_power_supply_amp_5 * sin(2 * M_PI * ((electric_power_supply_step_count % 5) * 0.2));
 
-    // todo power curve
     double power = sin(M_PI * solar_panel_pwm * solar_panel_pwm);
-    //printf("Power %f pwm %f\n", power, solar_panel_pwm);
     solar_panel_current = power * solar_panel_voltage / 20.0;
 
     double outpower = flow_rate_value * 3.0;
-    // todo flow_rate power
+
     battery_capacity += (power - outpower) / 1000.0;
 
     if (battery_capacity < 0.0) {
@@ -197,7 +193,6 @@ void application_step()
     if (electric_power_supply_step_count == 40) {
         electric_power_supply_step_count = 0;
     }
-
 
     if (payload_step_count == 0) {
         payload_amp_100 = 0.5 * (rand() / (RAND_MAX - 2.0) - 1.0);
@@ -221,9 +216,6 @@ void application_step()
     if (payload_step_count == 100) {
         payload_step_count = 0;
     }
-
-    //printf("Electric power supply, PWM %f, battery %f, voltage %f, current %f\n", solar_panel_pwm, battery_capacity, solar_panel_voltage, solar_panel_current);
-    //printf("Payload, temp %f, rate %f, target %f\n", payload_temperature, payload_flow_rate, payload_target_flow_rate);
 }
 
 useconds_t calculate_sleep_time(struct timeval *start_tv, struct timeval *end_tv)
