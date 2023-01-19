@@ -1,0 +1,42 @@
+<InterfaceView version="1.0" asn1file="booleanparam.asn">
+<Function name="Controller" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="17500 32500 37500 40500"/>
+<Provided_Interface name="Trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" period="1000" stack_size="1024" priority="1" dispatch_offset="0" wcet="0">
+    <Property name="Taste::coordinates" value="27000 32500"/>
+</Provided_Interface>
+
+<Required_Interface name="Iface" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Input_Parameter name="input" type="MyBool" encoding="NATIVE"/>
+    <Output_Parameter name="output" type="MyBool" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="37500 36700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="QGenC" is_type="NO" language="QGenC" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="53400 27900 73400 35900"/>
+<Provided_Interface name="Iface" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Input_Parameter name="input" type="MyBool" encoding="NATIVE"/>
+    <Output_Parameter name="output" type="MyBool" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="53400 30700"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="QGenC"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Controller" ri_name="Iface"/>
+    <Target func_name="QGenC" pi_name="Iface"/>
+    <Property name="Taste::coordinates" value="38100 36700 45600 36700 45600 30700 53100 30700"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>
