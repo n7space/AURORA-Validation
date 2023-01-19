@@ -8,7 +8,7 @@
     !! file. The up-to-date signatures can be found in the .ads file.   !!
 */
 #include "error_manager.h"
-//#include <stdio.h>
+
 
 #include "Broker.h"
 
@@ -20,9 +20,6 @@ static void error_manager_broker_error_detected(const Broker_ErrorType err, uint
 void error_manager_startup(void)
 {
     Broker_register_error_callback(&error_manager_broker_error_detected);
-   // Write your initialisation code
-   // You may call sporadic required interfaces and start timers
-   // puts ("[error_manager] Startup");
 }
 
 void error_manager_PI_reset(void)
