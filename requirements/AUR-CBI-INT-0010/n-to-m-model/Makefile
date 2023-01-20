@@ -18,7 +18,7 @@ SPACECREATOR?=spacecreator.AppImage
 export NO_PROGRESS_BAR=1
 
 # Get the list of ASN.1 files from Space Creator project file:
-DISTFILES=$(shell qmake layers-model.pro -o /tmp/null 2>&1)
+DISTFILES=$(shell qmake linux-cpp-n-2-m-demo.pro -o /tmp/null 2>&1)
 ASN1_FILES=$(shell find ${DISTFILES} 2>/dev/null | egrep '\.asn$$|\.asn1$$')
 
 all:	test
@@ -26,6 +26,8 @@ all:	test
 include Makefile.modelcheck
 
 test:	linux release
+	./work/binaries/partition_1 > test.log
+	grep -q "n to m test - OK" test.log && ! grep -q "ERROR" test.log
 
 release:	work/glue_release
 	rm -rf work/glue_debug
@@ -55,10 +57,10 @@ edit_cv:
 
 # Simulation target (experimental - for systems made of SDL functions only)
 simu:	
-	if [ -f work/glue_debug ] || [ -f work/glue_release ] || [ -f work/glue_coverage ]; then $(MAKE) clean; fi
 	$(MAKE) interfaceview work/glue_simu
 	$(MAKE) -C work
 	$(MAKE) -C work/simulation -f Makefile.Simulation simu
+
 
 # Simulation and model checking: shortcut to create observer.asn
 observer_dataview:
@@ -121,15 +123,12 @@ DataView.aadl: ${ASN1_FILES}
 	taste-update-data-view $^
 
 clean:
-	rm -rf work/build work/dataview work/glue_simu
+	rm -rf work/build work/dataview work/glue_simu work/binaries work/Dump work/Debug
+	rm -f work/Makefile work/taste.pro work/system.asn test.log
 	rm -f *.aadl  # Interface and Deployment views in AADL are generated
 	rm -f work/glue_release work/glue_debug work/glue_coverage work/skeletons_built
 	find work -type d -name "wrappers" -exec rm -rf {} + || :
 	find work -type d -name "*_GUI" -exec rm -rf {} + || :
-	find work -type d -path "*/QGenC/xmi" -exec rm -rf {} + || : 
-	find work -type d -path "*/QGenC/src/.qgeninfo" -exec rm -rf {} + || : 
-	find work -type f -path "*/QGenC/src/*.h" -exec rm -f {} + || : 
-	find work -type f -path "*/QGenC/src/*.c" -exec rm -f {} + || : 
 
 .PHONY: clean release debug coverage skeletons simu run
 

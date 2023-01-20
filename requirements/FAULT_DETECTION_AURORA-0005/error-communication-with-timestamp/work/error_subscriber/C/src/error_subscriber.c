@@ -35,7 +35,7 @@ void error_subscriber_PI_Error_receive
 
     time = SEC_TO_NS((uint64_t)seconds) + (uint64_t)nanoseconds;
 
-    printf("Error Reveived:\n");
+    printf("Error Received:\n");
     printf("  error id =       %ld\n", IN_errormessage->id);
     printf("  timestamp =      %ld\n", time);
     printf("  function PID =   %d\n", IN_errormessage->function_status.id);

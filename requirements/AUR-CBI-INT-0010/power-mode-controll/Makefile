@@ -18,7 +18,7 @@ SPACECREATOR?=spacecreator.AppImage
 export NO_PROGRESS_BAR=1
 
 # Get the list of ASN.1 files from Space Creator project file:
-DISTFILES=$(shell qmake layers-model.pro -o /tmp/null 2>&1)
+DISTFILES=$(shell qmake power-mode-controll.pro -o /tmp/null 2>&1)
 ASN1_FILES=$(shell find ${DISTFILES} 2>/dev/null | egrep '\.asn$$|\.asn1$$')
 
 all:	test
@@ -121,7 +121,8 @@ DataView.aadl: ${ASN1_FILES}
 	taste-update-data-view $^
 
 clean:
-	rm -rf work/build work/dataview work/glue_simu
+	rm -rf work/build work/dataview work/glue_simu work/binaries work/Dump work/Debug
+	rm -f work/Makefile work/taste.pro work/system.asn
 	rm -f *.aadl  # Interface and Deployment views in AADL are generated
 	rm -f work/glue_release work/glue_debug work/glue_coverage work/skeletons_built
 	find work -type d -name "wrappers" -exec rm -rf {} + || :
