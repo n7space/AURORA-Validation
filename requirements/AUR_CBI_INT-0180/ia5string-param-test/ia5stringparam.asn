@@ -1,0 +1,8 @@
+IA5STRINGPARAM-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+   MyInteger ::= INTEGER (0 .. 10000)
+   MyIA5String ::= IA5String (SIZE(1..100))
+
+END
+
