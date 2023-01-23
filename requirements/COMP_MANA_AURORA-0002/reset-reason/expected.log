@@ -1,7 +1,7 @@
 Initialization
 ResetReason: POWER
-Manager starting up on power reset
-Controller starting up on power reset
+Manager starting up on power-on reset
+Controller starting up on power-on reset
 Inducing software failure
 Initialization
 ResetReason: RESET
