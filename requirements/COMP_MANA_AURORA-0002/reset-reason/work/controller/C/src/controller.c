@@ -21,7 +21,7 @@ static void startup_on_processor_reset()
 
 static void startup_on_power_reset()
 {
-   print_rtems("Controller starting up on power reset\n");
+   print_rtems("Controller starting up on power-on reset\n");
 }
 
 void controller_startup(void)

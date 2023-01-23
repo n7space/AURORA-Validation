@@ -28,7 +28,7 @@ static void startup_on_processor_reset()
 
 static void startup_on_power_reset()
 {
-    print_rtems("Manager starting up on power reset\n");
+    print_rtems("Manager starting up on power-on reset\n");
 }
 
 void manager_startup(void)
