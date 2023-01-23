@@ -19,6 +19,7 @@ void controller_startup(void)
 void controller_PI_error(void)
 {
    printf("* COMMUNICATION ERROR *\n");
+   fflush(stdout);
 }
 
 void controller_PI_tc
