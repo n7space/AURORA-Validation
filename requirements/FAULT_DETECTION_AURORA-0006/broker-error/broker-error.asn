@@ -1,0 +1,18 @@
+BROKER-ERROR-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+   MyInteger ::= INTEGER (0 .. 10000)
+
+   TMPacket ::= SEQUENCE {
+      dummy1 MyInteger,
+      dummy2 MyInteger
+   }
+
+   TCPacket ::= SEQUENCE {
+      dummy1 MyInteger,
+      dummy2 MyInteger
+   }
+
+
+END
+

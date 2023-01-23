@@ -1,0 +1,97 @@
+<InterfaceView version="1.0" asn1file="broker-error.asn">
+<Function name="error_manager" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1">
+    <Property name="Taste::coordinates" value="-131100 -88400 -85100 -69700"/>
+<Provided_Interface name="reset" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" queue_size="1" miat="0" stack_size="1024">
+    <Property name="Taste::coordinates" value="-96300 -69700"/>
+</Provided_Interface>
+
+<Required_Interface name="error" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" queue_size="1" miat="0" stack_size="1024">
+    <Property name="Taste::coordinates" value="-121800 -69700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="controller" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1">
+    <Property name="Taste::coordinates" value="-131000 -52900 -86100 -1300"/>
+<Provided_Interface name="tc" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" queue_size="1" miat="0" stack_size="1024">
+    <Input_Parameter name="p1" type="TCPacket" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-86100 -14800"/>
+</Provided_Interface>
+
+<Provided_Interface name="error" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" queue_size="1" miat="0" stack_size="1024">
+    <Property name="Taste::coordinates" value="-122200 -52900"/>
+</Provided_Interface>
+
+<Required_Interface name="tm" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" queue_size="1" miat="0" stack_size="1024">
+    <Input_Parameter name="p1" type="TMPacket" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-86100 -42200"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="reset" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" queue_size="1" miat="0" stack_size="1024">
+    <Property name="Taste::coordinates" value="-95800 -52900"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="mmi" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1">
+    <Property name="Taste::coordinates" value="-39400 -50300 9500 -600"/>
+<Provided_Interface name="tm" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" queue_size="1" miat="0" stack_size="1024">
+    <Input_Parameter name="p1" type="TMPacket" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-39400 -42600"/>
+</Provided_Interface>
+
+<Required_Interface name="tc" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" wcet="0" queue_size="1" miat="0" stack_size="1024">
+    <Input_Parameter name="p1" type="TCPacket" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-39400 -14400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="error_manager" ri_name="error"/>
+    <Target func_name="controller" pi_name="error"/>
+    <Property name="Taste::coordinates" value="-121800 -69100 -121800 -61200 -122200 -53200"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="controller" ri_name="reset"/>
+    <Target func_name="error_manager" pi_name="reset"/>
+    <Property name="Taste::coordinates" value="-95800 -53500 -95800 -61400 -96300 -69400"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="mmi" ri_name="tc"/>
+    <Target func_name="controller" pi_name="tc"/>
+    <Property name="Taste::coordinates" value="-40000 -14400 -62900 -14400 -85800 -14800"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="controller" ri_name="tm"/>
+    <Target func_name="mmi" pi_name="tm"/>
+    <Property name="Taste::coordinates" value="-85500 -42200 -62600 -42200 -39700 -42600"/>
+</Connection>
+
+<Comment name="Error reporting demo project:\n\n* Compile the project in terminal using the following command:\n$ make deploymentview debug\n\n* Run only the partition_2 in terminal:\n$ ./work/binaries/partition_2\n\n* The partition_2 shall start and listen on port 3333 tcp\n[TASTE] Initialization completed for function error_manager\n[TASTE] Initialization completed for function controller\n\n* Using second terminal send invalid packet to port 3333 using netcat:\n$ echo -n -e &quot;\x00a\xff&quot; | nc 127.0.0.1 3333\n\n* On the first terminal the partition_2 shall report an error:\n* COMMUNICATION ERROR *\n" required_system_element="NO">
+    <Property name="Taste::coordinates" value="-78500 -82300 5700 -55500"/>
+</Comment>
+
+<Layer name="default"/>
+
+</InterfaceView>
