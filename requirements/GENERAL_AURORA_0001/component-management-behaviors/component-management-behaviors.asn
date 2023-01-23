@@ -1,0 +1,17 @@
+COMPONENT-MANAGEMENT-BEHAVIORS-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+   ComponentStatus ::= ENUMERATED { on, off, suspended }
+
+   MyInteger ::= INTEGER (0 .. 10000)
+   MyReal ::= REAL (0.0 .. 1000.0)
+   MyBool ::= BOOLEAN
+
+   MySeq   ::= SEQUENCE {
+      integerData  MyInteger,
+      realData MyReal,
+      boolData MyBool
+   }
+
+END
+
