@@ -13,8 +13,6 @@
 
 void controller_startup(void)
 {
-   // Write your initialisation code, but DO NOT CALL REQUIRED INTERFACES
-   // puts ("[Controller] Startup");
 }
 
 void controller_PI_Trigger(void)
