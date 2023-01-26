@@ -14,9 +14,7 @@
 
 void environment_startup(void)
 {
-   // Write your initialisation code
-   // You may call sporadic required interfaces and start timers
-   // puts ("[Environment] Startup");
+
 }
 
 void environment_PI_Trigger()

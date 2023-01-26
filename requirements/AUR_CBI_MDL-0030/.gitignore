@@ -13,3 +13,8 @@ taste.pro
 *.msc
 
 timeservice.pro
+
+work/timeservice/implem/default/C/Makefile
+work/system_post.asn
+work/environment/implem/default/environment.pro
+work/environment/environment.pro
