@@ -1,0 +1,96 @@
+<InterfaceView asn1file="power-mode-controll.acn">
+<Function name="Component" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="22300 24300 42300 46000"/>
+<Provided_Interface name="powerOn" kind="Protected" enable_multicast="true" layer="Component_management" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="42300 27400"/>
+</Provided_Interface>
+
+<Provided_Interface name="powerOff" kind="Protected" enable_multicast="true" layer="Component_management" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="42300 32100"/>
+</Provided_Interface>
+
+<Provided_Interface name="resume" kind="Protected" enable_multicast="true" layer="Component_management" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="42300 37400"/>
+</Provided_Interface>
+
+<Provided_Interface name="suspend" kind="Protected" enable_multicast="true" layer="Component_management" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="42300 42700"/>
+</Provided_Interface>
+
+<Provided_Interface name="trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" dispatch_offset="0" stack_size="1024" period="250" priority="1" wcet="0">
+    <Property name="Taste::coordinates" value="29000 24300"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="PowerMode" archetype_function="Powered_Component"/>
+</Function>
+
+<Function name="Controller" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="69400 24200 89400 47000"/>
+<Provided_Interface name="trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" dispatch_offset="100" stack_size="1024" period="2000" priority="1" wcet="0">
+    <Property name="Taste::coordinates" value="77800 25200"/>
+</Provided_Interface>
+
+<Required_Interface name="powerOn" kind="Protected" enable_multicast="true" layer="Component_management" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="69400 27500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="powerOff" kind="Protected" enable_multicast="true" layer="Component_management" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="69400 32200"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="resume" kind="Protected" enable_multicast="true" layer="Component_management" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="69400 37500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="suspend" kind="Protected" enable_multicast="true" layer="Component_management" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="69400 42700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Controller" ri_name="resume"/>
+    <Target func_name="Component" pi_name="resume"/>
+    <Property name="Taste::coordinates" value="68800 37500 42600 37400"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Controller" ri_name="powerOff"/>
+    <Target func_name="Component" pi_name="powerOff"/>
+    <Property name="Taste::coordinates" value="68800 32200 42600 32100"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Controller" ri_name="powerOn"/>
+    <Target func_name="Component" pi_name="powerOn"/>
+    <Property name="Taste::coordinates" value="68800 27500 42600 27400"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Controller" ri_name="suspend"/>
+    <Target func_name="Component" pi_name="suspend"/>
+    <Property name="Taste::coordinates" value="68800 42700 42600 42700"/>
+</Connection>
+
+<Layer name="Component_management"/>
+
+<Layer name="default"/>
+
+<ArchetypeLibraryReference archetype_library="PowerMode" path="power_mode_lib.xml"/>
+
+</InterfaceView>

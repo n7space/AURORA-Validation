@@ -1,0 +1,124 @@
+<InterfaceView version="1.0" asn1file="layers-model.acn">
+<Function name="SampleFunction" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1">
+    <Property name="Taste::coordinates" value="20900 25900 40900 66800"/>
+<Provided_Interface name="Interface2" kind="Protected" is_visible="true" enable_multicast="true" layer="Layer2" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="40900 41400"/>
+</Provided_Interface>
+
+<Provided_Interface name="Interface4" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" queue_size="1" stack_size="1024" miat="0" priority="1">
+    <Property name="Taste::coordinates" value="40900 54900"/>
+</Provided_Interface>
+
+<Provided_Interface name="Cyclic" kind="Cyclic" is_visible="true" enable_multicast="true" layer="Layer1" required_system_element="NO" wcet="0" stack_size="1024" priority="1">
+    <Property name="Taste::coordinates" value="30600 25900"/>
+</Provided_Interface>
+
+<Provided_Interface name="SporadicInterface" kind="Sporadic" is_visible="true" enable_multicast="true" layer="Layer1" required_system_element="NO" wcet="0" queue_size="1" stack_size="1024" miat="0" priority="1">
+    <Property name="Taste::coordinates" value="20900 34100"/>
+</Provided_Interface>
+
+<Required_Interface name="Interface1" kind="Sporadic" is_visible="true" enable_multicast="true" layer="Layer1" required_system_element="NO" wcet="0" queue_size="1" stack_size="1024" miat="0" priority="1">
+    <Property name="Taste::coordinates" value="40900 34000"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="Interface3" kind="Unprotected" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="40900 47900"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="ProtectedInterface" kind="Protected" is_visible="true" enable_multicast="true" layer="Layer2" required_system_element="NO">
+    <Property name="Taste::coordinates" value="20900 40300"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="Interface5" kind="Protected" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO">
+    <Property name="Taste::coordinates" value="40600 62000"/>
+    <Property name="Taste::InheritPI" value="false"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="OtherSampleFunction" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1">
+    <Property name="Taste::coordinates" value="72400 26000 92400 66600"/>
+<Provided_Interface name="Interface1" kind="Sporadic" is_visible="true" enable_multicast="true" layer="Layer1" required_system_element="NO" wcet="0" queue_size="1" stack_size="1024" miat="0" priority="1">
+    <Property name="Taste::coordinates" value="72400 34100"/>
+</Provided_Interface>
+
+<Provided_Interface name="Interface3" kind="Unprotected" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="72400 47900"/>
+</Provided_Interface>
+
+<Provided_Interface name="CyclicDefault" kind="Cyclic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" stack_size="1024" priority="1">
+    <Property name="Taste::coordinates" value="82700 26000"/>
+</Provided_Interface>
+
+<Provided_Interface name="UnprotectedInterface" kind="Unprotected" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="92400 48600"/>
+</Provided_Interface>
+
+<Provided_Interface name="Interface5" kind="Protected" is_visible="true" enable_multicast="true" layer="Layer1" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="72400 61900"/>
+</Provided_Interface>
+
+<Required_Interface name="Interface2" kind="Protected" is_visible="true" enable_multicast="true" layer="Layer2" required_system_element="NO" wcet="0">
+    <Property name="Taste::coordinates" value="72400 41500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="Interface4" kind="Sporadic" is_visible="true" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" queue_size="1" stack_size="1024" miat="0" priority="1">
+    <Property name="Taste::coordinates" value="72400 55000"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  name="SampleFunction_Interface1____OtherSampleFunction_Interface1" is_visible="true" required_system_element="NO">
+    <Source func_name="SampleFunction" ri_name="Interface1"/>
+    <Target func_name="OtherSampleFunction" pi_name="Interface1"/>
+    <Property name="Taste::coordinates" value="41500 34000 72100 34100"/>
+</Connection>
+
+<Connection  name="OtherSampleFunction_Interface2____SampleFunction_Interface2" is_visible="true" required_system_element="NO">
+    <Source func_name="OtherSampleFunction" ri_name="Interface2"/>
+    <Target func_name="SampleFunction" pi_name="Interface2"/>
+    <Property name="Taste::coordinates" value="71800 41500 41200 41400"/>
+</Connection>
+
+<Connection  is_visible="true" required_system_element="NO">
+    <Source func_name="SampleFunction" ri_name="Interface5"/>
+    <Target func_name="OtherSampleFunction" pi_name="Interface5"/>
+    <Property name="Taste::coordinates" value="41500 62000 56800 62000 72100 61900"/>
+</Connection>
+
+<Connection  name="OtherSampleFunction_Interface4____SampleFunction_Interface4" is_visible="true" required_system_element="NO">
+    <Source func_name="OtherSampleFunction" ri_name="Interface4"/>
+    <Target func_name="SampleFunction" pi_name="Interface4"/>
+    <Property name="Taste::coordinates" value="71800 55000 41200 54900"/>
+</Connection>
+
+<Connection  name="SampleFunction_Interface3____OtherSampleFunction_Interface3" is_visible="true" required_system_element="NO">
+    <Source func_name="SampleFunction" ri_name="Interface3"/>
+    <Target func_name="OtherSampleFunction" pi_name="Interface3"/>
+    <Property name="Taste::coordinates" value="41500 47900 72100 47900"/>
+</Connection>
+
+<Layer name="default"/>
+
+<Layer name="Layer1"/>
+
+<Layer name="Layer2"/>
+
+</InterfaceView>
