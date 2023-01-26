@@ -19,11 +19,11 @@ void controller_startup(void)
 
 void controller_PI_trigger(void)
 {
-    if(i == 0)
+    if(i == 4)
     {
-        controller_RI_start();
+        controller_RI_Component_start();
     }
-    else if(i == 5)
+    else if(i == 8)
     {
         controller_RI_stop();
         i = -1;
