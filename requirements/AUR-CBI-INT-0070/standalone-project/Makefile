@@ -26,4 +26,7 @@ dirs:
 clean: $(SUBDIRS_CLEAN)
 	@rm -rf $(OBJDIR) $(LIBDIR) $(BINDIR)
 
-.PHONY: all clean dirs $(SUBDIRS) $(SUBDIRS_CLEAN)
+test: all
+	./test.sh
+
+.PHONY: all clean dirs test $(SUBDIRS) $(SUBDIRS_CLEAN)

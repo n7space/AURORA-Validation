@@ -53,12 +53,14 @@ void vm_controller_controller_status(asn1SccPID pid, void *status, size_t status
 {
     if (status_size != sizeof(asn1SccAuroraControllerStatus)) {
         printf("Invalid data in status\n");
+        fflush(stdout);
     } else {
         asn1SccAuroraControllerStatus *controller_status = (asn1SccAuroraControllerStatus *)status;
         printf("Status | Temp: %03.6f | Flow: %03.6f | Capacity: %03.6f | Voltage: %03.6f | Current: %03.6f\n",
                 controller_status->payload_temperature, controller_status->payload_flow_rate,
                 controller_status->battery_capacity, controller_status->solar_panel_voltage,
                 controller_status->solar_panel_current);
+        fflush(stdout);
     }
 }
 
