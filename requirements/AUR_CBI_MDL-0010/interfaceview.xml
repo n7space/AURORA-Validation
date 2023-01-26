@@ -1,0 +1,38 @@
+<InterfaceView asn1file="AUR_CBI_MDL-0010.acn">
+<Function name="TimeService" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="20400 30000 40400 38000"/>
+<Provided_Interface name="Example" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" priority="1" miat="0" stack_size="1024" queue_size="1">
+    <Property name="Taste::coordinates" value="40400 32900"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Environment" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="62700 30900 82700 38900"/>
+<Provided_Interface name="Trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" period="1000" dispatch_offset="0" wcet="0" priority="1" stack_size="1024">
+    <Property name="Taste::coordinates" value="70600 32600"/>
+</Provided_Interface>
+
+<Required_Interface name="Example" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" priority="1" miat="0" stack_size="1024" queue_size="1">
+    <Property name="Taste::coordinates" value="62700 32900"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Environment" ri_name="Example"/>
+    <Target func_name="TimeService" pi_name="Example"/>
+    <Property name="Taste::coordinates" value="62100 32900 40700 32900"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>
