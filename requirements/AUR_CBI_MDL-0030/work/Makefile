@@ -3,7 +3,7 @@ MAKEFILE_PATH   := $(lastword $(MAKEFILE_LIST))
 TOOL_INST       := $(shell taste-config --prefix)
 OUTDIR          := $(dir $(MAKEFILE_PATH))
 TASTE_SHARED_TYPES?=${HOME}/.local/share/QtProject/QtCreator/shared_types
-ASN1_FILES      := ../AUR_CBI_MDL-0030.asn ${TOOL_INST}/share/taste-types/taste-types.asn  system.asn
+ASN1_FILES      := ../../../AURORA-Reference-Component-Set/TimeService/TimeService.asn ${TOOL_INST}/share/taste-types/taste-types.asn  system.asn
 CP_FILES        :=       # Context parameters
 DATAVIEW_PATH   := ${OUTDIR}/dataview
 DATAVIEW_UNIQ   := ${DATAVIEW_PATH}/dataview-uniq.asn
@@ -64,7 +64,7 @@ ${DATAVIEW_UNIQ}:	${ASN1_FILES}
 	sed -e '$$s/$$/\n/' -s $^ > $@
 
 # Create dataview-uniq.acn by concatenating all input files
-${DATAVIEW_ACN}:	../AUR_CBI_MDL-0030.acn
+${DATAVIEW_ACN}:	../../../AURORA-Reference-Component-Set/TimeService/TimeService.acn
 	mkdir -p ${DATAVIEW_PATH}
 	sed -e '$$s/$$/\n/' -s $^ > $@
 
