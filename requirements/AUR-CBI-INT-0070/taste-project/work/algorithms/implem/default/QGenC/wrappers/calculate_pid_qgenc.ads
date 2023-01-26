@@ -1,0 +1,14 @@
+with Interfaces.C.Extensions;
+use Interfaces.C.Extensions;
+
+package calculate_pid_QGenC is
+
+procedure Ada_Convert_From_AuroraPWM_To_native_In_calculate_pid_QGenC_output_value(pBuffer : in Interfaces.C.char_array; bytesWritten : out Integer);
+procedure Ada_Convert_From_native_To_AuroraPIDValue_In_calculate_pid_QGenC_k_p(pBuffer : Interfaces.C.char_array);
+procedure Ada_Convert_From_native_To_AuroraPIDValue_In_calculate_pid_QGenC_k_i(pBuffer : Interfaces.C.char_array);
+procedure Ada_Convert_From_native_To_AuroraPIDValue_In_calculate_pid_QGenC_k_d(pBuffer : Interfaces.C.char_array);
+procedure Ada_Convert_From_native_To_AuroraReal_In_calculate_pid_QGenC_input_value(pBuffer : Interfaces.C.char_array);
+procedure Ada_Convert_From_native_To_AuroraReal_In_calculate_pid_QGenC_target_value(pBuffer : Interfaces.C.char_array);
+procedure Ada_Execute_calculate_pid_QGenC;
+
+end calculate_pid_QGenC;
