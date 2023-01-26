@@ -1,0 +1,206 @@
+<InterfaceView version="1.1" asn1file="QGen_Tutorial.asn" mscfile="/home/taste/AURORA_UPM/QGen_Tutorial/QGen_Tutorial.msc">
+<Function id="{098672a7-a89a-4893-a125-525ea46864a1}" name="Simulated_ACS_HW" is_type="NO" language="C" default_implementation="simulated_values" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="" instances_min="1" instances_max="1">
+    <Property name="Taste::coordinates" value="27200 51000 57400 59000"/>
+<Provided_Interface id="{cdb84cb8-9071-49a5-946f-10f662267ada}" name="Read_MGM" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+    <Output_Parameter name="BBT" type="T-B-b-T" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="31500 51000"/>
+</Provided_Interface>
+
+<Provided_Interface id="{acc6defa-c256-47c0-9b86-f1c214f2e76d}" name="control_MGT" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+    <Input_Parameter name="control" type="T-Control" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="52300 51000"/>
+</Provided_Interface>
+
+<Provided_Interface id="{11b4b31c-e705-4ce8-9d29-6745a8617a01}" name="readStep" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+    <Output_Parameter name="step_value" type="T-UInteger32" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="43100 51000"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="Ada"/>
+        <Implementation name="cfs" language="C"/>
+        <Implementation name="simulated_values" language="C"/>
+        <Implementation name="uart_comm" language="C"/>
+    </Implementations>
+</Function>
+
+<Function id="{0c3527e4-1c27-488c-a0aa-506d52fd414c}" name="ACS" is_type="NO" language="SDL" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="" instances_min="1" instances_max="1">
+    <Property name="Taste::coordinates" value="27100 25300 58100 43100"/>
+    <Property name="Taste::RootCoordinates" value="14300 9700 76100 40400"/>
+<Required_Interface id="{88185da7-b616-47de-93ff-4abf8355ce79}" name="Read_MGM" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+    <Output_Parameter name="BBT" type="T-B-b-T" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="31600 43100"/>
+    <Property name="Taste::RootCoordinates" value="23500 40400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface id="{0f725447-ab71-4e40-b257-4d6a3c2ec56e}" name="control_MGT" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+    <Input_Parameter name="control" type="T-Control" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="52600 43100"/>
+    <Property name="Taste::RootCoordinates" value="65000 40400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface id="{5f5a8579-fd0c-43d5-b2cb-0ce14dabea0a}" name="TM" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" stack_size="1024" miat="0" queue_size="1" wcet="0" priority="1">
+    <Input_Parameter name="report" type="T-Telemetry" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="27100 37100"/>
+    <Property name="Taste::RootCoordinates" value="14300 28500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface id="{2a499bd8-8a57-434a-8ae0-9aa69fac8a4d}" name="readStep" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0">
+    <Output_Parameter name="step_value" type="T-UInteger32" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="42700 43100"/>
+    <Property name="Taste::RootCoordinates" value="45500 40400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Function id="{c68d7168-a88a-4ec9-8d4e-bf77eb3aafdb}" name="ACS_Algorithm" is_type="NO" language="QGenC" default_implementation="cfs" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="" instances_min="1" instances_max="1">
+    <Property name="Taste::coordinates" value="19800 11900 69500 19900"/>
+<Provided_Interface id="{20ca9144-48fb-4d34-ba36-54078c86913f}" name="Step" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="true" simulink_interface_type="Full" simulink_full_interface_ref="" wcet="0">
+    <Input_Parameter name="BBT" type="T-B-b-T" encoding="NATIVE"/>
+    <Input_Parameter name="Omega" type="T-Omega" encoding="NATIVE"/>
+    <Input_Parameter name="K_PB" type="T-Float" encoding="NATIVE"/>
+    <Input_Parameter name="K_PE" type="T-Float" encoding="NATIVE"/>
+    <Input_Parameter name="M_M" type="T-Float" encoding="NATIVE"/>
+    <Input_Parameter name="MT_Working" type="T-MT-Working" encoding="NATIVE"/>
+    <Output_Parameter name="Control" type="T-Control" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="42700 19900"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="QGenC"/>
+        <Implementation name="cfs" language="QGenC"/>
+    </Implementations>
+</Function>
+
+<Function id="{de95508c-a724-456e-bede-711f88e11e66}" name="Measurer_And_Actuator" is_type="NO" language="C" default_implementation="cfs" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="" instances_min="1" instances_max="1">
+    <Property name="Taste::coordinates" value="20100 26600 70300 34600"/>
+<Provided_Interface id="{1ff5f952-e941-4f42-b014-372dee5144b6}" name="Tick" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" stack_size="50" period="40" wcet="0" priority="1" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="23600 26600"/>
+</Provided_Interface>
+
+<Required_Interface id="{a35a298b-bb71-4065-b82e-6056f37bf88e}" name="Read_MGM" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false">
+    <Output_Parameter name="BBT" type="T-B-b-T" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="23500 34600"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface id="{4ec3ee95-b05d-4bf2-bc01-90d338c6a145}" name="control_MGT" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false">
+    <Input_Parameter name="control" type="T-Control" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="64600 34600"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface id="{2b0947fa-49ca-4854-89b1-da40c853d5b7}" name="Step" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="true" simulink_interface_type="Full" simulink_full_interface_ref="" wcet="0">
+    <Input_Parameter name="BBT" type="T-B-b-T" encoding="NATIVE"/>
+    <Input_Parameter name="Omega" type="T-Omega" encoding="NATIVE"/>
+    <Input_Parameter name="K_PB" type="T-Float" encoding="NATIVE"/>
+    <Input_Parameter name="K_PE" type="T-Float" encoding="NATIVE"/>
+    <Input_Parameter name="M_M" type="T-Float" encoding="NATIVE"/>
+    <Input_Parameter name="MT_Working" type="T-MT-Working" encoding="NATIVE"/>
+    <Output_Parameter name="Control" type="T-Control" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="42900 26600"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface id="{4de2bc1b-4008-49b9-926e-ed99949513f5}" name="TM" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false">
+    <Input_Parameter name="report" type="T-Telemetry" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="20100 28500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface id="{499c044b-a198-4fd4-bf42-c5e3ec0312f9}" name="readStep" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false">
+    <Property name="Taste::coordinates" value="44900 34600"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="Ada"/>
+        <Implementation name="cfs" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection id="{9d012e9d-2d0e-4eec-acf3-a3a0a30ffcd2}" required_system_element="NO">
+    <Source func_name="Measurer_And_Actuator" ri_name="Read_MGM"/>
+    <Target func_name="ACS" ri_name="Read_MGM"/>
+    <Property name="Taste::coordinates" value="23500 35200 23500 40100"/>
+</Connection>
+
+<Connection id="{962729b9-9a8e-48b2-a247-36640daa4e5b}" required_system_element="NO">
+    <Source func_name="Measurer_And_Actuator" ri_name="control_MGT"/>
+    <Target func_name="ACS" ri_name="control_MGT"/>
+    <Property name="Taste::coordinates" value="64600 35200 64600 37600 65000 40100"/>
+</Connection>
+
+<Connection id="{198fc43b-2e6e-413e-96e2-f66a8c80e46e}" required_system_element="NO">
+    <Source func_name="Measurer_And_Actuator" ri_name="Step"/>
+    <Target func_name="ACS_Algorithm" pi_name="Step"/>
+    <Property name="Taste::coordinates" value="42900 26000 42900 23100 42700 21800 42700 20200"/>
+</Connection>
+
+<Connection id="{94afcb9d-24a5-4de2-853c-0574c519125d}" required_system_element="NO">
+    <Source func_name="Measurer_And_Actuator" ri_name="TM"/>
+    <Target func_name="ACS" ri_name="TM"/>
+    <Property name="Taste::coordinates" value="19500 28500 14600 28500"/>
+</Connection>
+
+<Connection id="{6ca528a9-1fc5-493a-8145-3b444d247dc0}" required_system_element="NO">
+    <Source func_name="Measurer_And_Actuator" ri_name="readStep"/>
+    <Target func_name="ACS" ri_name="readStep"/>
+    <Property name="Taste::coordinates" value="44900 35200 44900 37600 45500 38500 45500 40100"/>
+</Connection>
+
+    <Implementations>
+        <Implementation name="default" language="SDL"/>
+    </Implementations>
+</Function>
+
+<Function id="{fe13c2cc-b41a-48a3-bc98-825107a5c61e}" name="MMI" is_type="NO" language="GUI" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" instances_min="1" instances_max="1">
+    <Property name="Taste::coordinates" value="-5500 51500 14500 59500"/>
+<Provided_Interface id="{4f1a2f83-e687-47d4-90d2-3c3d3fbae441}" name="TM" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" stack_size="1024" miat="0" queue_size="1" wcet="0" priority="1">
+    <Input_Parameter name="report" type="T-Telemetry" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="11600 51500"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="GUI"/>
+    </Implementations>
+</Function>
+
+<Connection id="{4b4aff64-277b-487e-9976-b4408a96990e}" required_system_element="NO">
+    <Source func_name="ACS" ri_name="readStep"/>
+    <Target func_name="Simulated_ACS_HW" pi_name="readStep"/>
+    <Property name="Taste::coordinates" value="42700 43700 42700 47200 43100 49100 43100 50700"/>
+</Connection>
+
+<Connection id="{3e0549a0-8e96-4d25-913d-03dece317114}" required_system_element="NO">
+    <Source func_name="ACS" ri_name="control_MGT"/>
+    <Target func_name="Simulated_ACS_HW" pi_name="control_MGT"/>
+    <Property name="Taste::coordinates" value="52600 43700 52600 47200 52300 49100 52300 50700"/>
+</Connection>
+
+<Connection id="{e09c38c2-8898-416d-9c53-48f6f01a9a07}" required_system_element="NO">
+    <Source func_name="ACS" ri_name="Read_MGM"/>
+    <Target func_name="Simulated_ACS_HW" pi_name="Read_MGM"/>
+    <Property name="Taste::coordinates" value="31600 43700 31500 50700"/>
+</Connection>
+
+<Connection id="{d58e58ee-47ee-4418-ade0-653f40d0008d}" required_system_element="NO">
+    <Source func_name="ACS" ri_name="TM"/>
+    <Target func_name="MMI" pi_name="TM"/>
+    <Property name="Taste::coordinates" value="26500 37100 11600 37100 11600 51200"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>
