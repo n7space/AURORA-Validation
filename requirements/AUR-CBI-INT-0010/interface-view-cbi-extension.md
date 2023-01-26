@@ -13,6 +13,7 @@ SpaceCreator was used as base for CBI model editior implementation as per [1]
 * Functions relay behavior management communication through interfaces and connections
 * All functions implement specific archetype
 * Communication handling is implemented in functions implementations
+* Above steps executed on 26/01/2023
 
 **events-communication**
 
@@ -22,6 +23,7 @@ SpaceCreator was used as base for CBI model editior implementation as per [1]
 * All functions implement specific archetype
 * EventBus function handles event dispatching
 * Event communication handling is implemented in functions implementations
+* Above steps executed on 26/01/2023
 
 **layers-model**
 
@@ -30,6 +32,7 @@ SpaceCreator was used as base for CBI model editior implementation as per [1]
 * List of layers is present in top right corner of interface view
 * Every interface has property with corresponding layer
 * It is possible to turn off/on layer visibility
+* Above steps executed on 26/01/2023
 
 **n-to-m-model**
 
@@ -38,6 +41,7 @@ SpaceCreator was used as base for CBI model editior implementation as per [1]
 * Functions implement n-to-m communication
 * Run `make` command in main project directory
 * No error logs should appear
+* Above steps executed on 26/01/2023
 
 **n-to-one-error-communication**
 
@@ -46,6 +50,7 @@ SpaceCreator was used as base for CBI model editior implementation as per [1]
 * Functions relay error communication through interfaces and connections
 * All functions implement specific archetype
 * Error communication handling is implemented in functions implementations
+* Above steps executed on 26/01/2023
 
 **power-mode-controll**
 
@@ -54,4 +59,5 @@ SpaceCreator was used as base for CBI model editior implementation as per [1]
 * Functions relay power mode controll communication through interfaces and connections
 * All functions implement specific archetype
 * Communication handling is implemented in functions implementations
+* Above steps executed on 26/01/2023
 
