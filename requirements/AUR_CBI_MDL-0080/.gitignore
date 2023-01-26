@@ -19,4 +19,5 @@ work/system_post.asn
 work/timeservice/implem/default/C/Makefile
 work/environment/environment.pro
 work/environment/implem/default/environment.pro
+work/timeservice/C/src/timeservice.h
 work/timeservice/implem/default/C/src/timeservice.h
