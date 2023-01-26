@@ -8,19 +8,16 @@
     !! file. The up-to-date signatures can be found in the .ads file.   !!
 */
 #include "environment.h"
-//#include <stdio.h>
-
+#include "logs.h"
 
 void environment_startup(void)
 {
-   // Write your initialisation code
-   // You may call sporadic required interfaces and start timers
-   // puts ("[Environment] Startup");
+
 }
 
-void environment_PI_Trigger(void)
+void environment_PI_Trigger()
 {
-   // Write your code here
+   asn1SccULongInteger nseconds;
+   timeservice_PI_ObetTime(&nseconds);
+   LOG_VARIABLE_ENDL("Nanoseconds from start: ", nseconds);
 }
-
-

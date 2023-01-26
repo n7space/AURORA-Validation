@@ -3,7 +3,9 @@
 **1. Steps:**
 
 * Build the project with "make" command
+* Run ./work/binaries/demo file
 
 **2. Expected results:**
 
-* The project should succesfully build
+* Project should succesfully build
+* The running binary should output logs in a loop with the number of nanoseconds elapsed from the start of the program

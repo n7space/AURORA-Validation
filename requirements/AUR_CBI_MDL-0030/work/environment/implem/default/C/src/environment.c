@@ -9,8 +9,6 @@
 */
 #include "environment.h"
 #include "logs.h"
-//#include <stdio.h>
-
 
 void environment_startup(void)
 {

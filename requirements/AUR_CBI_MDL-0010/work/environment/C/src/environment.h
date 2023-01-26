@@ -20,7 +20,22 @@ void environment_startup(void);
 void environment_PI_Trigger( void );
 
 /* Required interfaces */
-extern void environment_RI_Example( void );
+extern void environment_RI_CfsTimestamp( const asn1SccULongInteger *, asn1SccCfsTimestamp * );
+
+
+extern void environment_RI_CfsTimestampCmp( const asn1SccCfsTimestamp *, const asn1SccCfsTimestamp *, asn1SccComparisonResult * );
+
+
+extern void environment_RI_ClockStatus( asn1SccClockStatusEnum * );
+
+
+extern void environment_RI_CucTimestamp( const asn1SccULongInteger *, asn1SccCucTimestamp * );
+
+
+extern void environment_RI_CucTimestampCmp( const asn1SccCucTimestamp *, const asn1SccCucTimestamp *, asn1SccComparisonResult * );
+
+
+extern void environment_RI_ObetTime( asn1SccULongInteger * );
 
 
 #ifdef __cplusplus
