@@ -3,10 +3,8 @@
 **1. Steps:**
 
 * Build the project with "make leon3 release" command
-* Run the followind commands:
-
-    n7s-sis -gdb -port 1222 -leon3 -uart1 stdio ../work/binaries/partition_1 &
-    sparc-rtems6-gdb -x gdb.txt ../work/binaries/partition_1
+* Go to the "scripts" directory
+* Execute script ./leon-run.sh
 
 **2. Expected results:**
 
