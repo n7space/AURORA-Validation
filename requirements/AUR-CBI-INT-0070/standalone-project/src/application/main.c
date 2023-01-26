@@ -10,6 +10,8 @@
 #include <time.h>
 #include <unistd.h>
 
+#define MEGA 1000000L
+
 static double flow_rate_value;
 static double battery_capacity;
 static double solar_panel_voltage;
@@ -123,8 +125,7 @@ asn1SccPID algorithms_calculate_pid_get_sender()
     return PID_controller;
 }
 
-// application
-void init_application()
+void init_eps()
 {
     srand(time(NULL));
     flow_rate_value = 0.0;
@@ -138,7 +139,10 @@ void init_application()
     electric_power_supply_amp_20 = 0.0;
     electric_power_supply_amp_10 = 0.0;
     electric_power_supply_amp_5 = 0.0;
+}
 
+void init_payload()
+{
     payload_temperature = 18.0;
     payload_flow_rate = 4.0;
     payload_target_flow_rate = 0.0;
@@ -149,7 +153,14 @@ void init_application()
     payload_amp_25 = 0.0;
 }
 
-void application_step()
+// application
+void init_application()
+{
+    init_eps();
+    init_payload();
+}
+
+void eps_calculate_random_coefficients()
 {
     if (electric_power_supply_step_count == 0) {
         electric_power_supply_amp_40 = 0.8 * (rand() / (RAND_MAX - 2.0) - 1.0);
@@ -163,7 +174,10 @@ void application_step()
     if (electric_power_supply_step_count % 5 == 0) {
         electric_power_supply_amp_5 = 0.2 * (rand() / (RAND_MAX - 2.0) - 1.0);
     }
+}
 
+void eps_simulate_solar_panel_voltage()
+{
     solar_panel_voltage = 5.0;
 
     solar_panel_voltage +=
@@ -174,6 +188,12 @@ void application_step()
             2.5 * electric_power_supply_amp_10 * sin(2 * M_PI * ((electric_power_supply_step_count % 10) * 0.1));
     solar_panel_voltage +=
             2.5 * electric_power_supply_amp_5 * sin(2 * M_PI * ((electric_power_supply_step_count % 5) * 0.2));
+}
+
+void eps_step()
+{
+    eps_calculate_random_coefficients();
+    eps_simulate_solar_panel_voltage();
 
     double power = sin(M_PI * solar_panel_pwm * solar_panel_pwm);
     solar_panel_current = power * solar_panel_voltage / 20.0;
@@ -193,7 +213,10 @@ void application_step()
     if (electric_power_supply_step_count == 40) {
         electric_power_supply_step_count = 0;
     }
+}
 
+void payload_calculate_random_coefficients()
+{
     if (payload_step_count == 0) {
         payload_amp_100 = 0.5 * (rand() / (RAND_MAX - 2.0) - 1.0);
     }
@@ -205,7 +228,11 @@ void application_step()
     if (payload_step_count % 25 == 0) {
         payload_amp_25 = 0.2 * (rand() / (RAND_MAX - 2.0) - 1.0);
     }
+}
 
+void payload_step()
+{
+    payload_calculate_random_coefficients();
     payload_flow_rate = payload_target_flow_rate * 20;
 
     payload_temperature = 305.0 + 20.0 * payload_amp_100 * sin(2.0 * M_PI * ((payload_step_count % 100) * 0.001))
@@ -213,9 +240,16 @@ void application_step()
             + 20.0 * payload_amp_25 * sin(2.0 * M_PI * ((payload_step_count % 25) * 0.04)) + payload_flow_rate / 5.0;
 
     ++payload_step_count;
+
     if (payload_step_count == 100) {
         payload_step_count = 0;
     }
+}
+
+void application_step()
+{
+    eps_step();
+    payload_step();
 }
 
 useconds_t calculate_sleep_time(struct timeval *start_tv, struct timeval *end_tv)
@@ -223,12 +257,12 @@ useconds_t calculate_sleep_time(struct timeval *start_tv, struct timeval *end_tv
     if (start_tv->tv_sec == end_tv->tv_sec) {
         int usec = end_tv->tv_usec - start_tv->tv_usec;
 
-        return 1000000L - usec;
+        return MEGA - usec;
     }
     if (start_tv->tv_sec + 1 == end_tv->tv_sec) {
-        int usec = 100000L - start_tv->tv_usec + end_tv->tv_usec;
+        int usec = MEGA - start_tv->tv_usec + end_tv->tv_usec;
 
-        return 1000000L - usec;
+        return MEGA - usec;
     } else {
         return 0;
     }
