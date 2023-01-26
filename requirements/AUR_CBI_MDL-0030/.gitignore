@@ -14,7 +14,8 @@ taste.pro
 
 timeservice.pro
 
-work/timeservice/implem/default/C/Makefile
 work/system_post.asn
-work/environment/implem/default/environment.pro
+work/timeservice/implem/default/C/Makefile
 work/environment/environment.pro
+work/environment/implem/default/environment.pro
+work/timeservice/implem/default/C/src/timeservice.h
