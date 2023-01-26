@@ -1,0 +1,3 @@
+[submodule "AURORA-Reference-Component-Set"]
+	path = AURORA-Reference-Component-Set
+	url = https://github.com/n7space/AURORA-Reference-Component-Set.git
