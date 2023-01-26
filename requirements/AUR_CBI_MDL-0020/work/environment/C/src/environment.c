@@ -7,6 +7,7 @@
     !! the procedures corresponding to the provided interfaces in this  !!
     !! file. The up-to-date signatures can be found in the .ads file.   !!
 */
+
 #include "environment.h"
 #include "logs.h"
 
@@ -21,5 +22,4 @@ void environment_PI_Trigger()
    timeservice_PI_ObetTime(&nseconds);
    LOG_VARIABLE_ENDL("Nanoseconds from start: ", nseconds);
 }
-
 

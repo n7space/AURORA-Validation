@@ -21,5 +21,3 @@ void environment_PI_Trigger()
    timeservice_PI_ObetTime(&nseconds);
    LOG_VARIABLE_ENDL("Nanoseconds from start: ", nseconds);
 }
-
-
