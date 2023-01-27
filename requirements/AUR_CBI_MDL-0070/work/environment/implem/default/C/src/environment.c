@@ -40,12 +40,10 @@ void environment_PI_Trigger(void)
    LOG_VARIABLE_ENDL("Nanoseconds from start: ", nseconds);
 
    asn1SccCucTimestamp firstCucTimestamp = getCucTimestamp();
-   LOG_VARIABLE_ENDL("First CUC timestamp seconds: ", firstCucTimestamp);
-   LOG_VARIABLE_ENDL("First CUC timestamp subseconds: ", firstCucTimestamp);
+   LOG_VARIABLE_ENDL("First CUC timestamp: ", firstCucTimestamp);
 
    asn1SccCucTimestamp secondCucTimestamp = getCucTimestamp();
-   LOG_VARIABLE_ENDL("Second CUC timestamp seconds: ", secondCucTimestamp);
-   LOG_VARIABLE_ENDL("Second CUC timestamp subseconds: ", secondCucTimestamp);
+   LOG_VARIABLE_ENDL("Second CUC timestamp: ", secondCucTimestamp);
 
    asn1SccComparisonResult compareResultCuc = 0;
    environment_RI_CucTimestampCmp(&secondCucTimestamp, &firstCucTimestamp, &compareResultCuc);
