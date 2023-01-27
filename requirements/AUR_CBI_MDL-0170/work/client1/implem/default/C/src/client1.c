@@ -23,7 +23,6 @@ void client1_startup(void)
 
 void client1_PI_Trigger( void )
 {
-    printf("test");
     if(subscribed == 0)
     {
         asn1SccT_UInt32 event_id = event_id_datastore_notify;
@@ -31,62 +30,20 @@ void client1_PI_Trigger( void )
         client1_RI_subscribe_to_event(&event_id, &should_subscribe);
         subscribed = 1;
     }
-    if(counter < 5)
-    {
-        int i;
-        for (i = 0; i < 6; ++i)
-        {
-            create_request.behaviour = DataStoreCreateRequest_behaviour_free_existing;
-            create_request.item_value.kind = DataStoreValueType_coefficient_PRESENT;
-            create_request.item_value.u.coefficient = 2;
-            client1_RI_Create(&create_request);
-            ++counter;
-        }
 
-    }
-    else
-    {
-        client1_RI_Clean();
-        counter = 0;
-    }
+    create_request.behaviour = DataStoreCreateRequest_behaviour_free_existing;
+    create_request.item_value.kind = DataStoreValueType_coefficient_PRESENT;
+    create_request.item_value.u.coefficient = 2;
+    client1_RI_Create(&create_request);
+    ++counter;
 }
 
 void client1_PI_notify( const asn1SccT_EventMessage * ev)
 {
-    switch(ev->kind)
+    if (ev->kind == T_EventMessage_item_created_PRESENT)
     {
-    case T_EventMessage_item_created_PRESENT:
-        printf("client1: item created %lu\n", ev->u.item_created.item_key);
-        break;
-
-    case T_EventMessage_item_updated_PRESENT:
-        printf("client1: item updated %lu\n", ev->u.item_updated.item_key);
-        break;
-
-    case T_EventMessage_item_deleted_PRESENT:
-        printf("client1: item deleted %lu\n", ev->u.item_deleted.item_key);
-        break;
-
-    case T_EventMessage_item_store_rejected_PRESENT:
-        printf("client1: item store rejected\n");
-        break;
-
-    case T_EventMessage_item_removed_PRESENT:
-        printf("client1: item removed %lu\n", ev->u.item_removed.item_key);
-        break;
-
-    case T_EventMessage_data_store_cleaned_PRESENT:
-        printf("client1: cleaned\n");
-        break;
-
-    case T_EventMessage_data_store_error_PRESENT:
-        printf("client1: error\n");
-        break;
-
-    case T_EventMessage_NONE:
-        printf("client1: none\n");
-        break;
-
+        printf("client1: item created: %lu\n", ev->u.item_created.item_key);
+        printf("client1: timestamp: %lu\n", ev->u.item_created.item_timestamp);
     }
 }
 
