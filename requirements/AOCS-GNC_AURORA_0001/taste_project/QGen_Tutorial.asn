@@ -21,12 +21,11 @@
 
 QGEN-TUTORIAL-DATAVIEW DEFINITIONS ::=
 BEGIN
-    T-UInteger32 ::= INTEGER (0 .. 4294967295)
-
     -------------------------
     -- Reusable data types --
     -------------------------
-    T-Float  ::= REAL (-3.4e+38 .. 3.4e+38)
+    T-Float      ::= REAL (-3.4e+38 .. 3.4e+38)
+    T-UInteger32 ::= INTEGER (0 .. 4294967295)
 
     -------------------------------------------
     -- Data types used for the ACS component --
@@ -39,6 +38,15 @@ BEGIN
 
     -- Output types:
     T-Control    ::= SEQUENCE (SIZE(3))  OF T-Float
+
+    -- GUI types
+    T-Telecommand ::= CHOICE
+    {
+        m-start   SEQUENCE {},
+        m-pause   SEQUENCE {},
+        m-stop    SEQUENCE {},
+        m-restart SEQUENCE {}
+    }
 
     T-Telemetry  ::= SEQUENCE
     {

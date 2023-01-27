@@ -35,7 +35,7 @@ static const size_t control_offset = 15U;
 static const size_t control_length =  3U;
 
 static const double tolerance = 0.0F;
-static size_t step = 0U;
+static volatile size_t step = 0U;
 
 // -- Private functions:
 
@@ -108,7 +108,12 @@ void simulated_acs_hw_PI_control_MGT (const asn1SccT_Control *IN_control) {
     }
 }
 
-void simulated_acs_hw_PI_readStep( asn1SccT_UInteger32 *OUT_stepValue)
+void simulated_acs_hw_PI_get_step( asn1SccT_UInteger32 *OUT_step_value)
 {
-    *OUT_stepValue = step;
+    *OUT_step_value = step;
+}
+
+void simulated_acs_hw_PI_set_step( const asn1SccT_UInteger32 *IN_step_value)
+{
+    step = *IN_step_value;
 }
