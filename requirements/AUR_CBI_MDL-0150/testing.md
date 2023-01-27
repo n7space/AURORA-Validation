@@ -8,3 +8,4 @@
 **2. Expected results:**
 
 * Project should succesfully build
+* The running binary should output logs in a loop with id of a created/removed item (data store size is set to 3)
