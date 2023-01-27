@@ -36,6 +36,7 @@ static const size_t control_length =  3U;
 
 static const double tolerance = 0.0F;
 static volatile size_t step = 0U;
+static bool end_of_sim_msg_printed = false;
 
 // -- Private functions:
 
@@ -59,10 +60,9 @@ static bool has_next() {
     bool can_continue = step < 1000;
 
     if (!can_continue) {
-        static bool msg_printed = false;
-        if (!msg_printed) {
+        if (!end_of_sim_msg_printed) {
             puts("End of simulation");
-            msg_printed = true;
+            end_of_sim_msg_printed = true;
         }
     }
 
@@ -115,5 +115,9 @@ void simulated_acs_hw_PI_get_step( asn1SccT_UInteger32 *OUT_step_value)
 
 void simulated_acs_hw_PI_set_step( const asn1SccT_UInteger32 *IN_step_value)
 {
+    if(*IN_step_value == 0) {
+        end_of_sim_msg_printed = false;
+    }
+
     step = *IN_step_value;
 }

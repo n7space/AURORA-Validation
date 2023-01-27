@@ -42,10 +42,10 @@ BEGIN
     -- GUI types
     T-Telecommand ::= CHOICE
     {
-        m-start   SEQUENCE {},
-        m-pause   SEQUENCE {},
-        m-stop    SEQUENCE {},
-        m-restart SEQUENCE {}
+        m-start   INTEGER(0 .. 1),
+        m-pause   INTEGER(0 .. 1),
+        m-stop    INTEGER(0 .. 1),
+        m-restart INTEGER(0 .. 1)
     }
 
     T-Telemetry  ::= SEQUENCE
