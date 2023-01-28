@@ -30,7 +30,7 @@ void client1_PI_Trigger( void )
         client1_RI_subscribe_to_event(&event_id, &should_subscribe);
         subscribed = 1;
     }
-    create_request.behaviour = DataStoreCreateRequest_behaviour_free_existing;
+    create_request.behaviour = DataStoreCreateRequest_behaviour_reject_when_overflow;
     create_request.item_value.kind = DataStoreValueType_coefficient_PRESENT;
     create_request.item_value.u.coefficient = 2;
     client1_RI_Create(&create_request);
@@ -44,8 +44,8 @@ void client1_PI_notify( const asn1SccT_EventMessage * ev)
     case T_EventMessage_item_created_PRESENT:
         printf("client1: item created %lu\n", ev->u.item_created.item_key);
         break;
-    case T_EventMessage_item_removed_PRESENT:
-        printf("client1: item removed %lu\n", ev->u.item_removed.item_key);
+    case T_EventMessage_item_store_rejected_PRESENT:
+        printf("client1: item store rejected\n");
         break;
     default:
         break;
