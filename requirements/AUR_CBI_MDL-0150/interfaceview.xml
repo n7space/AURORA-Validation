@@ -1,4 +1,4 @@
-<InterfaceView version="1.1" asn1file="taste-types.asn">
+<InterfaceView asn1file="AUR_CBI_MDL-0150.acn">
 <Function id="{baad8e63-e12d-4478-bb97-e91bff24b4a0}" name="Datastore" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_min="1" FPGA_Configurations="" instances_max="1" startup_priority="1">
     <Property name="Taste::coordinates" value="-54800 -8500 -21100 48300"/>
 <Provided_Interface id="{beaa8ba7-91a3-478f-a2d1-b27a8fedcf36}" name="Create" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" queue_size="4" wcet="0" stack_size="1024" miat="0" is_simulink_interface="false" priority="1">
