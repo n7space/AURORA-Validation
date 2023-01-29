@@ -114,6 +114,13 @@ clean:
 	rm -f work/glue_release work/glue_debug work/glue_coverage work/skeletons_built
 	find work -type d -name "wrappers" -exec rm -rf {} + || :
 	find work -type d -name "*_GUI" -exec rm -rf {} + || :
+	find work -type d -path "*/QGenC/xmi" -exec rm -rf {} + || :
+	find work -type d -path "*/QGenC/src/.qgeninfo" -exec rm -rf {} + || :
+	find work -type d -path "*/QGenC/src/slprj" -exec rm -rf {} + || :
+	find work -type f -path "*/QGenC/src/built" -exec rm -f {} + || :
+	find work -type f -path "*/QGenC/src/*.slxc" -exec rm -f {} + || :
+	find work -type f -path "*/QGenC/src/*.h" -not -name "simulink_definition_of_types.h" -not -name "*_invoke_ri.h" -exec rm -f {} + || :
+	find work -type f -path "*/QGenC/src/*.c" -exec rm -f {} + || :
 
 .PHONY: clean release debug coverage skeletons simu run
 
