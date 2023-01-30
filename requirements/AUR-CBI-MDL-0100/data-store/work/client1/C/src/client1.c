@@ -47,12 +47,12 @@ void client1_PI_Trigger(void)
     {
     case SUBSCRIBE:
         client1_RI_subscribe_to_event(&event_id_datastore_notify, &should_notify);
-        printf("Subscribed\n");
+        //printf("Subscribed\n");
         fflush(stdout);
         state = CHECK_CREATE;
         break;
     case CHECK_CREATE:
-        printf("Checking create\n");
+        //printf("Checking create\n");
         fflush(stdout);
         create_request.item_value.kind = DataStoreValueType_coefficient_PRESENT;
         create_request.item_value.u.coefficient = test_value;
@@ -66,7 +66,7 @@ void client1_PI_Trigger(void)
         }
         else
         {
-            printf("Checking retrieve\n");
+            //printf("Checking retrieve\n");
             fflush(stdout);
             retrieve_request.item_key = item_key;
             client1_RI_Retrieve(&retrieve_request);
@@ -80,7 +80,7 @@ void client1_PI_Trigger(void)
         }
         else
         {
-            printf("Checking log retrieve\n");
+            //printf("Checking log retrieve\n");
             fflush(stdout);
             client1_RI_RetrieveLogItem(&log_retrieve, &log_index);
 
@@ -90,7 +90,7 @@ void client1_PI_Trigger(void)
                 {
                     if(log_retrieve.u.log_item.operation.u.item_retrieved == item_key)
                     {
-                        printf("Log retrieve OK\n");
+                        //printf("Log retrieve OK\n");
                         fflush(stdout);
                     }
                 }
@@ -114,7 +114,7 @@ void client1_PI_notify
    }
    item_key = IN_eventmessage->u.item_created.item_key;
    create_ok = 1;
-   printf("Create ok\n");
+   //printf("Create ok\n");
    fflush(stdout);
 }
 
@@ -140,7 +140,7 @@ void client1_PI_notifyRetrieve
        return;
    }
    retrieve_ok = 1;
-   printf("Retrieve OK\n");
+   //printf("Retrieve OK\n");
    fflush(stdout);
 }
 
