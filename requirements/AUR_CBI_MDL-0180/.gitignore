@@ -1,10 +1,14 @@
 work/binaries/
 work/build/
+work/client1/implem/default/C/wrappers
+work/datastore/implem/default/C/wrappers
+work/dataview/
 work/Debug/
 work/Dump/
 work/glue_release
 work/skeletons_built
 work/system.asn
+work/timeservice/implem/default/C/wrappers
 work.system_post.asn
 .vscode/
 scripts/out.txt
