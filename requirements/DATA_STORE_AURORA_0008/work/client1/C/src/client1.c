@@ -12,32 +12,40 @@
 
 static asn1SccDataStoreCreateRequest create_request;
 static asn1SccDataStoreDeleteRequest delete_request;
-static asn1SccDataStoreRetrieveRequest retrieve_request;
 static asn1SccT_EventRetrieveLogMessage log_message;
 
 static int counter;
 static int subscribed;
 static int key;
 static asn1SccUShortInteger logIndex;
+static asn1SccUShortInteger logIndexCounter;
 
-static void print_log(asn1SccT_EventRetrieveLogMessage log_message)
+static void print_log(asn1SccT_EventRetrieveLogMessage log_message, asn1SccUShortInteger logIndex)
 {
-    switch(log_message.u.log_item.operation.kind)
+    if(log_message.kind == T_EventRetrieveLogMessage_log_item_PRESENT)
     {
-        case DataStoreInternalLogItem_operation_item_created_PRESENT:
-            printf("client1: log data store item created\n");
-            break;
+        printf("client1: log data from index %ld\n", logIndex);
+        switch(log_message.u.log_item.operation.kind)
+        {
+            case DataStoreInternalLogItem_operation_item_created_PRESENT:
+                printf("client1: log data store item created\n");
+                break;
 
-        case DataStoreInternalLogItem_operation_item_deleted_PRESENT:
-            printf("client1: log data store item delete\n");
-            break;
+            case DataStoreInternalLogItem_operation_item_deleted_PRESENT:
+                printf("client1: log data store item delete\n");
+                break;
 
-        case DataStoreInternalLogItem_operation_data_store_cleaned_PRESENT:
-            printf("client1: log data cleaned\n");
-            break;
+            case DataStoreInternalLogItem_operation_data_store_cleaned_PRESENT:
+                printf("client1: log data cleaned\n");
+                break;
 
-        default:
-            printf("unhandled log\n");
+            default:
+                printf("unhandled log\n");
+        }
+    }
+    else
+    {
+        printf("client1: ERROR log not present\n");
     }
 }
 
@@ -47,6 +55,7 @@ void client1_startup(void)
     subscribed = 0;
     key = 0;
     logIndex = 0;
+    logIndexCounter = 0;
 }
 
 void client1_PI_Trigger( void )
@@ -59,6 +68,17 @@ void client1_PI_Trigger( void )
         subscribed = 1;
     }
 
+    if(counter == -1)
+    {
+        for(asn1SccUShortInteger i = logIndexCounter; i>0; i--)
+        {
+            client1_RI_RetrieveLogItem(&log_message, &i);
+            print_log(log_message, i);
+        }
+        logIndexCounter = 0;
+        return;
+    }
+
     if(counter < 12 && counter % 4 == 0)
     {
         create_request.behaviour = DataStoreCreateRequest_behaviour_free_existing;
@@ -67,11 +87,12 @@ void client1_PI_Trigger( void )
         client1_RI_Create(&create_request);
         ++counter;
         ++key;
+        ++logIndexCounter;
     }
     else if(counter < 12 && counter % 4 == 1)
     {
         client1_RI_RetrieveLogItem(&log_message, &logIndex);
-        print_log(log_message);
+        print_log(log_message, logIndex);
         ++counter;
     }
     else if(counter < 12 && counter % 4 == 2)
@@ -79,17 +100,18 @@ void client1_PI_Trigger( void )
         delete_request.item_key = key;
         client1_RI_Delete(&delete_request);
         ++counter;
+        ++logIndexCounter;
     }
     else if(counter < 12 && counter % 4 == 3)
     {
         client1_RI_RetrieveLogItem(&log_message, &logIndex);
-        print_log(log_message);
+        print_log(log_message, logIndex);
         ++counter;
     }
     else
     {
         client1_RI_Clean();
-        counter = 0;
+        counter = -1;
     }
 }
 

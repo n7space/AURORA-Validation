@@ -111,7 +111,20 @@ void client1_PI_notifyRetrieve(const asn1SccT_EventRetrieveMessage* ev)
     {
         case T_EventRetrieveMessage_item_retrieved_PRESENT:
             printf("client1: item retrieved key = %lu\n", ev->u.item_retrieved.item_key);
-            printf("client1: item value coefficient = %lu\n", ev->u.item_retrieved.item_value.u.coefficient);
+            if(ev->u.item_retrieved.item_value.kind == DataStoreValueType_coefficient_PRESENT)
+            {
+                printf("client1: item value coefficient = %lu\n", ev->u.item_retrieved.item_value.u.coefficient);
+            }
+            else if(ev->u.item_retrieved.item_value.kind == DataStoreValueType_color_PRESENT)
+            {
+                printf("client1: item value color red = %lu\n", ev->u.item_retrieved.item_value.u.color.red);
+                printf("client1: item value color green = %lu\n", ev->u.item_retrieved.item_value.u.color.green);
+                printf("client1: item value color blue = %lu\n", ev->u.item_retrieved.item_value.u.color.blue);
+            }
+            else
+            {
+                printf("client1: item value none");
+            }
             break;
 
         case T_EventRetrieveMessage_item_by_timestamp_retrieved_PRESENT:
