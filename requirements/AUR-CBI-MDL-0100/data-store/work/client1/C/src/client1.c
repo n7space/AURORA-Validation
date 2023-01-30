@@ -8,7 +8,26 @@
     !! file. The up-to-date signatures can be found in the .ads file.   !!
 */
 #include "client1.h"
-#include "logs.h"
+
+#ifdef RTEMS6_TARGET
+#include <rtems/bspIo.h>
+
+static void inline LOG(const char *str)
+{
+  while (*str != '\0') {
+    rtems_putc( *(str++));
+  }
+}
+#else
+#include <stdio.h>
+
+static void inline LOG(const char *str)
+{
+    printf("%s\n");
+}
+#endif
+
+
 
 typedef enum {
     SUBSCRIBE,
