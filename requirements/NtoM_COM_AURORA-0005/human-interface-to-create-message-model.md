@@ -8,4 +8,3 @@
 * Sent example message throught it
 * Example message was printed out in the console
 * Above steps executed on 30/01/2023
-
