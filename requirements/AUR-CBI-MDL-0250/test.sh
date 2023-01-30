@@ -25,37 +25,37 @@ fi
 
 if ! grep -q "Create ok" output.txt
 then
-	echo "aFAIL"
+	echo "FAIL"
 	exit 1
 fi
 
 if ! grep -q "Clean ok" output.txt
 then
-	echo "bFAIL"
+	echo "FAIL"
 	exit 1
 fi
 
 if ! grep -q "Expected error on retrieve" output.txt
 then
-	echo "cFAIL"
+	echo "FAIL"
 	exit 1
 fi
 
 if grep -q "Unexpected datastore behaviour" output.txt
 then
-	echo "dFAIL"
+	echo "FAIL"
 	exit 1
 fi
 
 if grep -q "test failed" output.txt
 then
-	echo "eFAIL"
+	echo "FAIL"
 	exit 1
 fi
 
 if ! grep -q "test succeed" output.txt
 then
-	echo "fFAIL"
+	echo "FAIL"
 	exit 1
 fi
 
