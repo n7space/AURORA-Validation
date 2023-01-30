@@ -23,39 +23,39 @@ then
 	exit 1
 fi
 
-if ! grep -q "Expected item 1 retrieved" output.txt
+if ! grep -q "Create ok" output.txt
 then
-	echo "FAIL"
+	echo "aFAIL"
 	exit 1
 fi
 
-if ! grep -q "Expected item 2 retrieved" output.txt
+if ! grep -q "Clean ok" output.txt
 then
-	echo "FAIL"
+	echo "bFAIL"
 	exit 1
 fi
 
-if ! grep -q "Expected item 3 retrieved" output.txt
+if ! grep -q "Expected error on retrieve" output.txt
 then
-	echo "FAIL"
+	echo "cFAIL"
 	exit 1
 fi
 
-if grep -q "Unexpected Data Store behaviour" output.txt
+if grep -q "Unexpected datastore behaviour" output.txt
 then
-	echo "FAIL"
+	echo "dFAIL"
 	exit 1
 fi
 
-if grep -q "Test failed" output.txt
+if grep -q "test failed" output.txt
 then
-	echo "FAIL"
+	echo "eFAIL"
 	exit 1
 fi
 
-if ! grep -q "Test succeed" output.txt
+if ! grep -q "test succeed" output.txt
 then
-	echo "FAIL"
+	echo "fFAIL"
 	exit 1
 fi
 
