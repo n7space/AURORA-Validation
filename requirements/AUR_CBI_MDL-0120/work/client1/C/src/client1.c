@@ -24,9 +24,8 @@ void client1_startup(void)
 void client1_PI_Trigger( void )
 {
     create_request.behaviour = DataStoreCreateRequest_behaviour_free_existing;
-    create_request.item_value.kind = DataStoreValueType_coefficient_PRESENT;
-    create_request.item_value.u.coefficient = 42;
-    printf("Custom value of custom type: %d\n", create_request.item_value.u.coefficient);
+    create_request.item_value.arr[0] = 'a';
+    printf("Custom value of custom type: %c\n", create_request.item_value.arr[0]);
     fflush(stdout);
 }
 
