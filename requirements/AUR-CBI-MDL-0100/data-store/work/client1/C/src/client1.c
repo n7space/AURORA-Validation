@@ -23,7 +23,7 @@ static void inline LOG(const char *str)
 
 static void inline LOG(const char *str)
 {
-    printf("%s\n");
+    printf("%s\n", str);
 }
 #endif
 
