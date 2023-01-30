@@ -11,7 +11,9 @@
 #include "routing.h"
 
 static asn1SccDataStoreCreateRequest create_request;
+static asn1SccDataStoreDeleteRequest delete_request;
 static asn1SccDataStoreRetrieveRequest retrieve_request;
+static asn1SccDataStoreUpdateRequest update_request;
 
 static int counter;
 static int subscribed;
@@ -37,12 +39,21 @@ void client1_PI_Trigger( void )
     client1_RI_Create(&create_request);
     ++counter;
 
-    if (counter > 2)
-    {
-        retrieve_request.item_key = 2;
-        client1_RI_Retrieve(&retrieve_request);
+    if (counter == 4) {
+        delete_request.item_key = 1;
+        client1_RI_Delete(&delete_request);
     }
 
+    if (counter == 6) {
+        update_request.item_key = 2;
+        update_request.item_value.u.coefficient = 3;
+        client1_RI_Update(&update_request);
+    }
+
+    if (counter == 5 || counter >= 7) {
+        retrieve_request.item_key = 3;
+        client1_RI_Retrieve(&retrieve_request);
+    }
 }
 
 void client1_PI_notify( const asn1SccT_EventMessage * ev)
@@ -51,6 +62,12 @@ void client1_PI_notify( const asn1SccT_EventMessage * ev)
     {
     case T_EventMessage_item_created_PRESENT:
         printf("client1: item received\n");
+        break;
+    case T_EventMessage_item_updated_PRESENT:
+        printf("client1: item updated %lu\n", ev->u.item_updated.item_key);
+        break;
+    case T_EventMessage_item_deleted_PRESENT:
+        printf("client1: item deleted %lu\n", ev->u.item_deleted.item_key);
         break;
     default:
         break;

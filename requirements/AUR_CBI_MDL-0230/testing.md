@@ -1,4 +1,4 @@
-# Testing AUR-CBI-MDL-0200
+# Testing AUR-CBI-MDL-0230
 
 **1. Steps:**
 
@@ -9,4 +9,6 @@
 
 * Project should succesfully build
 * The running binary should output logs in a loop with newly received items
-* After 2 loops, item with id = 2 will be retrieved
+* At 4th loop, item with key = 1 will be deleted
+* At 6th loop, item with key = 2 will updated
+* At 5th and after 7 loops onward, item with key = 3 will be retrieved for verification
