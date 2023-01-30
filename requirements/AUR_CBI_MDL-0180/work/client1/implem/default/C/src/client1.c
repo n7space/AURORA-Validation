@@ -42,7 +42,7 @@ void client1_PI_notify( const asn1SccT_EventMessage * ev)
     switch(ev->kind)
     {
     case T_EventMessage_item_created_PRESENT:
-        printf("client1: item received %lu\n", ev->u.item_created.item_key);
+        printf("client1: item received\n");
         break;
     default:
         break;
