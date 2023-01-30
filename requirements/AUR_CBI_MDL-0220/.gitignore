@@ -1,10 +1,11 @@
-work/*.pro
 work/binaries/
 work/build/
 work/client1/implem/default/C/wrappers
 work/client1/implem/default/C/src/client1.h
+work/client1/implem/default/client1.pro
 work/datastore/implem/default/C/wrappers
 work/datastore/implem/default/C/src/datastore.h
+work/datastore/implem/default/datastore.pro
 work/dataview/
 work/Debug/
 work/Dump/
