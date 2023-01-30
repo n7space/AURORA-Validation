@@ -36,6 +36,8 @@ work/simulink/QGenC/*
 work/simulink/QGenC/src/*
 !work/simulink/QGenC/src/iface.slx
 !work/simulink/QGenC/src/iface2.slx
+!work/simulink/QGenC/src/SimulinkCalc.mexw64
+!work/simulink/QGenC/src/SimulinkCalc2.mexw64
 !work/simulink/QGenC/src/.simulink_script.m.md5
 
 # Except utils source
