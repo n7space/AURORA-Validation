@@ -8,4 +8,4 @@
 **2. Expected results:**
 
 * Project should succesfully build
-* The running binary should output logs in a loop with item reception messages
+* The running binary should output logs in a loop with item update messages
