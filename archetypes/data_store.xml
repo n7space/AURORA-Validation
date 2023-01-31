@@ -4,46 +4,36 @@
     xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
 
 	<FunctionArchetype name="Data_Store">
-		<InterfaceArchetype name="RetrieveLogItem" interfaceType="PROVIDED" kind="PROTECTED" layer="DataStore">
+		<InterfaceArchetype name="RetrieveLogItem" interfaceType="PROVIDED" kind="PROTECTED" layer="default">
 			<ParameterArchetype name="item" type="T-EventRetrieveLogMessage" direction="OUT"/>
 			<ParameterArchetype name="index" type="UShortInteger" direction="IN"/>
 		</InterfaceArchetype>
 
-		<InterfaceArchetype name="Create" interfaceType="PROVIDED" kind="SPORADIC" layer="DataStore">
+		<InterfaceArchetype name="Create" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
 			<ParameterArchetype name="request" type="DataStoreCreateRequest" direction="IN"/>
 		</InterfaceArchetype>
 
-		<InterfaceArchetype name="Retrieve" interfaceType="PROVIDED" kind="SPORADIC" layer="DataStore">
+		<InterfaceArchetype name="Retrieve" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
 			<ParameterArchetype name="request" type="DataStoreRetrieveRequest" direction="IN"/>
 		</InterfaceArchetype>
 
-		<InterfaceArchetype name="Update" interfaceType="PROVIDED" kind="SPORADIC" layer="DataStore">
+		<InterfaceArchetype name="Update" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
 			<ParameterArchetype name="request" type="DataStoreUpdateRequest" direction="IN"/>
 		</InterfaceArchetype>
 		
-		<InterfaceArchetype name="Delete" interfaceType="PROVIDED" kind="SPORADIC" layer="DataStore">
+		<InterfaceArchetype name="Delete" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
 			<ParameterArchetype name="request" type="DataStoreDeleteRequest" direction="IN"/>
 		</InterfaceArchetype>
 		
-		<InterfaceArchetype name="Clean" interfaceType="PROVIDED" kind="SPORADIC" layer="DataStore">
+		<InterfaceArchetype name="Clean" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
 		</InterfaceArchetype>
 		
-		<InterfaceArchetype name="RetrieveByTimeRange" interfaceType="PROVIDED" kind="SPORADIC" layer="DataStore">
+		<InterfaceArchetype name="RetrieveByTimeRange" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
 			<ParameterArchetype name="request" type="DataStoreRetrieveTimestampRangeRequest" direction="IN"/>
 		</InterfaceArchetype>
 		
-		<InterfaceArchetype name="subscribe_to_event" interfaceType="PROVIDED" kind="PROTECTED" layer="EventCommunication">
-			<ParameterArchetype name="eventId" type="T-UInt32" direction="IN"/>
-			<ParameterArchetype name="shouldSubscribe" type="T-Boolean" direction="IN"/>
-		</InterfaceArchetype>
-		
-		<InterfaceArchetype name="notifyRetrieve" interfaceType="REQUIRED" kind="SPORADIC" layer="DataStore">
+		<InterfaceArchetype name="notifyRetrieve" interfaceType="REQUIRED" kind="SPORADIC" layer="default">
 			<ParameterArchetype name="EventMessage" type="T-EventRetrieveMessage" direction="IN"/>
 		</InterfaceArchetype>
 	</FunctionArchetype>
-
-	<CommunicationLayerTypes>
-		<CommunicationLayerType name="DataStore"/>
-		<CommunicationLayerType name="EventCommunication"/>
-	</CommunicationLayerTypes>
 </ArchetypeLibrary>

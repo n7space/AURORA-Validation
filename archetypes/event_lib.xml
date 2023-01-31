@@ -9,6 +9,13 @@
 		</InterfaceArchetype>
 	</FunctionArchetype>
 
+	<FunctionArchetype name="Event_generator_with_subscription">
+		<InterfaceArchetype name="subscribe_to_event" interfaceType="PROVIDED" kind="PROTECTED" layer="EventCommunication">
+			<ParameterArchetype name="eventId" type="T-UInt32" direction="IN"/>
+			<ParameterArchetype name="shouldSubscribe" type="T-Boolean" direction="IN"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+
 	<FunctionArchetype name="Event_bus">
 		<InterfaceArchetype name="receive_event" interfaceType="PROVIDED" kind="SPORADIC" layer="EventCommunication">
 			<ParameterArchetype name="EventMessage" type="T-EventMessage" direction="IN"/>
