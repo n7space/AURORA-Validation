@@ -1,55 +1,30 @@
-<InterfaceView asn1file="AUR_CBI_MDL-0080.acn">
-<Function name="TimeService" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" id="{1b741e0d-f94c-4cb8-95ea-9bf40649a1f2}" startup_priority="1">
-    <Property name="Taste::coordinates" value="16000 31400 36000 45600"/>
-<Provided_Interface name="ObetTime" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" id="{1ab57544-8131-42e3-ab38-f661710554a2}">
+<InterfaceView version="1.1" asn1file="AUR_CBI_MDL-0080.acn">
+<Function id="{6b2bffd0-f320-4004-9647-4604d5714226}" name="Environment" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_max="1" FPGA_Configurations="" instances_min="1" startup_priority="1">
+    <Property name="Taste::coordinates" value="65200 29600 85200 46100"/>
+<Provided_Interface id="{632598ef-c1b5-4c07-a8e5-d8ad55c02308}" name="Trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" priority="1" period="1000" is_simulink_interface="false" wcet="0" stack_size="1024" simulink_full_interface_ref="" dispatch_offset="0">
+    <Property name="Taste::coordinates" value="75200 29600"/>
+</Provided_Interface>
+
+<Required_Interface id="{1ab57544-8131-42e3-ab38-f661710554a2}" name="ObetTime" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" simulink_full_interface_ref="">
     <Output_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="36000 35100"/>
-</Provided_Interface>
-
-<Provided_Interface name="CfsTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" id="{d952c336-a897-46d2-895e-861da87d3e45}">
-    <Input_Parameter name="t1" type="CfsTimestamp" encoding="NATIVE"/>
-    <Input_Parameter name="t2" type="CfsTimestamp" encoding="NATIVE"/>
-    <Output_Parameter name="result" type="ComparisonResult" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="36000 39600"/>
-</Provided_Interface>
-
-<Provided_Interface name="CfsTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" id="{41ab50c4-eff6-4ecd-bb32-69c068e7648b}">
-    <Input_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
-    <Output_Parameter name="CfsTimestamp" type="CfsTimestamp" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="36000 43600"/>
-</Provided_Interface>
-
-    <Implementations>
-        <Implementation name="default" language="C"/>
-    </Implementations>
-</Function>
-
-<Function name="Environment" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" id="{6b2bffd0-f320-4004-9647-4604d5714226}" startup_priority="1">
-    <Property name="Taste::coordinates" value="65000 30900 85000 45000"/>
-<Provided_Interface name="Trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" dispatch_offset="0" wcet="0" id="{632598ef-c1b5-4c07-a8e5-d8ad55c02308}" stack_size="1024" period="1000" priority="1">
-    <Property name="Taste::coordinates" value="75000 30900"/>
-</Provided_Interface>
-
-<Required_Interface name="ObetTime" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" id="{1ab57544-8131-42e3-ab38-f661710554a2}">
-    <Output_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="65000 35000"/>
+    <Property name="Taste::coordinates" value="65200 33700"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="CfsTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" id="{d952c336-a897-46d2-895e-861da87d3e45}">
+<Required_Interface id="{d952c336-a897-46d2-895e-861da87d3e45}" name="CfsTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" simulink_full_interface_ref="">
     <Input_Parameter name="t1" type="CfsTimestamp" encoding="NATIVE"/>
     <Input_Parameter name="t2" type="CfsTimestamp" encoding="NATIVE"/>
     <Output_Parameter name="result" type="ComparisonResult" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="65000 39500"/>
+    <Property name="Taste::coordinates" value="65200 38200"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="CfsTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" id="{41ab50c4-eff6-4ecd-bb32-69c068e7648b}">
+<Required_Interface id="{41ab50c4-eff6-4ecd-bb32-69c068e7648b}" name="CfsTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" simulink_full_interface_ref="">
     <Input_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
     <Output_Parameter name="CfsTimestamp" type="CfsTimestamp" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="65000 43600"/>
+    <Property name="Taste::coordinates" value="65200 43300"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
@@ -59,24 +34,71 @@
     </Implementations>
 </Function>
 
-<Connection  required_system_element="NO" id="{22cb3b0c-a3ff-48b1-9dc3-954a3962e567}">
-    <Source func_name="Environment" ri_name="CfsTimestamp"/>
-    <Target func_name="TimeService" pi_name="CfsTimestamp"/>
-    <Property name="Taste::coordinates" value="64400 43600 36300 43600"/>
-</Connection>
+<Function id="{1b741e0d-f94c-4cb8-95ea-9bf40649a1f2}" name="TimeService" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_max="1" FPGA_Configurations="" instances_min="1" startup_priority="1">
+    <Property name="Taste::coordinates" value="15900 30800 35900 56400"/>
+<Provided_Interface id="{13dd0ded-3508-4d6c-90ef-0f6c3b6c5ff2}" name="ObetTime" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" simulink_full_interface_ref="">
+    <Output_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="35900 33500"/>
+</Provided_Interface>
 
-<Connection  required_system_element="NO" id="{e373ebb7-f946-44f3-8837-77b158dd746b}">
-    <Source func_name="Environment" ri_name="ObetTime"/>
-    <Target func_name="TimeService" pi_name="ObetTime"/>
-    <Property name="Taste::coordinates" value="64400 35000 36300 35100"/>
-</Connection>
+<Provided_Interface id="{ba1c41d4-d411-4c08-aab6-ff4bcd1ae47e}" name="ClockStatus" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" simulink_full_interface_ref="">
+    <Output_Parameter name="status" type="ClockStatusEnum" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="15900 35100"/>
+</Provided_Interface>
 
-<Connection  required_system_element="NO" id="{9d499472-7cb5-4ccf-994a-f9c2d2cdd7a4}">
+<Provided_Interface id="{566c9e47-5287-4c1f-83c4-d43e2b43f11c}" name="CucTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" simulink_full_interface_ref="">
+    <Input_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
+    <Output_Parameter name="timestamp" type="CucTimestamp" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="15900 43700"/>
+</Provided_Interface>
+
+<Provided_Interface id="{54308ca8-cf95-4e57-92cd-116350f99c1d}" name="CucTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" simulink_full_interface_ref="">
+    <Input_Parameter name="t1" type="CucTimestamp" encoding="NATIVE"/>
+    <Input_Parameter name="t2" type="CucTimestamp" encoding="NATIVE"/>
+    <Output_Parameter name="result" type="ComparisonResult" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="15900 39800"/>
+</Provided_Interface>
+
+<Provided_Interface id="{cc6eff9d-dea3-4a20-87b8-a0e447af9b8e}" name="CfsTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" simulink_full_interface_ref="">
+    <Input_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
+    <Output_Parameter name="CfsTimestamp" type="CfsTimestamp" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="35900 43200"/>
+</Provided_Interface>
+
+<Provided_Interface id="{503ffc91-3932-40e6-9a6d-de91f5d40b3c}" name="CfsTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" is_simulink_interface="false" wcet="0" simulink_full_interface_ref="">
+    <Input_Parameter name="t1" type="CfsTimestamp" encoding="NATIVE"/>
+    <Input_Parameter name="t2" type="CfsTimestamp" encoding="NATIVE"/>
+    <Output_Parameter name="result" type="ComparisonResult" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="35900 38200"/>
+</Provided_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+
+<ArchetypeReference archetype_library="timeServiceLib" archetype_function="Time_Service"/>
+</Function>
+
+<Connection id="{4a2fe4d7-9d6f-46c6-8ca5-087057d2797e}" required_system_element="NO">
     <Source func_name="Environment" ri_name="CfsTimestampCmp"/>
     <Target func_name="TimeService" pi_name="CfsTimestampCmp"/>
-    <Property name="Taste::coordinates" value="64400 39500 50400 39500 36300 39600"/>
+    <Property name="Taste::coordinates" value="64600 38200 36200 38200"/>
+</Connection>
+
+<Connection id="{93099116-f722-44cb-be3f-d5a787ca0b3a}" required_system_element="NO">
+    <Source func_name="Environment" ri_name="ObetTime"/>
+    <Target func_name="TimeService" pi_name="ObetTime"/>
+    <Property name="Taste::coordinates" value="64600 33700 36200 33500"/>
+</Connection>
+
+<Connection id="{a84e2273-510f-40dd-962a-47d0435986e3}" required_system_element="NO">
+    <Source func_name="Environment" ri_name="CfsTimestamp"/>
+    <Target func_name="TimeService" pi_name="CfsTimestamp"/>
+    <Property name="Taste::coordinates" value="64600 43300 50400 43300 36200 43200"/>
 </Connection>
 
 <Layer name="default"/>
+
+<ArchetypeLibraryReference archetype_library="timeServiceLib" path="time_service.xml"/>
 
 </InterfaceView>

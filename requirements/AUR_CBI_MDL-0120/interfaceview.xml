@@ -1,183 +1,101 @@
-<InterfaceView asn1file="AUR_CBI_MDL-0120.acn">
-<Function name="TimeService" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" instances_max="1" instances_min="1" startup_priority="5" id="{ca619702-66dd-403c-bf8d-dd227ba24adf}">
+<InterfaceView version="1.1" asn1file="AUR_CBI_MDL-0120.acn">
+<Function id="{ca619702-66dd-403c-bf8d-dd227ba24adf}" name="TimeService" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_max="1" instances_min="1" FPGA_Configurations="" startup_priority="5">
     <Property name="Taste::coordinates" value="5300 11100 44900 45900"/>
-<Provided_Interface name="ObetTime" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{b32fad34-5b43-4234-b745-8a711b3ed03d}" is_simulink_interface="false">
+<Provided_Interface id="{7d2357ea-08ea-487d-8834-9d584d58cff5}" name="ObetTime" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
     <Output_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="5300 17400"/>
+    <Property name="Taste::coordinates" value="5300 15800"/>
 </Provided_Interface>
 
-<Provided_Interface name="ClockStatus" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{901cb2c2-8af9-466a-b5fb-d77b7e8c385e}" is_simulink_interface="false">
+<Provided_Interface id="{98519e58-1045-47f7-bc10-a994bcb542e0}" name="ClockStatus" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
     <Output_Parameter name="status" type="ClockStatusEnum" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="5300 22000"/>
+    <Property name="Taste::coordinates" value="5300 20500"/>
 </Provided_Interface>
 
-<Provided_Interface name="CucTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{56ee1d2f-7bca-45dc-a184-a2f018188019}" is_simulink_interface="false">
+<Provided_Interface id="{f116a592-c7f3-431f-927d-50ca445ff933}" name="CucTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
     <Input_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
     <Output_Parameter name="timestamp" type="CucTimestamp" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="5300 26100"/>
+    <Property name="Taste::coordinates" value="5300 26400"/>
 </Provided_Interface>
 
-<Provided_Interface name="CucTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{d24fc51b-3e2c-4467-94da-e6b97827b61d}" is_simulink_interface="false">
-    <Input_Parameter name="left" type="CucTimestamp" encoding="NATIVE"/>
-    <Input_Parameter name="right" type="CucTimestamp" encoding="NATIVE"/>
+<Provided_Interface id="{09a5b3f5-fe2a-493c-8506-8669a7482323}" name="CucTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
+    <Input_Parameter name="t1" type="CucTimestamp" encoding="NATIVE"/>
+    <Input_Parameter name="t2" type="CucTimestamp" encoding="NATIVE"/>
     <Output_Parameter name="result" type="ComparisonResult" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="5300 31800"/>
+    <Property name="Taste::coordinates" value="5300 31900"/>
 </Provided_Interface>
 
-<Provided_Interface name="CfsTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{064760f2-7729-4236-89ca-585463221db1}" is_simulink_interface="false">
-    <Input_Parameter name="left" type="CfsTimestamp" encoding="NATIVE"/>
-    <Input_Parameter name="right" type="CfsTimestamp" encoding="NATIVE"/>
-    <Output_Parameter name="result" type="ComparisonResult" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="5300 38200"/>
-</Provided_Interface>
-
-<Provided_Interface name="CfsTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{599c1820-34b5-4a11-82b9-bb76434123dd}" is_simulink_interface="false">
+<Provided_Interface id="{b3102d7d-2a38-4c56-925f-c18313feeca4}" name="CfsTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
     <Input_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
     <Output_Parameter name="CfsTimestamp" type="CfsTimestamp" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="5300 41900"/>
+    <Property name="Taste::coordinates" value="5300 41800"/>
+</Provided_Interface>
+
+<Provided_Interface id="{713efdce-1090-48d6-8734-a90d1bb1c8a8}" name="CfsTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
+    <Input_Parameter name="t1" type="CfsTimestamp" encoding="NATIVE"/>
+    <Input_Parameter name="t2" type="CfsTimestamp" encoding="NATIVE"/>
+    <Output_Parameter name="result" type="ComparisonResult" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="5300 37800"/>
 </Provided_Interface>
 
     <Implementations>
         <Implementation name="default" language="C"/>
     </Implementations>
+
+<ArchetypeReference archetype_library="tiemServiceLib" archetype_function="Time_Service"/>
 </Function>
 
-<Function name="Client1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" instances_max="1" instances_min="1" startup_priority="4" id="{315fd49e-5748-4bf0-a026-98387ad47ea9}">
-    <Property name="Taste::coordinates" value="-120100 -24000 -90500 18600"/>
-<Provided_Interface name="Trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" dispatch_offset="0" wcet="0" stack_size="1024" id="{5099eea1-818d-409d-9acb-d462bf628b86}" is_simulink_interface="false" priority="1" period="1000">
-    <Property name="Taste::coordinates" value="-120100 -3100"/>
-</Provided_Interface>
-
-<Provided_Interface name="notify" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{07b3b419-c35b-4def-b3f6-af927d49dade}" is_simulink_interface="false" priority="2">
-    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-90500 11100"/>
-</Provided_Interface>
-
-<Provided_Interface name="notifyRetrieve" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{cc20364d-6d8e-47f3-858c-29261a5dad30}" is_simulink_interface="false" priority="2">
-    <Input_Parameter name="EventMessage" type="T-EventRetrieveMessage" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-90500 7400"/>
-</Provided_Interface>
-
-<Required_Interface name="Create" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{beaa8ba7-91a3-478f-a2d1-b27a8fedcf36}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreCreateRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-90500 -20400"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-<Required_Interface name="Retrieve" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{321c7df2-3954-4468-a696-401934c0bb8c}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreRetrieveRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-90500 -16800"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-<Required_Interface name="Update" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{5a21a76f-e8fb-4b30-bae8-07a54b3549ca}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreUpdateRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-90500 -13500"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-<Required_Interface name="Delete" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{c71282c2-e88f-407f-bb53-f1a785aabba9}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreDeleteRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-90500 -9900"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-<Required_Interface name="Clean" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{d8864cb8-8b84-41a6-acec-b51451bdfc71}" is_simulink_interface="false" priority="1">
-    <Property name="Taste::coordinates" value="-90500 -6100"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-<Required_Interface name="RetrieveByTimeRange" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{f3a063d5-19db-4010-8ff0-6dc070e3f3a2}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreRetrieveTimestampRangeRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-90500 -1400"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-<Required_Interface name="subscribe_to_event" kind="Protected" enable_multicast="true" layer="EventCommunication" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{6cc9acc9-e323-402e-a848-3241468e95f7}" is_simulink_interface="false">
-    <Input_Parameter name="eventId" type="T-UInt32" encoding="NATIVE"/>
-    <Input_Parameter name="shouldSubscribe" type="T-Boolean" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-90500 3400"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-<Required_Interface name="RetrieveLogItem" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{0c8b34e6-ae94-4598-a98a-cb2ae3ed7c2c}" is_simulink_interface="false">
-    <Output_Parameter name="item" type="T-EventRetrieveLogMessage" encoding="NATIVE"/>
-    <Input_Parameter name="index" type="UShortInteger" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-90500 14600"/>
-    <Property name="Taste::InheritPI" value="true"/>
-    <Property name="Taste::Autonamed" value="true"/>
-</Required_Interface>
-
-    <Implementations>
-        <Implementation name="default" language="C"/>
-    </Implementations>
-</Function>
-
-<Function name="Datastore" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" instances_max="1" instances_min="1" startup_priority="1" id="{baad8e63-e12d-4478-bb97-e91bff24b4a0}">
+<Function id="{baad8e63-e12d-4478-bb97-e91bff24b4a0}" name="Datastore" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_max="1" instances_min="1" FPGA_Configurations="" startup_priority="1">
     <Property name="Taste::coordinates" value="-54800 -8500 -21100 48300"/>
-<Provided_Interface name="Create" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{beaa8ba7-91a3-478f-a2d1-b27a8fedcf36}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreCreateRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-54800 0"/>
-</Provided_Interface>
-
-<Provided_Interface name="Retrieve" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{321c7df2-3954-4468-a696-401934c0bb8c}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreRetrieveRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-54800 4200"/>
-</Provided_Interface>
-
-<Provided_Interface name="Update" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{5a21a76f-e8fb-4b30-bae8-07a54b3549ca}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreUpdateRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-54800 9900"/>
-</Provided_Interface>
-
-<Provided_Interface name="Delete" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{c71282c2-e88f-407f-bb53-f1a785aabba9}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreDeleteRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-54800 15300"/>
-</Provided_Interface>
-
-<Provided_Interface name="Clean" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{d8864cb8-8b84-41a6-acec-b51451bdfc71}" is_simulink_interface="false" priority="1">
-    <Property name="Taste::coordinates" value="-54800 21000"/>
-</Provided_Interface>
-
-<Provided_Interface name="RetrieveByTimeRange" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{f3a063d5-19db-4010-8ff0-6dc070e3f3a2}" is_simulink_interface="false" priority="1">
-    <Input_Parameter name="request" type="DataStoreRetrieveTimestampRangeRequest" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-54800 26800"/>
-</Provided_Interface>
-
-<Provided_Interface name="subscribe_to_event" kind="Protected" enable_multicast="true" layer="EventCommunication" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{6cc9acc9-e323-402e-a848-3241468e95f7}" is_simulink_interface="false">
-    <Input_Parameter name="eventId" type="T-UInt32" encoding="NATIVE"/>
-    <Input_Parameter name="shouldSubscribe" type="T-Boolean" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-54800 32900"/>
-</Provided_Interface>
-
-<Provided_Interface name="RetrieveLogItem" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{0c8b34e6-ae94-4598-a98a-cb2ae3ed7c2c}" is_simulink_interface="false">
+<Provided_Interface id="{00f32c23-4592-4852-84e4-468467f4fd83}" name="RetrieveLogItem" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
     <Output_Parameter name="item" type="T-EventRetrieveLogMessage" encoding="NATIVE"/>
     <Input_Parameter name="index" type="UShortInteger" encoding="NATIVE"/>
-    <Property name="Taste::coordinates" value="-54200 -5000"/>
+    <Property name="Taste::coordinates" value="-54800 20700"/>
 </Provided_Interface>
 
-<Required_Interface name="ObetTime" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{b32fad34-5b43-4234-b745-8a711b3ed03d}" is_simulink_interface="false">
+<Provided_Interface id="{a4d71d7f-ef99-442b-b413-1412608928df}" name="Create" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreCreateRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-54800 -4300"/>
+</Provided_Interface>
+
+<Provided_Interface id="{74532439-74f2-4fb2-9b05-6a183899bfdf}" name="Retrieve" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreRetrieveRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-54800 -200"/>
+</Provided_Interface>
+
+<Provided_Interface id="{70e265c4-1b1a-47dd-8316-cac61e3db80e}" name="Update" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreUpdateRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-54800 4700"/>
+</Provided_Interface>
+
+<Provided_Interface id="{f304fb7b-256b-48c9-b6cb-a28fa0a50354}" name="Delete" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreDeleteRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-54800 8300"/>
+</Provided_Interface>
+
+<Provided_Interface id="{1cf8a51a-785c-48c1-b5ed-ba4284459539}" name="Clean" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Property name="Taste::coordinates" value="-54800 12400"/>
+</Provided_Interface>
+
+<Provided_Interface id="{f1af585a-4bb3-4193-86fd-2f94e02230b9}" name="RetrieveByTimeRange" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreRetrieveTimestampRangeRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-54800 16800"/>
+</Provided_Interface>
+
+<Required_Interface id="{b32fad34-5b43-4234-b745-8a711b3ed03d}" name="ObetTime" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
     <Output_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-21100 16500"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="ClockStatus" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{901cb2c2-8af9-466a-b5fb-d77b7e8c385e}" is_simulink_interface="false">
+<Required_Interface id="{901cb2c2-8af9-466a-b5fb-d77b7e8c385e}" name="ClockStatus" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
     <Output_Parameter name="status" type="ClockStatusEnum" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-21100 20600"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="CucTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{56ee1d2f-7bca-45dc-a184-a2f018188019}" is_simulink_interface="false">
+<Required_Interface id="{56ee1d2f-7bca-45dc-a184-a2f018188019}" name="CucTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
     <Input_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
     <Output_Parameter name="timestamp" type="CucTimestamp" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-21100 26500"/>
@@ -185,32 +103,32 @@
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="CucTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{d24fc51b-3e2c-4467-94da-e6b97827b61d}" is_simulink_interface="false">
-    <Input_Parameter name="left" type="CucTimestamp" encoding="NATIVE"/>
-    <Input_Parameter name="right" type="CucTimestamp" encoding="NATIVE"/>
+<Required_Interface id="{d24fc51b-3e2c-4467-94da-e6b97827b61d}" name="CucTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
+    <Input_Parameter name="t1" type="CucTimestamp" encoding="NATIVE"/>
+    <Input_Parameter name="t2" type="CucTimestamp" encoding="NATIVE"/>
     <Output_Parameter name="result" type="ComparisonResult" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-21100 31900"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="CfsTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{064760f2-7729-4236-89ca-585463221db1}" is_simulink_interface="false">
-    <Input_Parameter name="left" type="CfsTimestamp" encoding="NATIVE"/>
-    <Input_Parameter name="right" type="CfsTimestamp" encoding="NATIVE"/>
+<Required_Interface id="{064760f2-7729-4236-89ca-585463221db1}" name="CfsTimestampCmp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
+    <Input_Parameter name="t1" type="CfsTimestamp" encoding="NATIVE"/>
+    <Input_Parameter name="t2" type="CfsTimestamp" encoding="NATIVE"/>
     <Output_Parameter name="result" type="ComparisonResult" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-21100 37700"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="notify" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{db1923f1-25f3-42a5-b4ae-c62c069ae2cb}" is_simulink_interface="false" priority="2">
+<Required_Interface id="{db1923f1-25f3-42a5-b4ae-c62c069ae2cb}" name="notify" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="4" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="2">
     <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-54800 44500"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="CfsTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" id="{599c1820-34b5-4a11-82b9-bb76434123dd}" is_simulink_interface="false">
+<Required_Interface id="{599c1820-34b5-4a11-82b9-bb76434123dd}" name="CfsTimestamp" kind="Unprotected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
     <Input_Parameter name="nanoseconds" type="ULongInteger" encoding="NATIVE"/>
     <Output_Parameter name="CfsTimestamp" type="CfsTimestamp" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-21100 41800"/>
@@ -218,7 +136,7 @@
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface name="notifyRetrieve" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" wcet="0" queue_size="4" miat="0" stack_size="1024" id="{30ea6b4f-8a2e-43bb-b182-e575ac619d61}" is_simulink_interface="false" priority="2">
+<Required_Interface id="{30ea6b4f-8a2e-43bb-b182-e575ac619d61}" name="notifyRetrieve" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="4" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="2">
     <Input_Parameter name="EventMessage" type="T-EventRetrieveMessage" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-54800 39200"/>
     <Property name="Taste::InheritPI" value="true"/>
@@ -230,111 +148,189 @@
     </Implementations>
 
 <ArchetypeReference archetype_library="eventlib" archetype_function="Event_generator"/>
+
+<ArchetypeReference archetype_library="dataStoreLib" archetype_function="Data_Store"/>
 </Function>
 
-<Connection  required_system_element="NO" id="{4489298e-a239-495e-8dbb-5b57c4643659}">
-    <Source func_name="Client1" ri_name="Create"/>
-    <Target func_name="Datastore" pi_name="Create"/>
-    <Property name="Taste::coordinates" value="-89900 -20400 -72600 -20400 -72600 0 -55100 0"/>
-</Connection>
+<Function id="{315fd49e-5748-4bf0-a026-98387ad47ea9}" name="Client1" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" instances_max="1" instances_min="1" FPGA_Configurations="" startup_priority="4">
+    <Property name="Taste::coordinates" value="-124000 -6900 -94400 46700"/>
+<Provided_Interface id="{5099eea1-818d-409d-9acb-d462bf628b86}" name="Trigger" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" period="1000" dispatch_offset="0" simulink_full_interface_ref="" stack_size="1024" priority="1">
+    <Property name="Taste::coordinates" value="-124000 14000"/>
+</Provided_Interface>
 
-<Connection  required_system_element="NO" id="{49f6d818-e734-4b13-a770-8e84074040eb}">
-    <Source func_name="Client1" ri_name="Clean"/>
-    <Target func_name="Datastore" pi_name="Clean"/>
-    <Property name="Taste::coordinates" value="-89900 -6100 -72600 -6100 -72600 21000 -55100 21000"/>
-</Connection>
+<Provided_Interface id="{07b3b419-c35b-4def-b3f6-af927d49dade}" name="notify" kind="Sporadic" enable_multicast="true" layer="EventCommunication" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="4" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="2">
+    <Input_Parameter name="EventMessage" type="T-EventMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-94400 43200"/>
+</Provided_Interface>
 
-<Connection  required_system_element="NO" id="{707d0e03-1e1f-464f-8261-f9aab55efb57}">
-    <Source func_name="Datastore" ri_name="ClockStatus"/>
-    <Target func_name="TimeService" pi_name="ClockStatus"/>
-    <Property name="Taste::coordinates" value="-20500 20600 -7800 20600 -7800 22000 5000 22000"/>
-</Connection>
+<Provided_Interface id="{cc20364d-6d8e-47f3-858c-29261a5dad30}" name="notifyRetrieve" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="4" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="2">
+    <Input_Parameter name="EventMessage" type="T-EventRetrieveMessage" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-94400 38700"/>
+</Provided_Interface>
 
-<Connection  required_system_element="NO" id="{6c04bbe1-c46e-444d-a5a0-4c69b0d259f6}">
-    <Source func_name="Datastore" ri_name="ObetTime"/>
-    <Target func_name="TimeService" pi_name="ObetTime"/>
-    <Property name="Taste::coordinates" value="-20500 16500 -7800 16500 3400 17400 5000 17400"/>
-</Connection>
+<Required_Interface id="{beaa8ba7-91a3-478f-a2d1-b27a8fedcf36}" name="Create" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreCreateRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-94400 -3300"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
 
-<Connection  required_system_element="NO" id="{7e60da8c-c7f7-4142-906f-d30cb5c8f8e2}">
-    <Source func_name="Datastore" ri_name="CfsTimestamp"/>
-    <Target func_name="TimeService" pi_name="CfsTimestamp"/>
-    <Property name="Taste::coordinates" value="-20500 41800 -7800 41800 5000 41900"/>
-</Connection>
+<Required_Interface id="{321c7df2-3954-4468-a696-401934c0bb8c}" name="Retrieve" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreRetrieveRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-94400 300"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
 
-<Connection  required_system_element="NO" id="{7827e3ec-ac65-4898-8919-e25316b9f6d3}">
-    <Source func_name="Datastore" ri_name="CfsTimestampCmp"/>
-    <Target func_name="TimeService" pi_name="CfsTimestampCmp"/>
-    <Property name="Taste::coordinates" value="-20500 37700 5000 38200"/>
-</Connection>
+<Required_Interface id="{5a21a76f-e8fb-4b30-bae8-07a54b3549ca}" name="Update" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreUpdateRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-94400 3600"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
 
-<Connection  required_system_element="NO" id="{2c2e5766-b613-40bb-b05a-2d3c455a94be}">
-    <Source func_name="Datastore" ri_name="CucTimestampCmp"/>
-    <Target func_name="TimeService" pi_name="CucTimestampCmp"/>
-    <Property name="Taste::coordinates" value="-20500 31900 5000 31800"/>
-</Connection>
+<Required_Interface id="{c71282c2-e88f-407f-bb53-f1a785aabba9}" name="Delete" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreDeleteRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-94400 7200"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
 
-<Connection  required_system_element="NO" id="{69318780-2722-48c2-a538-c1cbd96b10e0}">
-    <Source func_name="Client1" ri_name="subscribe_to_event"/>
-    <Target func_name="Datastore" pi_name="subscribe_to_event"/>
-    <Property name="Taste::coordinates" value="-89900 3400 -72600 3400 -72600 32900 -55100 32900"/>
-</Connection>
+<Required_Interface id="{d8864cb8-8b84-41a6-acec-b51451bdfc71}" name="Clean" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Property name="Taste::coordinates" value="-94400 11000"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
 
-<Connection  required_system_element="NO" id="{af84241b-137c-4496-8e42-c4efb5e560a5}">
-    <Source func_name="Client1" ri_name="Update"/>
-    <Target func_name="Datastore" pi_name="Update"/>
-    <Property name="Taste::coordinates" value="-89900 -13500 -72600 -13500 -72600 9900 -55100 9900"/>
-</Connection>
+<Required_Interface id="{f3a063d5-19db-4010-8ff0-6dc070e3f3a2}" name="RetrieveByTimeRange" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" queue_size="1" simulink_full_interface_ref="" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="request" type="DataStoreRetrieveTimestampRangeRequest" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-94400 15700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
 
-<Connection  required_system_element="NO" id="{91f7b2e0-bf36-4e77-8898-d5de71fa9a61}">
-    <Source func_name="Datastore" ri_name="notifyRetrieve"/>
-    <Target func_name="Client1" pi_name="notifyRetrieve"/>
-    <Property name="Taste::coordinates" value="-55400 39200 -72700 39200 -72700 7400 -90200 7400"/>
-</Connection>
+<Required_Interface id="{6cc9acc9-e323-402e-a848-3241468e95f7}" name="Datastore_RetrieveLogItem" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
+    <Output_Parameter name="item" type="T-EventRetrieveLogMessage" encoding="NATIVE"/>
+    <Input_Parameter name="index" type="UShortInteger" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-94400 20500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
 
-<Connection  required_system_element="NO" id="{3582ab3d-82b3-4d36-9f7d-4e0b22789db4}">
-    <Source func_name="Client1" ri_name="RetrieveLogItem"/>
-    <Target func_name="Datastore" pi_name="RetrieveLogItem"/>
-    <Property name="Taste::coordinates" value="-89900 14600 -72500 14600 -72500 -5000 -55100 -5000"/>
-</Connection>
+<Required_Interface id="{0c8b34e6-ae94-4598-a98a-cb2ae3ed7c2c}" name="RetrieveLogItem" kind="Protected" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" is_simulink_interface="false" simulink_full_interface_ref="">
+    <Output_Parameter name="item" type="T-EventRetrieveLogMessage" encoding="NATIVE"/>
+    <Input_Parameter name="index" type="UShortInteger" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="-101700 46700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
 
-<Connection  required_system_element="NO" id="{397f9634-869a-485a-ba29-26504701b834}">
-    <Source func_name="Client1" ri_name="Retrieve"/>
-    <Target func_name="Datastore" pi_name="Retrieve"/>
-    <Property name="Taste::coordinates" value="-89900 -16800 -72600 -16800 -72600 4200 -55100 4200"/>
-</Connection>
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
 
-<Connection  required_system_element="NO" id="{4a8a9b58-d42e-4724-b10d-7737c1839e10}">
-    <Source func_name="Client1" ri_name="Delete"/>
-    <Target func_name="Datastore" pi_name="Delete"/>
-    <Property name="Taste::coordinates" value="-89900 -9900 -72600 -9900 -72600 15300 -55100 15300"/>
-</Connection>
-
-<Connection  required_system_element="NO" id="{df482deb-3f89-4ecf-bc84-db1f4fa213bc}">
-    <Source func_name="Client1" ri_name="RetrieveByTimeRange"/>
-    <Target func_name="Datastore" pi_name="RetrieveByTimeRange"/>
-    <Property name="Taste::coordinates" value="-89900 -1400 -72600 -1400 -72600 26800 -55100 26800"/>
-</Connection>
-
-<Connection  required_system_element="NO" id="{74172beb-b28b-42d2-aff9-74b3ed9000cf}">
-    <Source func_name="Datastore" ri_name="notify"/>
-    <Target func_name="Client1" pi_name="notify"/>
-    <Property name="Taste::coordinates" value="-55400 44500 -72700 44500 -72700 11100 -90200 11100"/>
-</Connection>
-
-<Connection  required_system_element="NO" id="{abf7b7c9-73b9-4703-900d-f2ddc94d3b74}">
+<Connection id="{1bfcccbc-6a71-4c91-8bf0-88b3ff5d944f}" required_system_element="NO">
     <Source func_name="Datastore" ri_name="CucTimestamp"/>
     <Target func_name="TimeService" pi_name="CucTimestamp"/>
-    <Property name="Taste::coordinates" value="-20500 26500 5000 26100"/>
+    <Property name="Taste::coordinates" value="-20500 26500 -7800 26500 5000 26400"/>
 </Connection>
 
-<Comment name="Welcome to TASTE!\n============\n\nRight click to add a function, and use Ctrl-Click to connect functions together.\n\nYou can split the screen in multiple windows using Ctrl-E-3" required_system_element="NO" id="{7f2cd024-ec93-4341-8f2a-5c30526ab74f}">
+<Connection id="{b92a4476-ac21-4432-891f-42d7f2ab0832}" required_system_element="NO">
+    <Source func_name="Client1" ri_name="Delete"/>
+    <Target func_name="Datastore" pi_name="Delete"/>
+    <Property name="Taste::coordinates" value="-93800 7200 -74500 7200 -74500 8300 -55100 8300"/>
+</Connection>
+
+<Connection id="{810ba7a9-6765-42fd-83e0-5e0f300c0ce4}" required_system_element="NO">
+    <Source func_name="Client1" ri_name="Datastore_RetrieveLogItem"/>
+    <Target func_name="Datastore" pi_name="RetrieveLogItem"/>
+    <Property name="Taste::coordinates" value="-93800 20500 -55100 20700"/>
+</Connection>
+
+<Connection id="{8e91e8ef-df94-4b9a-9454-e8c82c7d259d}" required_system_element="NO">
+    <Source func_name="Datastore" ri_name="CfsTimestamp"/>
+    <Target func_name="TimeService" pi_name="CfsTimestamp"/>
+    <Property name="Taste::coordinates" value="-20500 41800 5000 41800"/>
+</Connection>
+
+<Connection id="{e3a39a40-ad99-4697-8f4c-95ccc4b1413d}" required_system_element="NO">
+    <Source func_name="Client1" ri_name="RetrieveByTimeRange"/>
+    <Target func_name="Datastore" pi_name="RetrieveByTimeRange"/>
+    <Property name="Taste::coordinates" value="-93800 15700 -74500 15700 -74500 16800 -55100 16800"/>
+</Connection>
+
+<Connection id="{74172beb-b28b-42d2-aff9-74b3ed9000cf}" required_system_element="NO">
+    <Source func_name="Datastore" ri_name="notify"/>
+    <Target func_name="Client1" pi_name="notify"/>
+    <Property name="Taste::coordinates" value="-55400 44500 -74700 44500 -74700 43200 -94100 43200"/>
+</Connection>
+
+<Connection id="{b4a2287c-9bed-40e7-89ba-2ab1ef6316af}" required_system_element="NO">
+    <Source func_name="Datastore" ri_name="ObetTime"/>
+    <Target func_name="TimeService" pi_name="ObetTime"/>
+    <Property name="Taste::coordinates" value="-20500 16500 -7800 16500 5000 15800"/>
+</Connection>
+
+<Connection id="{484826cd-33b6-468a-a6c8-5b8a68eb8f7e}" required_system_element="NO">
+    <Source func_name="Datastore" ri_name="CfsTimestampCmp"/>
+    <Target func_name="TimeService" pi_name="CfsTimestampCmp"/>
+    <Property name="Taste::coordinates" value="-20500 37700 -7800 37700 5000 37800"/>
+</Connection>
+
+<Connection id="{b88e0b3e-cdda-49f5-bb1b-0b4a0559fc27}" required_system_element="NO">
+    <Source func_name="Client1" ri_name="Clean"/>
+    <Target func_name="Datastore" pi_name="Clean"/>
+    <Property name="Taste::coordinates" value="-93800 11000 -74500 11000 -74500 12400 -55100 12400"/>
+</Connection>
+
+<Connection id="{7b5e974d-aeaf-45ac-9bf1-5f0bf3db030e}" required_system_element="NO">
+    <Source func_name="Client1" ri_name="Create"/>
+    <Target func_name="Datastore" pi_name="Create"/>
+    <Property name="Taste::coordinates" value="-93800 -3300 -74500 -3300 -74500 -4300 -55100 -4300"/>
+</Connection>
+
+<Connection id="{cbe94826-1c71-4fb8-8d70-69acefc1439a}" required_system_element="NO">
+    <Source func_name="Client1" ri_name="Retrieve"/>
+    <Target func_name="Datastore" pi_name="Retrieve"/>
+    <Property name="Taste::coordinates" value="-93800 300 -55100 -200"/>
+</Connection>
+
+<Connection id="{e7ea19a2-8cd1-4caa-8721-e95d9863ec4c}" required_system_element="NO">
+    <Source func_name="Datastore" ri_name="ClockStatus"/>
+    <Target func_name="TimeService" pi_name="ClockStatus"/>
+    <Property name="Taste::coordinates" value="-20500 20600 -7800 20600 5000 20500"/>
+</Connection>
+
+<Connection id="{315515b9-e2fe-4504-972a-ba38af539b92}" required_system_element="NO">
+    <Source func_name="Datastore" ri_name="CucTimestampCmp"/>
+    <Target func_name="TimeService" pi_name="CucTimestampCmp"/>
+    <Property name="Taste::coordinates" value="-20500 31900 5000 31900"/>
+</Connection>
+
+<Connection id="{91f7b2e0-bf36-4e77-8898-d5de71fa9a61}" required_system_element="NO">
+    <Source func_name="Datastore" ri_name="notifyRetrieve"/>
+    <Target func_name="Client1" pi_name="notifyRetrieve"/>
+    <Property name="Taste::coordinates" value="-55400 39200 -74700 39200 -94100 38700"/>
+</Connection>
+
+<Connection id="{bfd3d368-db27-4260-b26e-4222beed98ba}" required_system_element="NO">
+    <Source func_name="Client1" ri_name="Update"/>
+    <Target func_name="Datastore" pi_name="Update"/>
+    <Property name="Taste::coordinates" value="-93800 3600 -74500 3600 -74500 4700 -55100 4700"/>
+</Connection>
+
+<Comment id="{7f2cd024-ec93-4341-8f2a-5c30526ab74f}" name="Welcome to TASTE!\n============\n\nRight click to add a function, and use Ctrl-Click to connect functions together.\n\nYou can split the screen in multiple windows using Ctrl-E-3" required_system_element="NO">
     <Property name="Taste::coordinates" value="1900 -17600 43200 -2000"/>
 </Comment>
 
 <Layer name="EventCommunication"/>
 
 <Layer name="default"/>
+
+<ArchetypeLibraryReference archetype_library="dataStoreLib" path="data_store.xml"/>
+
+<ArchetypeLibraryReference archetype_library="tiemServiceLib" path="time_service.xml"/>
 
 <ArchetypeLibraryReference archetype_library="eventlib" path="event_lib.xml"/>
 
