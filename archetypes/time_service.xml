@@ -1,0 +1,37 @@
+<ArchetypeLibrary
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.example.org/ArchetypeLibrary" 
+    xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
+
+	<FunctionArchetype name="Time_Service">
+		<InterfaceArchetype name="ObetTime" interfaceType="PROVIDED" kind="UNPROTECTED" layer="default">
+			<ParameterArchetype name="nanoseconds" type="ULongInteger" direction="OUT"/>
+		</InterfaceArchetype>
+
+		<InterfaceArchetype name="ClockStatus" interfaceType="PROVIDED" kind="UNPROTECTED" layer="default">
+			<ParameterArchetype name="status" type="ClockStatusEnum" direction="OUT"/>
+		</InterfaceArchetype>
+
+		<InterfaceArchetype name="CucTimestamp" interfaceType="PROVIDED" kind="UNPROTECTED" layer="default">
+			<ParameterArchetype name="nanoseconds" type="ULongInteger" direction="IN"/>
+			<ParameterArchetype name="timestamp" type="CucTimestamp" direction="OUT"/>
+		</InterfaceArchetype>
+
+		<InterfaceArchetype name="CucTimestampCmp" interfaceType="PROVIDED" kind="UNPROTECTED" layer="default">
+			<ParameterArchetype name="t1" type="CucTimestamp" direction="IN"/>
+			<ParameterArchetype name="t2" type="CucTimestamp" direction="IN"/>
+			<ParameterArchetype name="result" type="ComparisonResult" direction="OUT"/>
+		</InterfaceArchetype>
+		
+		<InterfaceArchetype name="CfsTimestamp" interfaceType="PROVIDED" kind="UNPROTECTED" layer="default">
+			<ParameterArchetype name="nanoseconds" type="ULongInteger" direction="IN"/>
+			<ParameterArchetype name="CfsTimestamp" type="CfsTimestamp" direction="OUT"/>
+		</InterfaceArchetype>
+		
+		<InterfaceArchetype name="CfsTimestampCmp" interfaceType="PROVIDED" kind="UNPROTECTED" layer="default">
+			<ParameterArchetype name="t1" type="CfsTimestamp" direction="IN"/>
+			<ParameterArchetype name="t2" type="CfsTimestamp" direction="IN"/>
+			<ParameterArchetype name="result" type="ComparisonResult" direction="OUT"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+</ArchetypeLibrary>
