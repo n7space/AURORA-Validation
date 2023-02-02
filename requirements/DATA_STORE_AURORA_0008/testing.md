@@ -15,6 +15,12 @@
 [TASTE] Initialization completed for function TimeService
 [TASTE] Initialization completed for function Client1
 [TASTE] Initialization completed for function Datastore
+client1: item created, key = 0
+client1: log data from index 0
+client1: log data store item created
+client1: item deleted key = 0
+client1: log data from index 0
+client1: log data store item delete
 client1: item created, key = 1
 client1: log data from index 0
 client1: log data store item created
@@ -25,12 +31,6 @@ client1: item created, key = 2
 client1: log data from index 0
 client1: log data store item created
 client1: item deleted key = 2
-client1: log data from index 0
-client1: log data store item delete
-client1: item created, key = 3
-client1: log data from index 0
-client1: log data store item created
-client1: item deleted key = 3
 client1: log data from index 0
 client1: log data store item delete
 client1: cleaned
