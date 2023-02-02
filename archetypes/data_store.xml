@@ -1,0 +1,39 @@
+<ArchetypeLibrary
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.example.org/ArchetypeLibrary" 
+    xsi:schemaLocation="http://www.example.org/ArchetypeLibrary ArchetypeLibrarySchema.xsd">
+
+	<FunctionArchetype name="Data_Store">
+		<InterfaceArchetype name="RetrieveLogItem" interfaceType="PROVIDED" kind="PROTECTED" layer="default">
+			<ParameterArchetype name="item" type="T-EventRetrieveLogMessage" direction="OUT"/>
+			<ParameterArchetype name="index" type="UShortInteger" direction="IN"/>
+		</InterfaceArchetype>
+
+		<InterfaceArchetype name="Create" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
+			<ParameterArchetype name="request" type="DataStoreCreateRequest" direction="IN"/>
+		</InterfaceArchetype>
+
+		<InterfaceArchetype name="Retrieve" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
+			<ParameterArchetype name="request" type="DataStoreRetrieveRequest" direction="IN"/>
+		</InterfaceArchetype>
+
+		<InterfaceArchetype name="Update" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
+			<ParameterArchetype name="request" type="DataStoreUpdateRequest" direction="IN"/>
+		</InterfaceArchetype>
+		
+		<InterfaceArchetype name="Delete" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
+			<ParameterArchetype name="request" type="DataStoreDeleteRequest" direction="IN"/>
+		</InterfaceArchetype>
+		
+		<InterfaceArchetype name="Clean" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
+		</InterfaceArchetype>
+		
+		<InterfaceArchetype name="RetrieveByTimeRange" interfaceType="PROVIDED" kind="SPORADIC" layer="default">
+			<ParameterArchetype name="request" type="DataStoreRetrieveTimestampRangeRequest" direction="IN"/>
+		</InterfaceArchetype>
+		
+		<InterfaceArchetype name="notifyRetrieve" interfaceType="REQUIRED" kind="SPORADIC" layer="default">
+			<ParameterArchetype name="EventMessage" type="T-EventRetrieveMessage" direction="IN"/>
+		</InterfaceArchetype>
+	</FunctionArchetype>
+</ArchetypeLibrary>
