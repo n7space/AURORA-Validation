@@ -25,7 +25,7 @@
     <Property name="Taste::coordinates" value="-54800 21000"/>
 </Provided_Interface>
 
-<Provided_Interface id="{f3a063d5-19db-4010-8ff0-6dc070e3f3a2}" name="RetriveByTimeRange" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" queue_size="4" wcet="0" stack_size="1024" miat="0" is_simulink_interface="false" priority="1">
+<Provided_Interface id="{f3a063d5-19db-4010-8ff0-6dc070e3f3a2}" name="RetrieveByTimeRange" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" queue_size="4" wcet="0" stack_size="1024" miat="0" is_simulink_interface="false" priority="1">
     <Input_Parameter name="request" type="DataStoreRetrieveTimestampRangeRequest" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-54800 26800"/>
 </Provided_Interface>
@@ -198,7 +198,7 @@
     <Property name="Taste::Autonamed" value="true"/>
 </Required_Interface>
 
-<Required_Interface id="{d7f09b25-7e9b-4b5d-954e-7ee998a7145b}" name="RetriveByTimeRange" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" queue_size="4" wcet="0" stack_size="1024" miat="0" is_simulink_interface="false" priority="1">
+<Required_Interface id="{d7f09b25-7e9b-4b5d-954e-7ee998a7145b}" name="RetrieveByTimeRange" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" simulink_full_interface_ref="" queue_size="4" wcet="0" stack_size="1024" miat="0" is_simulink_interface="false" priority="1">
     <Input_Parameter name="request" type="DataStoreRetrieveTimestampRangeRequest" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="-90500 -1400"/>
     <Property name="Taste::InheritPI" value="true"/>
@@ -255,8 +255,8 @@
 </Connection>
 
 <Connection id="{df482deb-3f89-4ecf-bc84-db1f4fa213bc}" required_system_element="NO">
-    <Source func_name="Client1" ri_name="RetriveByTimeRange"/>
-    <Target func_name="Datastore" pi_name="RetriveByTimeRange"/>
+    <Source func_name="Client1" ri_name="RetrieveByTimeRange"/>
+    <Target func_name="Datastore" pi_name="RetrieveByTimeRange"/>
     <Property name="Taste::coordinates" value="-89900 -1400 -72600 -1400 -72600 26800 -55100 26800"/>
 </Connection>
 
