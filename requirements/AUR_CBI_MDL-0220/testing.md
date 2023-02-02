@@ -9,4 +9,4 @@
 
 * Project should succesfully build
 * The running binary should output logs in a loop with newly received items
-* After 2 loops, item with id = 1 will be deleted once
+* After 3 loops, item with id = 1 will be deleted once
