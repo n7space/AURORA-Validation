@@ -36,33 +36,45 @@ void client1_PI_Trigger( void )
     create_request.behaviour = DataStoreCreateRequest_behaviour_reject_when_overflow;
     create_request.item_value.kind = DataStoreValueType_coefficient_PRESENT;
 
-    if (counter == 2)
+    if (counter == 1)
+    {
+        client1_RI_Create(&create_request);
+    }
+    else if (counter == 2)
     {
         create_request.item_value.u.coefficient = 1;
-    } else {
-        create_request.item_value.u.coefficient = 2;
-    }
-    client1_RI_Create(&create_request);
-    ++counter;
-
-    if (counter == 4)
+        client1_RI_Create(&create_request);
+    } 
+    else if (counter == 3) 
     {
-        delete_request.item_key = 1;
+        create_request.item_value.u.coefficient = 2;
+        client1_RI_Create(&create_request);
+    }
+    else if (counter == 4) 
+    {
+        create_request.item_value.u.coefficient = 3;
+        client1_RI_Create(&create_request);
+    }
+
+    if (counter == 5)
+    {
+        delete_request.item_key = 0;
         client1_RI_Delete(&delete_request);
     }
 
-    if (counter == 6)
+    if (counter == 7)
     {
-        update_request.item_key = 2;
+        update_request.item_key = 1;
         update_request.item_value.u.coefficient = 3;
         client1_RI_Update(&update_request);
     }
 
-    if (counter == 5 || counter >= 7)
+    if (counter == 6 || counter >= 8)
     {
-        retrieve_request.item_key = 3;
+        retrieve_request.item_key = 2;
         client1_RI_Retrieve(&retrieve_request);
     }
+    ++counter;
 }
 
 void client1_PI_notify( const asn1SccT_EventMessage * ev)
@@ -89,7 +101,7 @@ void client1_PI_notifyRetrieve(const asn1SccT_EventRetrieveMessage* ev)
     {
         case T_EventRetrieveMessage_item_retrieved_PRESENT:
             printf("client1: item retrieved, key=%lu value=%lu\n", ev->u.item_retrieved.item_key, ev->u.item_retrieved.item_value.u.coefficient);
-            if (ev->u.item_retrieved.item_key == 3 && ev->u.item_retrieved.item_value.u.coefficient != 1)
+            if (ev->u.item_retrieved.item_key == 2 && ev->u.item_retrieved.item_value.u.coefficient != 2)
             {
                 // This message should never come up
                 printf("Error: unexpected value for item %lu\n", ev->u.item_retrieved.item_key);
