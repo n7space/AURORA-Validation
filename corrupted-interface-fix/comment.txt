@@ -1,0 +1,1 @@
+Values within ID properties must be unique. In corrupted interfaces, multiple tags have the same ID. In order to fix it, it's sufficient to change just one character within the ID so that there are no repetitions across the entire XML document.
