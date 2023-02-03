@@ -8,7 +8,27 @@
     !! file. The up-to-date signatures can be found in the .ads file.   !!
 */
 #include "client1.h"
+
+#ifdef RTEMS6_TARGET
+#include <rtems/bspIo.h>
+
+static void inline LOG(const char *str)
+{
+  while (*str != '\0') {
+    rtems_putc( *(str++));
+  }
+}
+#else
 #include <stdio.h>
+
+static void inline LOG(const char *str)
+{
+    printf("%s\n", str);
+    fflush(stdout);
+}
+#endif
+
+
 
 typedef enum {
     SUBSCRIBE,
@@ -47,13 +67,11 @@ void client1_PI_Trigger(void)
     {
     case SUBSCRIBE:
         client1_RI_subscribe_to_event(&event_id_datastore_notify, &should_notify);
-        printf("Subscribed\n");
-        fflush(stdout);
+        LOG("Subscribed\n");
         state = CHECK_CREATE;
         break;
     case CHECK_CREATE:
-        printf("Checking create\n");
-        fflush(stdout);
+        LOG("Checking create\n");
         create_request.item_value.kind = DataStoreValueType_coefficient_PRESENT;
         create_request.item_value.u.coefficient = test_value;
         client1_RI_Create(&create_request);
@@ -66,8 +84,7 @@ void client1_PI_Trigger(void)
         }
         else
         {
-            printf("Checking retrieve\n");
-            fflush(stdout);
+            LOG("Checking retrieve\n");
             retrieve_request.item_key = item_key;
             client1_RI_Retrieve(&retrieve_request);
             state = CHECK_LOG_RETRIEVE;
@@ -80,8 +97,7 @@ void client1_PI_Trigger(void)
         }
         else
         {
-            printf("Checking log retrieve\n");
-            fflush(stdout);
+            LOG("Checking log retrieve\n");
             client1_RI_RetrieveLogItem(&log_retrieve, &log_index);
 
             if(log_retrieve.kind == T_EventRetrieveLogMessage_log_item_PRESENT)
@@ -90,8 +106,7 @@ void client1_PI_Trigger(void)
                 {
                     if(log_retrieve.u.log_item.operation.u.item_retrieved == item_key)
                     {
-                        printf("Log retrieve OK\n");
-                        fflush(stdout);
+                        LOG("Log retrieve OK\n");
                     }
                 }
             }
@@ -114,8 +129,7 @@ void client1_PI_notify
    }
    item_key = IN_eventmessage->u.item_created.item_key;
    create_ok = 1;
-   printf("Create ok\n");
-   fflush(stdout);
+   LOG("Create ok\n");
 }
 
 
@@ -140,8 +154,7 @@ void client1_PI_notifyRetrieve
        return;
    }
    retrieve_ok = 1;
-   printf("Retrieve OK\n");
-   fflush(stdout);
+   LOG("Retrieve OK\n");
 }
 
 
