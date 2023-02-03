@@ -35,7 +35,7 @@ set -euo pipefail
 
 pushd data-store
 make clean
-make debug
+make linux debug
 popd
 
 echo "Starting process on Linux"
@@ -54,7 +54,6 @@ make leon3 debug
 echo "Starting process on Leon3"
 pushd scripts
 ./leon-run.sh > ../../output-leon.txt 2>&1 &
-PID=$!
 
 sleep 10
 
