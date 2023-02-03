@@ -21,7 +21,7 @@ void controller_PI_trigger(void)
 {
     if(i == 0)
     {
-        controller_RI_start();
+        controller_RI_Component_start();
     }
     else if(i == 1)
     {

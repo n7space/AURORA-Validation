@@ -22,7 +22,7 @@ void client1_startup(void)
 {
     counter = 0;
     subscribed = 0;
-    key = 0;
+    key = -1;
 }
 
 void client1_PI_Trigger( void )

@@ -15,6 +15,10 @@
 [TASTE] Initialization completed for function TimeService
 [TASTE] Initialization completed for function Client1
 [TASTE] Initialization completed for function Datastore
+client1: item created, key = 0
+client1: item retrieved key = 0
+client1: item deleted key = 0
+client1: item not present
 client1: item created, key = 1
 client1: item retrieved key = 1
 client1: item deleted key = 1
@@ -23,13 +27,9 @@ client1: item created, key = 2
 client1: item retrieved key = 2
 client1: item deleted key = 2
 client1: item not present
+client1: cleaned
 client1: item created, key = 3
 client1: item retrieved key = 3
 client1: item deleted key = 3
-client1: item not present
-client1: cleaned
-client1: item created, key = 4
-client1: item retrieved key = 4
-client1: item deleted key = 4
 client1: item not present
 

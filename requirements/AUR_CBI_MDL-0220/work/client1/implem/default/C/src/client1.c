@@ -37,7 +37,7 @@ void client1_PI_Trigger( void )
     client1_RI_Create(&create_request);
     ++counter;
 
-    if (counter == 2)
+    if (counter == 3)
     {
         delete_request.item_key = 1;
         client1_RI_Delete(&delete_request);

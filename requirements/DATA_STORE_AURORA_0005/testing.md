@@ -15,19 +15,20 @@
 [TASTE] Initialization completed for function TimeService
 [TASTE] Initialization completed for function Client1
 [TASTE] Initialization completed for function Datastore
+client1: item created, key = 0
+client1: item retrieved key = 0
+client1: item value coefficient = 2
+client1: item updated key = 0
+client1: item retrieved key = 0
+client1: item value coefficient = 2
+client1: item updated key = 0
+client1: item retrieved key = 0
+client1: item value coefficient = 4
+client1: item updated key = 0
+client1: item retrieved key = 0
+client1: item value coefficient = 6
+client1: cleaned
 client1: item created, key = 1
 client1: item retrieved key = 1
 client1: item value coefficient = 2
 client1: item updated key = 1
-client1: item retrieved key = 1
-client1: item value coefficient = 2
-client1: item updated key = 1
-client1: item retrieved key = 1
-client1: item value coefficient = 4
-client1: item updated key = 1
-client1: item retrieved key = 1
-client1: item value coefficient = 6
-client1: cleaned
-client1: item created, key = 2
-client1: item retrieved key = 2
-client1: item value coefficient = 2
