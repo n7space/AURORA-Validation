@@ -26,7 +26,7 @@
  * Timers              :
  */
 
-#include "measurer_and_actuator.h"
+#include "measurerandactuator.h"
 
 #include <stdio.h>
 
@@ -36,12 +36,12 @@ static volatile bool is_simulation_run = false;
 // Provided interfaces implementation
 // ==================================
 
-void measurer_and_actuator_startup(void)
+void measurerandactuator_startup(void)
 {
     puts ("[Measurer_And_Actuator] Startup");
 }
 
-void measurer_and_actuator_PI_TC( const asn1SccT_Telecommand *IN_telecommand)
+void measurerandactuator_PI_TC( const asn1SccT_Telecommand *IN_telecommand)
 {
     asn1SccT_UInteger32 step_value = 0;
 
@@ -59,18 +59,18 @@ void measurer_and_actuator_PI_TC( const asn1SccT_Telecommand *IN_telecommand)
         case T_Telecommand_m_restart_PRESENT:
             printf("the simulation has been restarted\n");
             step_value = 0;
-            measurer_and_actuator_RI_set_step( &step_value );
+            measurerandactuator_RI_set_step( &step_value );
             break;
 
         case T_Telecommand_m_stop_PRESENT:
             printf("the simulation has been stopped\n");
             step_value = 1000;
-            measurer_and_actuator_RI_set_step( &step_value );
+            measurerandactuator_RI_set_step( &step_value );
             break;
     }
 }
 
-void measurer_and_actuator_PI_Tick(void)
+void measurerandactuator_PI_Tick(void)
 {
     if(!is_simulation_run)
         return;
@@ -88,10 +88,10 @@ void measurer_and_actuator_PI_Tick(void)
     asn1SccT_Control control;
     asn1SccT_UInteger32 step;
 
-    measurer_and_actuator_RI_Read_MGM(&bbt);
-    measurer_and_actuator_RI_Step(&bbt, &omega, &k_pb, &k_pe, &m_m, &mt_working, &control);
-    measurer_and_actuator_RI_control_MGT(&control);
-    measurer_and_actuator_RI_get_step(&step);
+    measurerandactuator_RI_Read_MGM(&bbt);
+    measurerandactuator_RI_Step(&bbt, &omega, &k_pb, &k_pe, &m_m, &mt_working, &control);
+    measurerandactuator_RI_control_MGT(&control);
+    measurerandactuator_RI_get_step(&step);
 
     asn1SccT_Telemetry report = {bbt, control, step};
 
@@ -99,5 +99,5 @@ void measurer_and_actuator_PI_Tick(void)
         report.m_sensors.arr[i] *= 10000;
     }
 
-    measurer_and_actuator_RI_TM(&report);
+    measurerandactuator_RI_TM(&report);
 }

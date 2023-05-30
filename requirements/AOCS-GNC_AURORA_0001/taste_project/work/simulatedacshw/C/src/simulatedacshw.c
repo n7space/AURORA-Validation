@@ -19,7 +19,7 @@
 //
 //  ------------------------------------------------------------------------
 
-#include "simulated_acs_hw.h"
+#include "simulatedacshw.h"
 
 #include "simulated_data.h" // test_vector
 
@@ -71,18 +71,18 @@ static bool has_next() {
 
 // Provided interfaces implementation:
 
-void simulated_acs_hw_startup(void) {
+void simulatedacshw_startup(void) {
    puts ("[Simulated_ACS_HW] Startup");
 }
 
-void simulated_acs_hw_PI_Read_MGM (asn1SccT_B_b_T *OUT_bbt) {
+void simulatedacshw_PI_Read_MGM (asn1SccT_B_b_T *OUT_bbt) {
     size_t i;
     for (i = 0U; i < bbt_length; ++i) {
         OUT_bbt->arr[i] = (asn1SccT_Float) test_vector[step][bbt_offset + i];
     }
 }
 
-void simulated_acs_hw_PI_control_MGT (const asn1SccT_Control *IN_control) {
+void simulatedacshw_PI_control_MGT (const asn1SccT_Control *IN_control) {
     if (has_next()) {
         bool any_failure = false;
         size_t i;
@@ -108,12 +108,12 @@ void simulated_acs_hw_PI_control_MGT (const asn1SccT_Control *IN_control) {
     }
 }
 
-void simulated_acs_hw_PI_get_step( asn1SccT_UInteger32 *OUT_step_value)
+void simulatedacshw_PI_get_step( asn1SccT_UInteger32 *OUT_step_value)
 {
     *OUT_step_value = step;
 }
 
-void simulated_acs_hw_PI_set_step( const asn1SccT_UInteger32 *IN_step_value)
+void simulatedacshw_PI_set_step( const asn1SccT_UInteger32 *IN_step_value)
 {
     if(*IN_step_value == 0) {
         end_of_sim_msg_printed = false;
