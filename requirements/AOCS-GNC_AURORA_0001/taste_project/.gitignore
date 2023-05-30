@@ -9,33 +9,33 @@
 
 work/*
 
-# Except measurer_and_actuator source
-!work/measurer_and_actuator/
-work/measurer_and_actuator/*
-!work/measurer_and_actuator/C
-work/measurer_and_actuator/C/*
-!work/measurer_and_actuator/C/src
-work/measurer_and_actuator/C/src/*
-!work/measurer_and_actuator/C/src/measurer_and_actuator.c
+# Except measurerandactuator source
+!work/measurerandactuator/
+work/measurerandactuator/*
+!work/measurerandactuator/C
+work/measurerandactuator/C/*
+!work/measurerandactuator/C/src
+work/measurerandactuator/C/src/*
+!work/measurerandactuator/C/src/measurerandactuator.c
 
-# Except simulated_acs_hw source
-!work/simulated_acs_hw/
-work/simulated_acs_hw/*
-!work/simulated_acs_hw/C
-work/simulated_acs_hw/C/*
-!work/simulated_acs_hw/C/src
-work/simulated_acs_hw/C/src/*
-!work/simulated_acs_hw/C/src/simulated_acs_hw.c
+# Except simulatedacshw source
+!work/simulatedacshw/
+work/simulatedacshw/*
+!work/simulatedacshw/C
+work/simulatedacshw/C/*
+!work/simulatedacshw/C/src
+work/simulatedacshw/C/src/*
+!work/simulatedacshw/C/src/simulatedacshw.c
 
-# Except acs_algorithm source
-!work/acs_algorithm/
-work/acs_algorithm/*
-!work/acs_algorithm/QGenC/
-work/acs_algorithm/QGenC/*
-!work/acs_algorithm/QGenC/src/
-work/acs_algorithm/QGenC/src/*
-!work/acs_algorithm/QGenC/src/Step.slx
-!work/acs_algorithm/QGenC/src/.acs_algorithm_script.m.md5
+# Except acsalgorithm source
+!work/acsalgorithm/
+work/acsalgorithm/*
+!work/acsalgorithm/QGenC/
+work/acsalgorithm/QGenC/*
+!work/acsalgorithm/QGenC/src/
+work/acsalgorithm/QGenC/src/*
+!work/acsalgorithm/QGenC/src/Step.slx
+!work/acsalgorithm/QGenC/src/.acsalgorithm_script.m.md5
 
 # qtcreator generated files:
 *.pro.user*
